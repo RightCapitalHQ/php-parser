@@ -1,0 +1,14 @@
+# PHP Composer vendor file
+vendor
+
+# Node.JS node modules
+node_modules
+
+# TSC generated files
+dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+lerna-debug.log*

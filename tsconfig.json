@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es6",
+    "lib": ["ESNext"],
+    "module": "commonjs",
+    "noResolve": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}
