@@ -1,0 +1,4 @@
+# We don't lint the generated files
+src/php-parser/types/node
+src/php-parser/types/types.ts
+pnpm-lock.yaml
