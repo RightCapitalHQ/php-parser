@@ -11,7 +11,7 @@
     "prepare": "husky install"
   },
   "repository": "https://github.com/RightCapitalHQ/php-parser",
-  "packageManager": "pnpm@8.7.4",
+  "packageManager": "pnpm@8.7.5",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
