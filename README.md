@@ -1,4 +1,5 @@
 # PHP Parser TypeScript version
+
 <!-- Badges area start -->
 
 [![made by RightCapital](https://img.shields.io/badge/made_by-RightCapital-5070e6)](https://rightcapital.com)
@@ -11,7 +12,8 @@
 # Introduction
 
 This NPM package is focusing on providing to following abilities:
-- A TypeScript/JavaScript wrapper to calling nicki's PHP-Parser
+
+- A TypeScript/JavaScript wrapper for calling nicki's PHP-Parser
 - Sort of auto generated type definitions to annotate the AST (represented as JSON) from nicki's PHP-Parser cli
 - Some util/helper functions to easily retrieving proper PHP AST node with correct type annotation
 
@@ -37,6 +39,8 @@ Supposed you have a PHP file named `hello.php` with the following content
 echo "Hello";
 ```
 
+Here is your TypeScript code for parsing and retrieving the AST nodes of the above PHP file.
+
 ```typescript
 import {
   CliHelpers,
@@ -44,11 +48,11 @@ import {
   FullyQualifiedStmtEcho,
   NodeRetrieverHelpers,
   NodeTypeInheritingFromNodeAbstract,
-} from "@rightcapital/php-parser";
+} from '@rightcapital/php-parser';
 
 // Get the root AST nodes from PHP file
 const rootNodes: NodeTypeInheritingFromNodeAbstract[] =
-  CliHelpers.parsePhpFileToAst("./hello.php");
+  CliHelpers.parsePhpFileToAst('./hello.php');
 
 console.log(rootNodes);
 // [
@@ -62,7 +66,7 @@ console.log(rootNodes);
 const echoNode =
   NodeRetrieverHelpers.findNodeByNodeType<FullyQualifiedStmtEcho>(
     rootNodes,
-    "Stmt_Echo"
+    'Stmt_Echo',
   );
 
 // Get the specified node with type annotation
@@ -78,11 +82,8 @@ console.log(echoNode);
 const scalarStringNode =
   NodeRetrieverHelpers.findNodeByNodeType<FullyQualifiedScalarString>(
     echoNode!.exprs,
-    "Scalar_String"
+    'Scalar_String',
   );
 console.log(scalarStringNode?.value);
 // Hello
-
 ```
-
-
