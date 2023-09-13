@@ -9,6 +9,7 @@
     "eslint:fix": "eslint --report-unused-disable-directives --fix 'src/**/*.ts*'",
     "generate:types": "ts-node src/php-parser/generate-types.ts",
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "composer install",
     "prepare": "husky install"
   },
   "repository": "https://github.com/RightCapitalHQ/php-parser",

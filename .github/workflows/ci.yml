@@ -11,6 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+        # Ubuntu latest should have already had PHP pre-installed
+        # https://github.com/marketplace/actions/setup-php-action#cloud-osplatform-support
+        # however, we prefer to use the latest stable version, with composer
+      - name: Setup PHP with Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
       - name: Prepare pnpm
         uses: pnpm/action-setup@v2
 
