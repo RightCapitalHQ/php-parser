@@ -1,5 +1,9 @@
 {
+  "name": "rightcapital/php-parser",
+  "description": "PHP Parser TypeScript version",
+  "type": "project",
   "require": {
-    "nikic/php-parser": "4.17.1"
-  }
+    "nikic/php-parser": "^4.17"
+  },
+  "license": "MIT"
 }
