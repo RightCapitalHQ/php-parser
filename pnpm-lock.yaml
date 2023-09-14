@@ -6,19 +6,19 @@ settings:
 
 dependencies:
   '@rightcapital/phpdoc-parser':
-    specifier: ^0.3.5
+    specifier: 0.3.5
     version: 0.3.5
   lodash:
-    specifier: ^4.17.21
+    specifier: 4.17.21
     version: 4.17.21
   mustache:
-    specifier: ^4.2.0
+    specifier: 4.2.0
     version: 4.2.0
   prettier:
-    specifier: ^3.0.3
+    specifier: 3.0.3
     version: 3.0.3
   typescript:
-    specifier: ^5.2.2
+    specifier: 5.2.2
     version: 5.2.2
 
 devDependencies:
