@@ -1,4 +1,6 @@
 import { execSync } from 'child_process';
+import * as fs from 'fs';
+import { tmpdir } from 'os';
 import { resolve } from 'path';
 import { PROJECT_ROOT } from '../../constants';
 import { NodeTypeInheritingFromNodeAbstract } from '../types/types';
@@ -25,5 +27,33 @@ export class CliHelpers {
     return JSON.parse(
       parserOutputString,
     ) as NodeTypeInheritingFromNodeAbstract[];
+  }
+
+  /**
+   * Parse a PHP Code string to AST in JSON format
+   * Because we are invoking PHP parser to parse the string
+   * We have to write String to a temporary file and parse it.
+   *
+   * @param code PHP Code to parse
+   */
+  public static parsePhpCodeStringToAst(
+    code: string,
+  ): NodeTypeInheritingFromNodeAbstract[] {
+    const currentDate = new Date();
+    /**
+     * Temp file like "php-parser-{current time}.tmp" +
+     */
+    const temporaryFilename = resolve(
+      tmpdir(),
+      `${currentDate.getTime()}.${currentDate.getMilliseconds()}.tmp`,
+    );
+
+    fs.writeFileSync(temporaryFilename, code, 'utf8');
+    try {
+      return CliHelpers.parsePhpFileToAst(temporaryFilename);
+    } finally {
+      // Remove the temp file
+      fs.rmSync(temporaryFilename);
+    }
   }
 }

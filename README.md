@@ -53,6 +53,8 @@ import {
 // Get the root AST nodes from PHP file
 const rootNodes: NodeTypeInheritingFromNodeAbstract[] =
   CliHelpers.parsePhpFileToAst('./hello.php');
+// or if you prefer to get AST from code string, just use
+// CliHelpers.parsePhpCodeStringToAst(`echo "Hello";`)
 
 console.log(rootNodes);
 // [
