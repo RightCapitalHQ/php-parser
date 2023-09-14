@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "fix(deps): pin dependencies",
+  "packageName": "@rightcapital/php-parser",
+  "email": "email not defined",
+  "dependentChangeType": "patch"
+}

@@ -33,11 +33,11 @@
   "author": "RightCapital Ecosystem team <npm-publisher@rightcapital.com>",
   "license": "MIT",
   "dependencies": {
-    "@rightcapital/phpdoc-parser": "^0.3.5",
-    "lodash": "^4.17.21",
-    "mustache": "^4.2.0",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "@rightcapital/phpdoc-parser": "0.3.5",
+    "lodash": "4.17.21",
+    "mustache": "4.2.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
