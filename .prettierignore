@@ -2,3 +2,4 @@
 src/php-parser/types/node
 src/php-parser/types/types.ts
 pnpm-lock.yaml
+composer.lock
