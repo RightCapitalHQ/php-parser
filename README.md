@@ -47,6 +47,7 @@ import {
   FullyQualifiedScalarString,
   FullyQualifiedStmtEcho,
   NodeRetrieverHelpers,
+  NodeType,
   NodeTypeInheritingFromNodeAbstract,
 } from '@rightcapital/php-parser';
 
@@ -68,7 +69,7 @@ console.log(rootNodes);
 const echoNode =
   NodeRetrieverHelpers.findNodeByNodeType<FullyQualifiedStmtEcho>(
     rootNodes,
-    'Stmt_Echo',
+    NodeType.Stmt_Echo,
   );
 
 // Get the specified node with type annotation
@@ -84,7 +85,7 @@ console.log(echoNode);
 const scalarStringNode =
   NodeRetrieverHelpers.findNodeByNodeType<FullyQualifiedScalarString>(
     echoNode!.exprs,
-    'Scalar_String',
+    NodeType.Scalar_String,
   );
 console.log(scalarStringNode?.value);
 // Hello

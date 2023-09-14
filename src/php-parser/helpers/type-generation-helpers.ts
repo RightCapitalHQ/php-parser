@@ -1,5 +1,5 @@
 import { join } from 'path';
-import type { ICliContext } from '../generate-types';
+import type { ICliContext, IContextNodeItem } from '../generate-types';
 
 export class TypeGenerationHelpers {
   public static getGroupedTypeNameForNode(nodeName: string) {
@@ -48,6 +48,41 @@ ${importNodeNamesPart}
 ${combinationTypesPart}
 
 ${exportNodeNamesPart}
+
+${TypeGenerationHelpers.generateNodeTypeEnum(cliContext)}
       `;
+  }
+
+  public static generateNodeTypeEnum(cliContext: ICliContext): string {
+    const { allNodes } = cliContext;
+
+    const nodesThatHasNodeType: [string, IContextNodeItem][] = Object.values(
+      allNodes,
+    )
+      .filter((node) => node.nodeType !== undefined && node.nodeType !== '')
+      .map((node) => [node.nodeType, node]);
+    const nodeEnum = `export enum NodeType {
+${nodesThatHasNodeType
+  .map(([nodeType, _]) => {
+    return `  ${nodeType} = '${nodeType}',`;
+  })
+  .join('\n')}
+}
+`;
+
+    const nodeTypeToInterfaceMap = `
+export interface NodeTypeToInterfaceMap {
+${nodesThatHasNodeType
+  .map(([nodeType, node]) => {
+    return `  [NodeType.${nodeType}]: ${node.name};`;
+  })
+  .join('\n')}
+}
+    `;
+
+    return `
+${nodeEnum};
+${nodeTypeToInterfaceMap}
+`;
   }
 }

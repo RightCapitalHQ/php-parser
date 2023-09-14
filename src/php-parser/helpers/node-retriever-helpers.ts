@@ -9,7 +9,10 @@ import type { Namespace_ } from '../types/node/stmt/namespace';
 import type { Property } from '../types/node/stmt/property';
 import type { Return_ } from '../types/node/stmt/return';
 import type { Use_ } from '../types/node/stmt/use';
-import type { NodeTypeInheritingFromNodeAbstract } from '../types/types';
+import {
+  NodeType,
+  type NodeTypeInheritingFromNodeAbstract,
+} from '../types/types';
 
 export type IUseFullQualifiedNameParts = string[];
 export type IUses = {
@@ -37,11 +40,14 @@ export class NodeRetrieverHelpers {
   ): Class_ {
     const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType<Namespace_>(
       rootNode as INode[],
-      'Stmt_Namespace',
+      NodeType.Stmt_Namespace,
     );
 
     if (namespaceNode?.stmts) {
-      return this.findNodeByNodeType<Class_>(namespaceNode.stmts, 'Stmt_Class');
+      return this.findNodeByNodeType<Class_>(
+        namespaceNode.stmts,
+        NodeType.Stmt_Class,
+      );
     }
 
     return undefined;
@@ -56,7 +62,7 @@ export class NodeRetrieverHelpers {
     if (classNode.stmts) {
       return this.filterNodeByNodeType<Property>(
         classNode.stmts,
-        'Stmt_Property',
+        NodeType.Stmt_Property,
       )
         .filter(
           /**
@@ -113,12 +119,12 @@ export class NodeRetrieverHelpers {
   ): IUses {
     const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType<Namespace_>(
       rootNode,
-      'Stmt_Namespace',
+      NodeType.Stmt_Namespace,
     );
 
     if (namespaceNode?.stmts) {
       return Object.fromEntries(
-        this.filterNodeByNodeType<Use_>(namespaceNode.stmts, 'Stmt_Use')
+        this.filterNodeByNodeType<Use_>(namespaceNode.stmts, NodeType.Stmt_Use)
           .map((useNode) => useNode.uses[0].name.parts)
           .map((parts) => [parts.slice(-1), parts]),
       ) as IUses;
@@ -133,7 +139,7 @@ export class NodeRetrieverHelpers {
     if (classNode.stmts) {
       const classMethodNodes = this.filterNodeByNodeType<ClassMethod>(
         classNode.stmts,
-        'Stmt_ClassMethod',
+        NodeType.Stmt_ClassMethod,
       );
 
       const getTypeMethodNode = classMethodNodes.find(
@@ -143,7 +149,7 @@ export class NodeRetrieverHelpers {
       if (getTypeMethodNode) {
         const returnNode = this.findNodeByNodeType<Return_>(
           getTypeMethodNode.stmts,
-          'Stmt_Return',
+          NodeType.Stmt_Return,
         );
 
         if (returnNode) {

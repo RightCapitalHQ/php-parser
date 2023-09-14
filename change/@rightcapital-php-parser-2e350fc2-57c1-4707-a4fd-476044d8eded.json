@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "feat: generate NodeType as enum and mapping to interface for better type hints",
+  "packageName": "@rightcapital/php-parser",
+  "email": "i@rainx.cc",
+  "dependentChangeType": "patch"
+}

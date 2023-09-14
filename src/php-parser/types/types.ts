@@ -535,4 +535,346 @@ export { FullyQualifiedStmtWhile } from './node/stmt/while';
 export { FullyQualifiedUnionType } from './node/union-type';
 export { FullyQualifiedVarLikeIdentifier } from './node/var-like-identifier';
 export { FullyQualifiedVariadicPlaceholder } from './node/variadic-placeholder';
+
+
+export enum NodeType {
+  Arg = 'Arg',
+  Attribute = 'Attribute',
+  AttributeGroup = 'AttributeGroup',
+  Const = 'Const',
+  Expr_ArrayDimFetch = 'Expr_ArrayDimFetch',
+  Expr_ArrayItem = 'Expr_ArrayItem',
+  Expr_Array = 'Expr_Array',
+  Expr_ArrowFunction = 'Expr_ArrowFunction',
+  Expr_Assign = 'Expr_Assign',
+  Expr_AssignOp_BitwiseAnd = 'Expr_AssignOp_BitwiseAnd',
+  Expr_AssignOp_BitwiseOr = 'Expr_AssignOp_BitwiseOr',
+  Expr_AssignOp_BitwiseXor = 'Expr_AssignOp_BitwiseXor',
+  Expr_AssignOp_Coalesce = 'Expr_AssignOp_Coalesce',
+  Expr_AssignOp_Concat = 'Expr_AssignOp_Concat',
+  Expr_AssignOp_Div = 'Expr_AssignOp_Div',
+  Expr_AssignOp_Minus = 'Expr_AssignOp_Minus',
+  Expr_AssignOp_Mod = 'Expr_AssignOp_Mod',
+  Expr_AssignOp_Mul = 'Expr_AssignOp_Mul',
+  Expr_AssignOp_Plus = 'Expr_AssignOp_Plus',
+  Expr_AssignOp_Pow = 'Expr_AssignOp_Pow',
+  Expr_AssignOp_ShiftLeft = 'Expr_AssignOp_ShiftLeft',
+  Expr_AssignOp_ShiftRight = 'Expr_AssignOp_ShiftRight',
+  Expr_AssignRef = 'Expr_AssignRef',
+  Expr_BinaryOp_BitwiseAnd = 'Expr_BinaryOp_BitwiseAnd',
+  Expr_BinaryOp_BitwiseOr = 'Expr_BinaryOp_BitwiseOr',
+  Expr_BinaryOp_BitwiseXor = 'Expr_BinaryOp_BitwiseXor',
+  Expr_BinaryOp_BooleanAnd = 'Expr_BinaryOp_BooleanAnd',
+  Expr_BinaryOp_BooleanOr = 'Expr_BinaryOp_BooleanOr',
+  Expr_BinaryOp_Coalesce = 'Expr_BinaryOp_Coalesce',
+  Expr_BinaryOp_Concat = 'Expr_BinaryOp_Concat',
+  Expr_BinaryOp_Div = 'Expr_BinaryOp_Div',
+  Expr_BinaryOp_Equal = 'Expr_BinaryOp_Equal',
+  Expr_BinaryOp_Greater = 'Expr_BinaryOp_Greater',
+  Expr_BinaryOp_GreaterOrEqual = 'Expr_BinaryOp_GreaterOrEqual',
+  Expr_BinaryOp_Identical = 'Expr_BinaryOp_Identical',
+  Expr_BinaryOp_LogicalAnd = 'Expr_BinaryOp_LogicalAnd',
+  Expr_BinaryOp_LogicalOr = 'Expr_BinaryOp_LogicalOr',
+  Expr_BinaryOp_LogicalXor = 'Expr_BinaryOp_LogicalXor',
+  Expr_BinaryOp_Minus = 'Expr_BinaryOp_Minus',
+  Expr_BinaryOp_Mod = 'Expr_BinaryOp_Mod',
+  Expr_BinaryOp_Mul = 'Expr_BinaryOp_Mul',
+  Expr_BinaryOp_NotEqual = 'Expr_BinaryOp_NotEqual',
+  Expr_BinaryOp_NotIdentical = 'Expr_BinaryOp_NotIdentical',
+  Expr_BinaryOp_Plus = 'Expr_BinaryOp_Plus',
+  Expr_BinaryOp_Pow = 'Expr_BinaryOp_Pow',
+  Expr_BinaryOp_ShiftLeft = 'Expr_BinaryOp_ShiftLeft',
+  Expr_BinaryOp_ShiftRight = 'Expr_BinaryOp_ShiftRight',
+  Expr_BinaryOp_Smaller = 'Expr_BinaryOp_Smaller',
+  Expr_BinaryOp_SmallerOrEqual = 'Expr_BinaryOp_SmallerOrEqual',
+  Expr_BinaryOp_Spaceship = 'Expr_BinaryOp_Spaceship',
+  Expr_BitwiseNot = 'Expr_BitwiseNot',
+  Expr_BooleanNot = 'Expr_BooleanNot',
+  Expr_Cast_Array = 'Expr_Cast_Array',
+  Expr_Cast_Bool = 'Expr_Cast_Bool',
+  Expr_Cast_Double = 'Expr_Cast_Double',
+  Expr_Cast_Int = 'Expr_Cast_Int',
+  Expr_Cast_Object = 'Expr_Cast_Object',
+  Expr_Cast_String = 'Expr_Cast_String',
+  Expr_Cast_Unset = 'Expr_Cast_Unset',
+  Expr_ClassConstFetch = 'Expr_ClassConstFetch',
+  Expr_Clone = 'Expr_Clone',
+  Expr_Closure = 'Expr_Closure',
+  Expr_ClosureUse = 'Expr_ClosureUse',
+  Expr_ConstFetch = 'Expr_ConstFetch',
+  Expr_Empty = 'Expr_Empty',
+  Expr_Error = 'Expr_Error',
+  Expr_ErrorSuppress = 'Expr_ErrorSuppress',
+  Expr_Eval = 'Expr_Eval',
+  Expr_Exit = 'Expr_Exit',
+  Expr_FuncCall = 'Expr_FuncCall',
+  Expr_Include = 'Expr_Include',
+  Expr_Instanceof = 'Expr_Instanceof',
+  Expr_Isset = 'Expr_Isset',
+  Expr_List = 'Expr_List',
+  Expr_Match = 'Expr_Match',
+  Expr_MethodCall = 'Expr_MethodCall',
+  Expr_New = 'Expr_New',
+  Expr_NullsafeMethodCall = 'Expr_NullsafeMethodCall',
+  Expr_NullsafePropertyFetch = 'Expr_NullsafePropertyFetch',
+  Expr_PostDec = 'Expr_PostDec',
+  Expr_PostInc = 'Expr_PostInc',
+  Expr_PreDec = 'Expr_PreDec',
+  Expr_PreInc = 'Expr_PreInc',
+  Expr_Print = 'Expr_Print',
+  Expr_PropertyFetch = 'Expr_PropertyFetch',
+  Expr_ShellExec = 'Expr_ShellExec',
+  Expr_StaticCall = 'Expr_StaticCall',
+  Expr_StaticPropertyFetch = 'Expr_StaticPropertyFetch',
+  Expr_Ternary = 'Expr_Ternary',
+  Expr_Throw = 'Expr_Throw',
+  Expr_UnaryMinus = 'Expr_UnaryMinus',
+  Expr_UnaryPlus = 'Expr_UnaryPlus',
+  Expr_Variable = 'Expr_Variable',
+  Expr_YieldFrom = 'Expr_YieldFrom',
+  Expr_Yield = 'Expr_Yield',
+  Identifier = 'Identifier',
+  IntersectionType = 'IntersectionType',
+  MatchArm = 'MatchArm',
+  Name_FullyQualified = 'Name_FullyQualified',
+  Name = 'Name',
+  Name_Relative = 'Name_Relative',
+  NullableType = 'NullableType',
+  Param = 'Param',
+  Scalar_DNumber = 'Scalar_DNumber',
+  Scalar_Encapsed = 'Scalar_Encapsed',
+  Scalar_EncapsedStringPart = 'Scalar_EncapsedStringPart',
+  Scalar_LNumber = 'Scalar_LNumber',
+  Scalar_MagicConst_Class = 'Scalar_MagicConst_Class',
+  Scalar_MagicConst_Dir = 'Scalar_MagicConst_Dir',
+  Scalar_MagicConst_File = 'Scalar_MagicConst_File',
+  Scalar_MagicConst_Function = 'Scalar_MagicConst_Function',
+  Scalar_MagicConst_Line = 'Scalar_MagicConst_Line',
+  Scalar_MagicConst_Method = 'Scalar_MagicConst_Method',
+  Scalar_MagicConst_Namespace = 'Scalar_MagicConst_Namespace',
+  Scalar_MagicConst_Trait = 'Scalar_MagicConst_Trait',
+  Scalar_String = 'Scalar_String',
+  Stmt_Break = 'Stmt_Break',
+  Stmt_Case = 'Stmt_Case',
+  Stmt_Catch = 'Stmt_Catch',
+  Stmt_ClassConst = 'Stmt_ClassConst',
+  Stmt_ClassMethod = 'Stmt_ClassMethod',
+  Stmt_Class = 'Stmt_Class',
+  Stmt_Const = 'Stmt_Const',
+  Stmt_Continue = 'Stmt_Continue',
+  Stmt_DeclareDeclare = 'Stmt_DeclareDeclare',
+  Stmt_Declare = 'Stmt_Declare',
+  Stmt_Do = 'Stmt_Do',
+  Stmt_Echo = 'Stmt_Echo',
+  Stmt_ElseIf = 'Stmt_ElseIf',
+  Stmt_Else = 'Stmt_Else',
+  Stmt_EnumCase = 'Stmt_EnumCase',
+  Stmt_Enum = 'Stmt_Enum',
+  Stmt_Expression = 'Stmt_Expression',
+  Stmt_Finally = 'Stmt_Finally',
+  Stmt_For = 'Stmt_For',
+  Stmt_Foreach = 'Stmt_Foreach',
+  Stmt_Function = 'Stmt_Function',
+  Stmt_Global = 'Stmt_Global',
+  Stmt_Goto = 'Stmt_Goto',
+  Stmt_GroupUse = 'Stmt_GroupUse',
+  Stmt_HaltCompiler = 'Stmt_HaltCompiler',
+  Stmt_If = 'Stmt_If',
+  Stmt_InlineHTML = 'Stmt_InlineHTML',
+  Stmt_Interface = 'Stmt_Interface',
+  Stmt_Label = 'Stmt_Label',
+  Stmt_Namespace = 'Stmt_Namespace',
+  Stmt_Nop = 'Stmt_Nop',
+  Stmt_Property = 'Stmt_Property',
+  Stmt_PropertyProperty = 'Stmt_PropertyProperty',
+  Stmt_Return = 'Stmt_Return',
+  Stmt_StaticVar = 'Stmt_StaticVar',
+  Stmt_Static = 'Stmt_Static',
+  Stmt_Switch = 'Stmt_Switch',
+  Stmt_Throw = 'Stmt_Throw',
+  Stmt_TraitUse = 'Stmt_TraitUse',
+  Stmt_TraitUseAdaptation_Alias = 'Stmt_TraitUseAdaptation_Alias',
+  Stmt_TraitUseAdaptation_Precedence = 'Stmt_TraitUseAdaptation_Precedence',
+  Stmt_Trait = 'Stmt_Trait',
+  Stmt_TryCatch = 'Stmt_TryCatch',
+  Stmt_Unset = 'Stmt_Unset',
+  Stmt_UseUse = 'Stmt_UseUse',
+  Stmt_Use = 'Stmt_Use',
+  Stmt_While = 'Stmt_While',
+  UnionType = 'UnionType',
+  VarLikeIdentifier = 'VarLikeIdentifier',
+  VariadicPlaceholder = 'VariadicPlaceholder',
+}
+;
+
+export interface NodeTypeToInterfaceMap {
+  [NodeType.Arg]: FullyQualifiedArg;
+  [NodeType.Attribute]: FullyQualifiedAttribute;
+  [NodeType.AttributeGroup]: FullyQualifiedAttributeGroup;
+  [NodeType.Const]: FullyQualifiedConst;
+  [NodeType.Expr_ArrayDimFetch]: FullyQualifiedExprArrayDimFetch;
+  [NodeType.Expr_ArrayItem]: FullyQualifiedExprArrayItem;
+  [NodeType.Expr_Array]: FullyQualifiedExprArray;
+  [NodeType.Expr_ArrowFunction]: FullyQualifiedExprArrowFunction;
+  [NodeType.Expr_Assign]: FullyQualifiedExprAssign;
+  [NodeType.Expr_AssignOp_BitwiseAnd]: FullyQualifiedExprAssignOpBitwiseAnd;
+  [NodeType.Expr_AssignOp_BitwiseOr]: FullyQualifiedExprAssignOpBitwiseOr;
+  [NodeType.Expr_AssignOp_BitwiseXor]: FullyQualifiedExprAssignOpBitwiseXor;
+  [NodeType.Expr_AssignOp_Coalesce]: FullyQualifiedExprAssignOpCoalesce;
+  [NodeType.Expr_AssignOp_Concat]: FullyQualifiedExprAssignOpConcat;
+  [NodeType.Expr_AssignOp_Div]: FullyQualifiedExprAssignOpDiv;
+  [NodeType.Expr_AssignOp_Minus]: FullyQualifiedExprAssignOpMinus;
+  [NodeType.Expr_AssignOp_Mod]: FullyQualifiedExprAssignOpMod;
+  [NodeType.Expr_AssignOp_Mul]: FullyQualifiedExprAssignOpMul;
+  [NodeType.Expr_AssignOp_Plus]: FullyQualifiedExprAssignOpPlus;
+  [NodeType.Expr_AssignOp_Pow]: FullyQualifiedExprAssignOpPow;
+  [NodeType.Expr_AssignOp_ShiftLeft]: FullyQualifiedExprAssignOpShiftLeft;
+  [NodeType.Expr_AssignOp_ShiftRight]: FullyQualifiedExprAssignOpShiftRight;
+  [NodeType.Expr_AssignRef]: FullyQualifiedExprAssignRef;
+  [NodeType.Expr_BinaryOp_BitwiseAnd]: FullyQualifiedExprBinaryOpBitwiseAnd;
+  [NodeType.Expr_BinaryOp_BitwiseOr]: FullyQualifiedExprBinaryOpBitwiseOr;
+  [NodeType.Expr_BinaryOp_BitwiseXor]: FullyQualifiedExprBinaryOpBitwiseXor;
+  [NodeType.Expr_BinaryOp_BooleanAnd]: FullyQualifiedExprBinaryOpBooleanAnd;
+  [NodeType.Expr_BinaryOp_BooleanOr]: FullyQualifiedExprBinaryOpBooleanOr;
+  [NodeType.Expr_BinaryOp_Coalesce]: FullyQualifiedExprBinaryOpCoalesce;
+  [NodeType.Expr_BinaryOp_Concat]: FullyQualifiedExprBinaryOpConcat;
+  [NodeType.Expr_BinaryOp_Div]: FullyQualifiedExprBinaryOpDiv;
+  [NodeType.Expr_BinaryOp_Equal]: FullyQualifiedExprBinaryOpEqual;
+  [NodeType.Expr_BinaryOp_Greater]: FullyQualifiedExprBinaryOpGreater;
+  [NodeType.Expr_BinaryOp_GreaterOrEqual]: FullyQualifiedExprBinaryOpGreaterOrEqual;
+  [NodeType.Expr_BinaryOp_Identical]: FullyQualifiedExprBinaryOpIdentical;
+  [NodeType.Expr_BinaryOp_LogicalAnd]: FullyQualifiedExprBinaryOpLogicalAnd;
+  [NodeType.Expr_BinaryOp_LogicalOr]: FullyQualifiedExprBinaryOpLogicalOr;
+  [NodeType.Expr_BinaryOp_LogicalXor]: FullyQualifiedExprBinaryOpLogicalXor;
+  [NodeType.Expr_BinaryOp_Minus]: FullyQualifiedExprBinaryOpMinus;
+  [NodeType.Expr_BinaryOp_Mod]: FullyQualifiedExprBinaryOpMod;
+  [NodeType.Expr_BinaryOp_Mul]: FullyQualifiedExprBinaryOpMul;
+  [NodeType.Expr_BinaryOp_NotEqual]: FullyQualifiedExprBinaryOpNotEqual;
+  [NodeType.Expr_BinaryOp_NotIdentical]: FullyQualifiedExprBinaryOpNotIdentical;
+  [NodeType.Expr_BinaryOp_Plus]: FullyQualifiedExprBinaryOpPlus;
+  [NodeType.Expr_BinaryOp_Pow]: FullyQualifiedExprBinaryOpPow;
+  [NodeType.Expr_BinaryOp_ShiftLeft]: FullyQualifiedExprBinaryOpShiftLeft;
+  [NodeType.Expr_BinaryOp_ShiftRight]: FullyQualifiedExprBinaryOpShiftRight;
+  [NodeType.Expr_BinaryOp_Smaller]: FullyQualifiedExprBinaryOpSmaller;
+  [NodeType.Expr_BinaryOp_SmallerOrEqual]: FullyQualifiedExprBinaryOpSmallerOrEqual;
+  [NodeType.Expr_BinaryOp_Spaceship]: FullyQualifiedExprBinaryOpSpaceship;
+  [NodeType.Expr_BitwiseNot]: FullyQualifiedExprBitwiseNot;
+  [NodeType.Expr_BooleanNot]: FullyQualifiedExprBooleanNot;
+  [NodeType.Expr_Cast_Array]: FullyQualifiedExprCastArray;
+  [NodeType.Expr_Cast_Bool]: FullyQualifiedExprCastBool;
+  [NodeType.Expr_Cast_Double]: FullyQualifiedExprCastDouble;
+  [NodeType.Expr_Cast_Int]: FullyQualifiedExprCastInt;
+  [NodeType.Expr_Cast_Object]: FullyQualifiedExprCastObject;
+  [NodeType.Expr_Cast_String]: FullyQualifiedExprCastString;
+  [NodeType.Expr_Cast_Unset]: FullyQualifiedExprCastUnset;
+  [NodeType.Expr_ClassConstFetch]: FullyQualifiedExprClassConstFetch;
+  [NodeType.Expr_Clone]: FullyQualifiedExprClone;
+  [NodeType.Expr_Closure]: FullyQualifiedExprClosure;
+  [NodeType.Expr_ClosureUse]: FullyQualifiedExprClosureUse;
+  [NodeType.Expr_ConstFetch]: FullyQualifiedExprConstFetch;
+  [NodeType.Expr_Empty]: FullyQualifiedExprEmpty;
+  [NodeType.Expr_Error]: FullyQualifiedExprError;
+  [NodeType.Expr_ErrorSuppress]: FullyQualifiedExprErrorSuppress;
+  [NodeType.Expr_Eval]: FullyQualifiedExprEval;
+  [NodeType.Expr_Exit]: FullyQualifiedExprExit;
+  [NodeType.Expr_FuncCall]: FullyQualifiedExprFuncCall;
+  [NodeType.Expr_Include]: FullyQualifiedExprInclude;
+  [NodeType.Expr_Instanceof]: FullyQualifiedExprInstanceof;
+  [NodeType.Expr_Isset]: FullyQualifiedExprIsset;
+  [NodeType.Expr_List]: FullyQualifiedExprList;
+  [NodeType.Expr_Match]: FullyQualifiedExprMatch;
+  [NodeType.Expr_MethodCall]: FullyQualifiedExprMethodCall;
+  [NodeType.Expr_New]: FullyQualifiedExprNew;
+  [NodeType.Expr_NullsafeMethodCall]: FullyQualifiedExprNullsafeMethodCall;
+  [NodeType.Expr_NullsafePropertyFetch]: FullyQualifiedExprNullsafePropertyFetch;
+  [NodeType.Expr_PostDec]: FullyQualifiedExprPostDec;
+  [NodeType.Expr_PostInc]: FullyQualifiedExprPostInc;
+  [NodeType.Expr_PreDec]: FullyQualifiedExprPreDec;
+  [NodeType.Expr_PreInc]: FullyQualifiedExprPreInc;
+  [NodeType.Expr_Print]: FullyQualifiedExprPrint;
+  [NodeType.Expr_PropertyFetch]: FullyQualifiedExprPropertyFetch;
+  [NodeType.Expr_ShellExec]: FullyQualifiedExprShellExec;
+  [NodeType.Expr_StaticCall]: FullyQualifiedExprStaticCall;
+  [NodeType.Expr_StaticPropertyFetch]: FullyQualifiedExprStaticPropertyFetch;
+  [NodeType.Expr_Ternary]: FullyQualifiedExprTernary;
+  [NodeType.Expr_Throw]: FullyQualifiedExprThrow;
+  [NodeType.Expr_UnaryMinus]: FullyQualifiedExprUnaryMinus;
+  [NodeType.Expr_UnaryPlus]: FullyQualifiedExprUnaryPlus;
+  [NodeType.Expr_Variable]: FullyQualifiedExprVariable;
+  [NodeType.Expr_YieldFrom]: FullyQualifiedExprYieldFrom;
+  [NodeType.Expr_Yield]: FullyQualifiedExprYield;
+  [NodeType.Identifier]: FullyQualifiedIdentifier;
+  [NodeType.IntersectionType]: FullyQualifiedIntersectionType;
+  [NodeType.MatchArm]: FullyQualifiedMatchArm;
+  [NodeType.Name_FullyQualified]: FullyQualifiedNameFullyQualified;
+  [NodeType.Name]: FullyQualifiedName;
+  [NodeType.Name_Relative]: FullyQualifiedNameRelative;
+  [NodeType.NullableType]: FullyQualifiedNullableType;
+  [NodeType.Param]: FullyQualifiedParam;
+  [NodeType.Scalar_DNumber]: FullyQualifiedScalarDNumber;
+  [NodeType.Scalar_Encapsed]: FullyQualifiedScalarEncapsed;
+  [NodeType.Scalar_EncapsedStringPart]: FullyQualifiedScalarEncapsedStringPart;
+  [NodeType.Scalar_LNumber]: FullyQualifiedScalarLNumber;
+  [NodeType.Scalar_MagicConst_Class]: FullyQualifiedScalarMagicConstClass;
+  [NodeType.Scalar_MagicConst_Dir]: FullyQualifiedScalarMagicConstDir;
+  [NodeType.Scalar_MagicConst_File]: FullyQualifiedScalarMagicConstFile;
+  [NodeType.Scalar_MagicConst_Function]: FullyQualifiedScalarMagicConstFunction;
+  [NodeType.Scalar_MagicConst_Line]: FullyQualifiedScalarMagicConstLine;
+  [NodeType.Scalar_MagicConst_Method]: FullyQualifiedScalarMagicConstMethod;
+  [NodeType.Scalar_MagicConst_Namespace]: FullyQualifiedScalarMagicConstNamespace;
+  [NodeType.Scalar_MagicConst_Trait]: FullyQualifiedScalarMagicConstTrait;
+  [NodeType.Scalar_String]: FullyQualifiedScalarString;
+  [NodeType.Stmt_Break]: FullyQualifiedStmtBreak;
+  [NodeType.Stmt_Case]: FullyQualifiedStmtCase;
+  [NodeType.Stmt_Catch]: FullyQualifiedStmtCatch;
+  [NodeType.Stmt_ClassConst]: FullyQualifiedStmtClassConst;
+  [NodeType.Stmt_ClassMethod]: FullyQualifiedStmtClassMethod;
+  [NodeType.Stmt_Class]: FullyQualifiedStmtClass;
+  [NodeType.Stmt_Const]: FullyQualifiedStmtConst;
+  [NodeType.Stmt_Continue]: FullyQualifiedStmtContinue;
+  [NodeType.Stmt_DeclareDeclare]: FullyQualifiedStmtDeclareDeclare;
+  [NodeType.Stmt_Declare]: FullyQualifiedStmtDeclare;
+  [NodeType.Stmt_Do]: FullyQualifiedStmtDo;
+  [NodeType.Stmt_Echo]: FullyQualifiedStmtEcho;
+  [NodeType.Stmt_ElseIf]: FullyQualifiedStmtElseIf;
+  [NodeType.Stmt_Else]: FullyQualifiedStmtElse;
+  [NodeType.Stmt_EnumCase]: FullyQualifiedStmtEnumCase;
+  [NodeType.Stmt_Enum]: FullyQualifiedStmtEnum;
+  [NodeType.Stmt_Expression]: FullyQualifiedStmtExpression;
+  [NodeType.Stmt_Finally]: FullyQualifiedStmtFinally;
+  [NodeType.Stmt_For]: FullyQualifiedStmtFor;
+  [NodeType.Stmt_Foreach]: FullyQualifiedStmtForeach;
+  [NodeType.Stmt_Function]: FullyQualifiedStmtFunction;
+  [NodeType.Stmt_Global]: FullyQualifiedStmtGlobal;
+  [NodeType.Stmt_Goto]: FullyQualifiedStmtGoto;
+  [NodeType.Stmt_GroupUse]: FullyQualifiedStmtGroupUse;
+  [NodeType.Stmt_HaltCompiler]: FullyQualifiedStmtHaltCompiler;
+  [NodeType.Stmt_If]: FullyQualifiedStmtIf;
+  [NodeType.Stmt_InlineHTML]: FullyQualifiedStmtInlineHtml;
+  [NodeType.Stmt_Interface]: FullyQualifiedStmtInterface;
+  [NodeType.Stmt_Label]: FullyQualifiedStmtLabel;
+  [NodeType.Stmt_Namespace]: FullyQualifiedStmtNamespace;
+  [NodeType.Stmt_Nop]: FullyQualifiedStmtNop;
+  [NodeType.Stmt_Property]: FullyQualifiedStmtProperty;
+  [NodeType.Stmt_PropertyProperty]: FullyQualifiedStmtPropertyProperty;
+  [NodeType.Stmt_Return]: FullyQualifiedStmtReturn;
+  [NodeType.Stmt_StaticVar]: FullyQualifiedStmtStaticVar;
+  [NodeType.Stmt_Static]: FullyQualifiedStmtStatic;
+  [NodeType.Stmt_Switch]: FullyQualifiedStmtSwitch;
+  [NodeType.Stmt_Throw]: FullyQualifiedStmtThrow;
+  [NodeType.Stmt_TraitUse]: FullyQualifiedStmtTraitUse;
+  [NodeType.Stmt_TraitUseAdaptation_Alias]: FullyQualifiedStmtTraitUseAdaptationAlias;
+  [NodeType.Stmt_TraitUseAdaptation_Precedence]: FullyQualifiedStmtTraitUseAdaptationPrecedence;
+  [NodeType.Stmt_Trait]: FullyQualifiedStmtTrait;
+  [NodeType.Stmt_TryCatch]: FullyQualifiedStmtTryCatch;
+  [NodeType.Stmt_Unset]: FullyQualifiedStmtUnset;
+  [NodeType.Stmt_UseUse]: FullyQualifiedStmtUseUse;
+  [NodeType.Stmt_Use]: FullyQualifiedStmtUse;
+  [NodeType.Stmt_While]: FullyQualifiedStmtWhile;
+  [NodeType.UnionType]: FullyQualifiedUnionType;
+  [NodeType.VarLikeIdentifier]: FullyQualifiedVarLikeIdentifier;
+  [NodeType.VariadicPlaceholder]: FullyQualifiedVariadicPlaceholder;
+}
+    
+
       
