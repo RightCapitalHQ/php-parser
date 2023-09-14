@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 14 Sep 2023 09:47:17 GMT",
+      "version": "0.2.0",
+      "tag": "@rightcapital/php-parser_v0.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "i@rainx.cc",
+            "package": "@rightcapital/php-parser",
+            "commit": "7ca54e43462d9078fb5ae103aed467618246e2b4",
+            "comment": "feat: add method to parse PHP directly from code"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Sep 2023 07:49:40 GMT",
       "version": "0.1.3",
       "tag": "@rightcapital/php-parser_v0.1.3",

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "feat: add method to parse PHP directly from code",
-  "packageName": "@rightcapital/php-parser",
-  "email": "i@rainx.cc",
-  "dependentChangeType": "patch"
-}
