@@ -6,6 +6,8 @@
   "scripts": {
     "commit": "cz",
     "clean": "tsc --build --clean ./tsconfig.build.json",
+    "change": "beachball change --no-commit",
+    "check": "beachball check",
     "build": "pnpm run clean && tsc --project ./tsconfig.build.json",
     "eslint": "eslint --report-unused-disable-directives 'src/**/*.ts*'",
     "eslint:fix": "eslint --report-unused-disable-directives --fix 'src/**/*.ts*'",
@@ -49,6 +51,7 @@
     "@types/lodash": "4.14.198",
     "@types/mustache": "4.2.2",
     "@types/node": "20.6.0",
+    "beachball": "2.37.0",
     "husky": "8.0.3"
   },
   "config": {
