@@ -87,3 +87,7 @@ const scalarStringNode =
 console.log(scalarStringNode?.value);
 // Hello
 ```
+
+## License
+
+MIT License © 2023-Present
