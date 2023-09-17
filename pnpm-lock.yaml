@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rightcapital/phpdoc-parser':
-    specifier: 0.3.5
-    version: 0.3.5
+    specifier: 0.3.10
+    version: 0.3.10
   lodash:
     specifier: 4.17.21
     version: 4.17.21
@@ -441,8 +441,8 @@ packages:
       - supports-color
     dev: true
 
-  /@rightcapital/phpdoc-parser@0.3.5:
-    resolution: {integrity: sha512-meObPsUzaWexitcdN1gDiyBZTNz5tBUVRXOkhJidsP5Uz7mQ07ScfoY3CkeBwgGJJEowH6AIhuWAJx2RzwLrTQ==}
+  /@rightcapital/phpdoc-parser@0.3.10:
+    resolution: {integrity: sha512-KefT0b0dU8aZmseB/qcRcwCHGaXf6Wd/w2TFA3jkunDmqdrzdvG0u2FR3XHOi7yPWjJBwf17C1bZH3RKSME5Kg==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
     requiresBuild: true
     dependencies:
