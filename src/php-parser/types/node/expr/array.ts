@@ -1,12 +1,12 @@
 import type { Expr } from '../../node/expr'; // fullyQualifiedNodeName FullyQualifiedExpr
 
-import type { NodeTypeInheritingFromFullyQualifiedExprArrayItem } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedArrayItem } from "../../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface Array_ extends Omit<Expr, 'nodeType'> {
   nodeType: 'Expr_Array';
 
-  ["items"] : (NodeTypeInheritingFromFullyQualifiedExprArrayItem | null)[];
+  ["items"] : NodeTypeInheritingFromFullyQualifiedArrayItem[];
 }
 
 // We also need to export a symbol by using node type

@@ -1,13 +1,13 @@
 import type { Stmt } from '../../node/stmt'; // fullyQualifiedNodeName FullyQualifiedStmt
 
-import type { NodeTypeInheritingFromFullyQualifiedStmtUseUse } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedUseItem } from "../../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface Use_ extends Omit<Stmt, 'nodeType'> {
   nodeType: 'Stmt_Use';
 
-  ["type"] : number;
-  ["uses"] : NodeTypeInheritingFromFullyQualifiedStmtUseUse[];
+  ["type"] : any;
+  ["uses"] : NodeTypeInheritingFromFullyQualifiedUseItem[];
 }
 
 // We also need to export a symbol by using node type

@@ -1,10 +1,10 @@
-import type { Expr } from '../../node/expr'; // fullyQualifiedNodeName FullyQualifiedExpr
+import type { NodeAbstract } from '../node'; // fullyQualifiedNodeName NodeAbstract
 
-import type { NodeTypeInheritingFromFullyQualifiedExprVariable } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedExprVariable } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export interface ClosureUse extends Omit<Expr, 'nodeType'> {
-  nodeType: 'Expr_ClosureUse';
+export interface ClosureUse extends Omit<NodeAbstract, 'nodeType'> {
+  nodeType: 'ClosureUse';
 
   ["var"] : NodeTypeInheritingFromFullyQualifiedExprVariable;
   ["byRef"] : boolean;
@@ -13,4 +13,4 @@ export interface ClosureUse extends Omit<Expr, 'nodeType'> {
 // We also need to export a symbol by using node type
 // since the nodeName is possibly duplicated
 // for the files need to import all nodes, we needs to use nodeType insteads
-export type FullyQualifiedExprClosureUse = ClosureUse;
+export type FullyQualifiedClosureUse = ClosureUse;

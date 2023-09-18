@@ -152,7 +152,7 @@ class GenerateType {
         ),
       ];
       const parentNodeFilePath = FilePathHelpers.getFilePathFromNameNodeParts(
-        classNode.extends.parts,
+        NodeRetrieverHelpers.getPartsByName(classNode.extends.name),
         classNode.extends.nodeType,
         filePathParts,
         uses,
@@ -161,7 +161,9 @@ class GenerateType {
       const fullyQualifiedNodeName =
         FilePathHelpers.getFullyQualifiedNodeNameByFilePath(fileRelativePath);
 
-      const parentNodeName = classNode.extends.parts.at(-1);
+      const parentNodeName = NodeRetrieverHelpers.getPartsByName(
+        classNode.extends.name,
+      ).at(-1);
 
       const fullyQualifiedParentNodeName =
         FilePathHelpers.getFullyQualifiedParentNodeNameByFilePath(
@@ -177,7 +179,9 @@ class GenerateType {
         fullyQualifiedNodeName,
         fullyQualifiedParentNodeName,
         nodeName: classNode.name.name,
-        parentNodeParts: classNode.extends.parts,
+        parentNodeParts: NodeRetrieverHelpers.getPartsByName(
+          classNode.extends.name,
+        ),
         parentNodeName,
         parentNodeFilePath,
         properties,

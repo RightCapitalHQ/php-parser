@@ -1,6 +1,6 @@
 import type { Stmt } from '../../node/stmt'; // fullyQualifiedNodeName FullyQualifiedStmt
 
-import type { NodeTypeInheritingFromFullyQualifiedStmtPropertyProperty } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedPropertyItem } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedIdentifier } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedName } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedComplexType } from "../../types";
@@ -11,7 +11,7 @@ export interface Property extends Omit<Stmt, 'nodeType'> {
   nodeType: 'Stmt_Property';
 
   ["flags"] : number;
-  ["props"] : NodeTypeInheritingFromFullyQualifiedStmtPropertyProperty[];
+  ["props"] : NodeTypeInheritingFromFullyQualifiedPropertyItem[];
   ["type"] : null | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedComplexType;
   ["attrGroups"] : NodeTypeInheritingFromFullyQualifiedAttributeGroup[];
 }

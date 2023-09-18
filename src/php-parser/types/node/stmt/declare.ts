@@ -1,13 +1,13 @@
 import type { Stmt } from '../../node/stmt'; // fullyQualifiedNodeName FullyQualifiedStmt
 
-import type { NodeTypeInheritingFromFullyQualifiedStmtDeclareDeclare } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedDeclareItem } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedStmt } from "../../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface Declare_ extends Omit<Stmt, 'nodeType'> {
   nodeType: 'Stmt_Declare';
 
-  ["declares"] : NodeTypeInheritingFromFullyQualifiedStmtDeclareDeclare[];
+  ["declares"] : NodeTypeInheritingFromFullyQualifiedDeclareItem[];
   ["stmts"] : NodeTypeInheritingFromFullyQualifiedStmt[] | null;
 }
 

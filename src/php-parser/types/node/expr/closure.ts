@@ -1,7 +1,7 @@
 import type { Expr } from '../../node/expr'; // fullyQualifiedNodeName FullyQualifiedExpr
 
 import type { NodeTypeInheritingFromFullyQualifiedParam } from "../../types";
-import type { NodeTypeInheritingFromFullyQualifiedExprClosureUse } from "../../types";
+import type { NodeTypeInheritingFromFullyQualifiedClosureUse } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedIdentifier } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedName } from "../../types";
 import type { NodeTypeInheritingFromFullyQualifiedComplexType } from "../../types";
@@ -15,7 +15,7 @@ export interface Closure extends Omit<Expr, 'nodeType'> {
   ["static"] : boolean;
   ["byRef"] : boolean;
   ["params"] : NodeTypeInheritingFromFullyQualifiedParam[];
-  ["uses"] : NodeTypeInheritingFromFullyQualifiedExprClosureUse[];
+  ["uses"] : NodeTypeInheritingFromFullyQualifiedClosureUse[];
   ["returnType"] : null | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedComplexType;
   ["stmts"] : NodeTypeInheritingFromFullyQualifiedStmt[];
   ["attrGroups"] : NodeTypeInheritingFromFullyQualifiedAttributeGroup[];
