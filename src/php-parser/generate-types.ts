@@ -4,10 +4,12 @@ import {
   mkdirSync,
   readFileSync,
   readdirSync,
+  renameSync,
   rmSync,
   statSync,
   writeFileSync,
 } from 'fs';
+import * as os from 'os';
 import { resolve } from 'path';
 import * as path from 'path';
 import * as _ from 'lodash';
@@ -58,6 +60,7 @@ export interface ICliContext {
   allNodes: {
     [nodeType: string]: IContextNodeItem;
   };
+  temporaryNodeTypeRootPath: string;
 }
 
 class GenerateType {
@@ -67,6 +70,7 @@ class GenerateType {
   private static cliContext: ICliContext = {
     allNodeNames: [],
     allNodes: {},
+    temporaryNodeTypeRootPath: resolve(os.tmpdir(), 'node'),
   };
 
   public static main(): void {
@@ -74,8 +78,9 @@ class GenerateType {
     const nodeTypeRootPath = resolve(typesRootPath, 'node');
 
     // Remove and create a node root path first
-    rmSync(nodeTypeRootPath, { recursive: true, force: true });
-    mkdirSync(nodeTypeRootPath, { recursive: true });
+    mkdirSync(GenerateType.cliContext.temporaryNodeTypeRootPath, {
+      recursive: true,
+    });
 
     GenerateType.walkSync(
       PHP_PARSER_NODE_DIRECTORY_PATH,
@@ -84,13 +89,25 @@ class GenerateType {
     );
 
     const typesFileName = resolve(typesRootPath, 'types.ts');
+    const temporaryTypesFileName = resolve(typesRootPath, 'tmp-types.ts');
     writeFileSync(
-      typesFileName,
+      temporaryTypesFileName,
       TypeGenerationHelpers.generateCombinationTypesFromNodes(
         GenerateType.cliContext,
       ),
       { encoding: 'utf-8' },
     );
+
+    // Move temporarily generated files to correct path
+    // We need to remove the outdated files first
+    rmSync(nodeTypeRootPath, { recursive: true, force: true });
+    rmSync(typesFileName, { force: true });
+    // Move them
+    renameSync(
+      GenerateType.cliContext.temporaryNodeTypeRootPath,
+      nodeTypeRootPath,
+    );
+    renameSync(temporaryTypesFileName, typesFileName);
   }
 
   private static generateTypeForNodeByFile(filePath: string): void {
@@ -175,19 +192,27 @@ class GenerateType {
         SRC_ROOT,
         'templates/php-parser-node.mustache',
       );
-      const typesRootPath = FilePathHelpers.getTypesRootPath();
-      const nodeTypeRootPath = resolve(typesRootPath, 'node');
       const templateFileContent = readFileSync(templateFileName, 'utf-8');
 
       try {
         if (directoryRelativePath) {
-          mkdirSync(path.resolve(nodeTypeRootPath, directoryRelativePath), {
-            recursive: true,
-          });
+          mkdirSync(
+            path.resolve(
+              GenerateType.cliContext.temporaryNodeTypeRootPath,
+              directoryRelativePath,
+            ),
+            {
+              recursive: true,
+            },
+          );
         }
       } finally {
         writeFileSync(
-          resolve(nodeTypeRootPath, directoryRelativePath, `${fileName}.ts`),
+          resolve(
+            GenerateType.cliContext.temporaryNodeTypeRootPath,
+            directoryRelativePath,
+            `${fileName}.ts`,
+          ),
 
           Mustache.render(templateFileContent, nodeOutput),
         );
