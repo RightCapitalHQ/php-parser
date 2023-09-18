@@ -1,13 +1,15 @@
 
 import type { FullyQualifiedArg } from './node/arg';
 import type { NodeAbstract } from './node';
+import type { FullyQualifiedArrayItem } from './node/array-item';
 import type { FullyQualifiedAttribute } from './node/attribute';
 import type { FullyQualifiedAttributeGroup } from './node/attribute-group';
+import type { FullyQualifiedClosureUse } from './node/closure-use';
 import type { FullyQualifiedComplexType } from './node/complex-type';
 import type { FullyQualifiedConst } from './node/const';
+import type { FullyQualifiedDeclareItem } from './node/declare-item';
 import type { FullyQualifiedExprArrayDimFetch } from './node/expr/array-dim-fetch';
 import type { FullyQualifiedExpr } from './node/expr';
-import type { FullyQualifiedExprArrayItem } from './node/expr/array-item';
 import type { FullyQualifiedExprArray } from './node/expr/array';
 import type { FullyQualifiedExprArrowFunction } from './node/expr/arrow-function';
 import type { FullyQualifiedExprAssign } from './node/expr/assign';
@@ -68,7 +70,6 @@ import type { FullyQualifiedExprCastUnset } from './node/expr/cast/unset';
 import type { FullyQualifiedExprClassConstFetch } from './node/expr/class-const-fetch';
 import type { FullyQualifiedExprClone } from './node/expr/clone';
 import type { FullyQualifiedExprClosure } from './node/expr/closure';
-import type { FullyQualifiedExprClosureUse } from './node/expr/closure-use';
 import type { FullyQualifiedExprConstFetch } from './node/expr/const-fetch';
 import type { FullyQualifiedExprEmpty } from './node/expr/empty';
 import type { FullyQualifiedExprError } from './node/expr/error';
@@ -102,6 +103,7 @@ import type { FullyQualifiedExprVariable } from './node/expr/variable';
 import type { FullyQualifiedExprYieldFrom } from './node/expr/yield-from';
 import type { FullyQualifiedExprYield } from './node/expr/yield';
 import type { FullyQualifiedIdentifier } from './node/identifier';
+import type { FullyQualifiedInterpolatedStringPart } from './node/interpolated-string-part';
 import type { FullyQualifiedIntersectionType } from './node/intersection-type';
 import type { FullyQualifiedMatchArm } from './node/match-arm';
 import type { FullyQualifiedNameFullyQualified } from './node/name/fully-qualified';
@@ -109,11 +111,12 @@ import type { FullyQualifiedName } from './node/name';
 import type { FullyQualifiedNameRelative } from './node/name/relative';
 import type { FullyQualifiedNullableType } from './node/nullable-type';
 import type { FullyQualifiedParam } from './node/param';
-import type { FullyQualifiedScalarDNumber } from './node/scalar/d-number';
+import type { FullyQualifiedPropertyItem } from './node/property-item';
+import type { FullyQualifiedStmt } from './node/stmt';
+import type { FullyQualifiedScalarFloat } from './node/scalar/float';
 import type { FullyQualifiedScalar } from './node/scalar';
-import type { FullyQualifiedScalarEncapsed } from './node/scalar/encapsed';
-import type { FullyQualifiedScalarEncapsedStringPart } from './node/scalar/encapsed-string-part';
-import type { FullyQualifiedScalarLNumber } from './node/scalar/l-number';
+import type { FullyQualifiedScalarInt } from './node/scalar/int';
+import type { FullyQualifiedScalarInterpolatedString } from './node/scalar/interpolated-string';
 import type { FullyQualifiedScalarMagicConstClass } from './node/scalar/magic-const/class';
 import type { FullyQualifiedScalarMagicConst } from './node/scalar/magic-const';
 import type { FullyQualifiedScalarMagicConstDir } from './node/scalar/magic-const/dir';
@@ -124,8 +127,8 @@ import type { FullyQualifiedScalarMagicConstMethod } from './node/scalar/magic-c
 import type { FullyQualifiedScalarMagicConstNamespace } from './node/scalar/magic-const/namespace';
 import type { FullyQualifiedScalarMagicConstTrait } from './node/scalar/magic-const/trait';
 import type { FullyQualifiedScalarString } from './node/scalar/string';
+import type { FullyQualifiedStaticVar } from './node/static-var';
 import type { FullyQualifiedStmtBreak } from './node/stmt/break';
-import type { FullyQualifiedStmt } from './node/stmt';
 import type { FullyQualifiedStmtCase } from './node/stmt/case';
 import type { FullyQualifiedStmtCatch } from './node/stmt/catch';
 import type { FullyQualifiedStmtClassConst } from './node/stmt/class-const';
@@ -134,7 +137,6 @@ import type { FullyQualifiedStmtClassMethod } from './node/stmt/class-method';
 import type { FullyQualifiedStmtClass } from './node/stmt/class';
 import type { FullyQualifiedStmtConst } from './node/stmt/const';
 import type { FullyQualifiedStmtContinue } from './node/stmt/continue';
-import type { FullyQualifiedStmtDeclareDeclare } from './node/stmt/declare-declare';
 import type { FullyQualifiedStmtDeclare } from './node/stmt/declare';
 import type { FullyQualifiedStmtDo } from './node/stmt/do';
 import type { FullyQualifiedStmtEcho } from './node/stmt/echo';
@@ -158,9 +160,7 @@ import type { FullyQualifiedStmtLabel } from './node/stmt/label';
 import type { FullyQualifiedStmtNamespace } from './node/stmt/namespace';
 import type { FullyQualifiedStmtNop } from './node/stmt/nop';
 import type { FullyQualifiedStmtProperty } from './node/stmt/property';
-import type { FullyQualifiedStmtPropertyProperty } from './node/stmt/property-property';
 import type { FullyQualifiedStmtReturn } from './node/stmt/return';
-import type { FullyQualifiedStmtStaticVar } from './node/stmt/static-var';
 import type { FullyQualifiedStmtStatic } from './node/stmt/static';
 import type { FullyQualifiedStmtSwitch } from './node/stmt/switch';
 import type { FullyQualifiedStmtThrow } from './node/stmt/throw';
@@ -171,22 +171,24 @@ import type { FullyQualifiedStmtTraitUseAdaptationPrecedence } from './node/stmt
 import type { FullyQualifiedStmtTrait } from './node/stmt/trait';
 import type { FullyQualifiedStmtTryCatch } from './node/stmt/try-catch';
 import type { FullyQualifiedStmtUnset } from './node/stmt/unset';
-import type { FullyQualifiedStmtUseUse } from './node/stmt/use-use';
 import type { FullyQualifiedStmtUse } from './node/stmt/use';
 import type { FullyQualifiedStmtWhile } from './node/stmt/while';
 import type { FullyQualifiedUnionType } from './node/union-type';
+import type { FullyQualifiedUseItem } from './node/use-item';
 import type { FullyQualifiedVarLikeIdentifier } from './node/var-like-identifier';
 import type { FullyQualifiedVariadicPlaceholder } from './node/variadic-placeholder';      
 
 export type NodeTypeInheritingFromFullyQualifiedArg = FullyQualifiedArg;
-export type NodeTypeInheritingFromNodeAbstract = NodeAbstract | NodeTypeInheritingFromFullyQualifiedArg | NodeTypeInheritingFromFullyQualifiedAttribute | NodeTypeInheritingFromFullyQualifiedAttributeGroup | NodeTypeInheritingFromFullyQualifiedComplexType | NodeTypeInheritingFromFullyQualifiedConst | NodeTypeInheritingFromFullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedMatchArm | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedParam | NodeTypeInheritingFromFullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedVariadicPlaceholder;
+export type NodeTypeInheritingFromNodeAbstract = NodeAbstract | NodeTypeInheritingFromFullyQualifiedArg | NodeTypeInheritingFromFullyQualifiedArrayItem | NodeTypeInheritingFromFullyQualifiedAttribute | NodeTypeInheritingFromFullyQualifiedAttributeGroup | NodeTypeInheritingFromFullyQualifiedClosureUse | NodeTypeInheritingFromFullyQualifiedComplexType | NodeTypeInheritingFromFullyQualifiedConst | NodeTypeInheritingFromFullyQualifiedDeclareItem | NodeTypeInheritingFromFullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedInterpolatedStringPart | NodeTypeInheritingFromFullyQualifiedMatchArm | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedParam | NodeTypeInheritingFromFullyQualifiedStaticVar | NodeTypeInheritingFromFullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedVariadicPlaceholder;
+export type NodeTypeInheritingFromFullyQualifiedArrayItem = FullyQualifiedArrayItem;
 export type NodeTypeInheritingFromFullyQualifiedAttribute = FullyQualifiedAttribute;
 export type NodeTypeInheritingFromFullyQualifiedAttributeGroup = FullyQualifiedAttributeGroup;
+export type NodeTypeInheritingFromFullyQualifiedClosureUse = FullyQualifiedClosureUse;
 export type NodeTypeInheritingFromFullyQualifiedComplexType = FullyQualifiedComplexType | NodeTypeInheritingFromFullyQualifiedIntersectionType | NodeTypeInheritingFromFullyQualifiedNullableType | NodeTypeInheritingFromFullyQualifiedUnionType;
 export type NodeTypeInheritingFromFullyQualifiedConst = FullyQualifiedConst;
+export type NodeTypeInheritingFromFullyQualifiedDeclareItem = FullyQualifiedDeclareItem;
 export type NodeTypeInheritingFromFullyQualifiedExprArrayDimFetch = FullyQualifiedExprArrayDimFetch;
-export type NodeTypeInheritingFromFullyQualifiedExpr = FullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedExprArrayDimFetch | NodeTypeInheritingFromFullyQualifiedExprArrayItem | NodeTypeInheritingFromFullyQualifiedExprArray | NodeTypeInheritingFromFullyQualifiedExprArrowFunction | NodeTypeInheritingFromFullyQualifiedExprAssign | NodeTypeInheritingFromFullyQualifiedExprAssignOp | NodeTypeInheritingFromFullyQualifiedExprAssignRef | NodeTypeInheritingFromFullyQualifiedExprBinaryOp | NodeTypeInheritingFromFullyQualifiedExprBitwiseNot | NodeTypeInheritingFromFullyQualifiedExprBooleanNot | NodeTypeInheritingFromFullyQualifiedExprCallLike | NodeTypeInheritingFromFullyQualifiedExprCast | NodeTypeInheritingFromFullyQualifiedExprClassConstFetch | NodeTypeInheritingFromFullyQualifiedExprClone | NodeTypeInheritingFromFullyQualifiedExprClosure | NodeTypeInheritingFromFullyQualifiedExprClosureUse | NodeTypeInheritingFromFullyQualifiedExprConstFetch | NodeTypeInheritingFromFullyQualifiedExprEmpty | NodeTypeInheritingFromFullyQualifiedExprError | NodeTypeInheritingFromFullyQualifiedExprErrorSuppress | NodeTypeInheritingFromFullyQualifiedExprEval | NodeTypeInheritingFromFullyQualifiedExprExit | NodeTypeInheritingFromFullyQualifiedExprInclude | NodeTypeInheritingFromFullyQualifiedExprInstanceof | NodeTypeInheritingFromFullyQualifiedExprIsset | NodeTypeInheritingFromFullyQualifiedExprList | NodeTypeInheritingFromFullyQualifiedExprMatch | NodeTypeInheritingFromFullyQualifiedExprNullsafePropertyFetch | NodeTypeInheritingFromFullyQualifiedExprPostDec | NodeTypeInheritingFromFullyQualifiedExprPostInc | NodeTypeInheritingFromFullyQualifiedExprPreDec | NodeTypeInheritingFromFullyQualifiedExprPreInc | NodeTypeInheritingFromFullyQualifiedExprPrint | NodeTypeInheritingFromFullyQualifiedExprPropertyFetch | NodeTypeInheritingFromFullyQualifiedExprShellExec | NodeTypeInheritingFromFullyQualifiedExprStaticPropertyFetch | NodeTypeInheritingFromFullyQualifiedExprTernary | NodeTypeInheritingFromFullyQualifiedExprThrow | NodeTypeInheritingFromFullyQualifiedExprUnaryMinus | NodeTypeInheritingFromFullyQualifiedExprUnaryPlus | NodeTypeInheritingFromFullyQualifiedExprVariable | NodeTypeInheritingFromFullyQualifiedExprYieldFrom | NodeTypeInheritingFromFullyQualifiedExprYield | NodeTypeInheritingFromFullyQualifiedScalar;
-export type NodeTypeInheritingFromFullyQualifiedExprArrayItem = FullyQualifiedExprArrayItem;
+export type NodeTypeInheritingFromFullyQualifiedExpr = FullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedExprArrayDimFetch | NodeTypeInheritingFromFullyQualifiedExprArray | NodeTypeInheritingFromFullyQualifiedExprArrowFunction | NodeTypeInheritingFromFullyQualifiedExprAssign | NodeTypeInheritingFromFullyQualifiedExprAssignOp | NodeTypeInheritingFromFullyQualifiedExprAssignRef | NodeTypeInheritingFromFullyQualifiedExprBinaryOp | NodeTypeInheritingFromFullyQualifiedExprBitwiseNot | NodeTypeInheritingFromFullyQualifiedExprBooleanNot | NodeTypeInheritingFromFullyQualifiedExprCallLike | NodeTypeInheritingFromFullyQualifiedExprCast | NodeTypeInheritingFromFullyQualifiedExprClassConstFetch | NodeTypeInheritingFromFullyQualifiedExprClone | NodeTypeInheritingFromFullyQualifiedExprClosure | NodeTypeInheritingFromFullyQualifiedExprConstFetch | NodeTypeInheritingFromFullyQualifiedExprEmpty | NodeTypeInheritingFromFullyQualifiedExprError | NodeTypeInheritingFromFullyQualifiedExprErrorSuppress | NodeTypeInheritingFromFullyQualifiedExprEval | NodeTypeInheritingFromFullyQualifiedExprExit | NodeTypeInheritingFromFullyQualifiedExprInclude | NodeTypeInheritingFromFullyQualifiedExprInstanceof | NodeTypeInheritingFromFullyQualifiedExprIsset | NodeTypeInheritingFromFullyQualifiedExprList | NodeTypeInheritingFromFullyQualifiedExprMatch | NodeTypeInheritingFromFullyQualifiedExprNullsafePropertyFetch | NodeTypeInheritingFromFullyQualifiedExprPostDec | NodeTypeInheritingFromFullyQualifiedExprPostInc | NodeTypeInheritingFromFullyQualifiedExprPreDec | NodeTypeInheritingFromFullyQualifiedExprPreInc | NodeTypeInheritingFromFullyQualifiedExprPrint | NodeTypeInheritingFromFullyQualifiedExprPropertyFetch | NodeTypeInheritingFromFullyQualifiedExprShellExec | NodeTypeInheritingFromFullyQualifiedExprStaticPropertyFetch | NodeTypeInheritingFromFullyQualifiedExprTernary | NodeTypeInheritingFromFullyQualifiedExprThrow | NodeTypeInheritingFromFullyQualifiedExprUnaryMinus | NodeTypeInheritingFromFullyQualifiedExprUnaryPlus | NodeTypeInheritingFromFullyQualifiedExprVariable | NodeTypeInheritingFromFullyQualifiedExprYieldFrom | NodeTypeInheritingFromFullyQualifiedExprYield | NodeTypeInheritingFromFullyQualifiedScalar;
 export type NodeTypeInheritingFromFullyQualifiedExprArray = FullyQualifiedExprArray;
 export type NodeTypeInheritingFromFullyQualifiedExprArrowFunction = FullyQualifiedExprArrowFunction;
 export type NodeTypeInheritingFromFullyQualifiedExprAssign = FullyQualifiedExprAssign;
@@ -247,7 +249,6 @@ export type NodeTypeInheritingFromFullyQualifiedExprCastUnset = FullyQualifiedEx
 export type NodeTypeInheritingFromFullyQualifiedExprClassConstFetch = FullyQualifiedExprClassConstFetch;
 export type NodeTypeInheritingFromFullyQualifiedExprClone = FullyQualifiedExprClone;
 export type NodeTypeInheritingFromFullyQualifiedExprClosure = FullyQualifiedExprClosure;
-export type NodeTypeInheritingFromFullyQualifiedExprClosureUse = FullyQualifiedExprClosureUse;
 export type NodeTypeInheritingFromFullyQualifiedExprConstFetch = FullyQualifiedExprConstFetch;
 export type NodeTypeInheritingFromFullyQualifiedExprEmpty = FullyQualifiedExprEmpty;
 export type NodeTypeInheritingFromFullyQualifiedExprError = FullyQualifiedExprError;
@@ -281,6 +282,7 @@ export type NodeTypeInheritingFromFullyQualifiedExprVariable = FullyQualifiedExp
 export type NodeTypeInheritingFromFullyQualifiedExprYieldFrom = FullyQualifiedExprYieldFrom;
 export type NodeTypeInheritingFromFullyQualifiedExprYield = FullyQualifiedExprYield;
 export type NodeTypeInheritingFromFullyQualifiedIdentifier = FullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedVarLikeIdentifier;
+export type NodeTypeInheritingFromFullyQualifiedInterpolatedStringPart = FullyQualifiedInterpolatedStringPart;
 export type NodeTypeInheritingFromFullyQualifiedIntersectionType = FullyQualifiedIntersectionType;
 export type NodeTypeInheritingFromFullyQualifiedMatchArm = FullyQualifiedMatchArm;
 export type NodeTypeInheritingFromFullyQualifiedNameFullyQualified = FullyQualifiedNameFullyQualified;
@@ -288,11 +290,12 @@ export type NodeTypeInheritingFromFullyQualifiedName = FullyQualifiedName | Node
 export type NodeTypeInheritingFromFullyQualifiedNameRelative = FullyQualifiedNameRelative;
 export type NodeTypeInheritingFromFullyQualifiedNullableType = FullyQualifiedNullableType;
 export type NodeTypeInheritingFromFullyQualifiedParam = FullyQualifiedParam;
-export type NodeTypeInheritingFromFullyQualifiedScalarDNumber = FullyQualifiedScalarDNumber;
-export type NodeTypeInheritingFromFullyQualifiedScalar = FullyQualifiedScalar | NodeTypeInheritingFromFullyQualifiedScalarDNumber | NodeTypeInheritingFromFullyQualifiedScalarEncapsed | NodeTypeInheritingFromFullyQualifiedScalarEncapsedStringPart | NodeTypeInheritingFromFullyQualifiedScalarLNumber | NodeTypeInheritingFromFullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarString;
-export type NodeTypeInheritingFromFullyQualifiedScalarEncapsed = FullyQualifiedScalarEncapsed;
-export type NodeTypeInheritingFromFullyQualifiedScalarEncapsedStringPart = FullyQualifiedScalarEncapsedStringPart;
-export type NodeTypeInheritingFromFullyQualifiedScalarLNumber = FullyQualifiedScalarLNumber;
+export type NodeTypeInheritingFromFullyQualifiedPropertyItem = FullyQualifiedPropertyItem;
+export type NodeTypeInheritingFromFullyQualifiedStmt = FullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedPropertyItem | NodeTypeInheritingFromFullyQualifiedStmtBreak | NodeTypeInheritingFromFullyQualifiedStmtCase | NodeTypeInheritingFromFullyQualifiedStmtCatch | NodeTypeInheritingFromFullyQualifiedStmtClassConst | NodeTypeInheritingFromFullyQualifiedStmtClassLike | NodeTypeInheritingFromFullyQualifiedStmtClassMethod | NodeTypeInheritingFromFullyQualifiedStmtConst | NodeTypeInheritingFromFullyQualifiedStmtContinue | NodeTypeInheritingFromFullyQualifiedStmtDeclare | NodeTypeInheritingFromFullyQualifiedStmtDo | NodeTypeInheritingFromFullyQualifiedStmtEcho | NodeTypeInheritingFromFullyQualifiedStmtElseIf | NodeTypeInheritingFromFullyQualifiedStmtElse | NodeTypeInheritingFromFullyQualifiedStmtEnumCase | NodeTypeInheritingFromFullyQualifiedStmtExpression | NodeTypeInheritingFromFullyQualifiedStmtFinally | NodeTypeInheritingFromFullyQualifiedStmtFor | NodeTypeInheritingFromFullyQualifiedStmtForeach | NodeTypeInheritingFromFullyQualifiedStmtFunction | NodeTypeInheritingFromFullyQualifiedStmtGlobal | NodeTypeInheritingFromFullyQualifiedStmtGoto | NodeTypeInheritingFromFullyQualifiedStmtGroupUse | NodeTypeInheritingFromFullyQualifiedStmtHaltCompiler | NodeTypeInheritingFromFullyQualifiedStmtIf | NodeTypeInheritingFromFullyQualifiedStmtInlineHtml | NodeTypeInheritingFromFullyQualifiedStmtLabel | NodeTypeInheritingFromFullyQualifiedStmtNamespace | NodeTypeInheritingFromFullyQualifiedStmtNop | NodeTypeInheritingFromFullyQualifiedStmtProperty | NodeTypeInheritingFromFullyQualifiedStmtReturn | NodeTypeInheritingFromFullyQualifiedStmtStatic | NodeTypeInheritingFromFullyQualifiedStmtSwitch | NodeTypeInheritingFromFullyQualifiedStmtThrow | NodeTypeInheritingFromFullyQualifiedStmtTraitUse | NodeTypeInheritingFromFullyQualifiedStmtTraitUseAdaptation | NodeTypeInheritingFromFullyQualifiedStmtTryCatch | NodeTypeInheritingFromFullyQualifiedStmtUnset | NodeTypeInheritingFromFullyQualifiedStmtUse | NodeTypeInheritingFromFullyQualifiedStmtWhile | NodeTypeInheritingFromFullyQualifiedUseItem;
+export type NodeTypeInheritingFromFullyQualifiedScalarFloat = FullyQualifiedScalarFloat;
+export type NodeTypeInheritingFromFullyQualifiedScalar = FullyQualifiedScalar | NodeTypeInheritingFromFullyQualifiedScalarFloat | NodeTypeInheritingFromFullyQualifiedScalarInt | NodeTypeInheritingFromFullyQualifiedScalarInterpolatedString | NodeTypeInheritingFromFullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarString;
+export type NodeTypeInheritingFromFullyQualifiedScalarInt = FullyQualifiedScalarInt;
+export type NodeTypeInheritingFromFullyQualifiedScalarInterpolatedString = FullyQualifiedScalarInterpolatedString;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstClass = FullyQualifiedScalarMagicConstClass;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConst = FullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarMagicConstClass | NodeTypeInheritingFromFullyQualifiedScalarMagicConstDir | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFile | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFunction | NodeTypeInheritingFromFullyQualifiedScalarMagicConstLine | NodeTypeInheritingFromFullyQualifiedScalarMagicConstMethod | NodeTypeInheritingFromFullyQualifiedScalarMagicConstNamespace | NodeTypeInheritingFromFullyQualifiedScalarMagicConstTrait;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstDir = FullyQualifiedScalarMagicConstDir;
@@ -303,8 +306,8 @@ export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstMethod = FullyQu
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstNamespace = FullyQualifiedScalarMagicConstNamespace;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstTrait = FullyQualifiedScalarMagicConstTrait;
 export type NodeTypeInheritingFromFullyQualifiedScalarString = FullyQualifiedScalarString;
+export type NodeTypeInheritingFromFullyQualifiedStaticVar = FullyQualifiedStaticVar;
 export type NodeTypeInheritingFromFullyQualifiedStmtBreak = FullyQualifiedStmtBreak;
-export type NodeTypeInheritingFromFullyQualifiedStmt = FullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedStmtBreak | NodeTypeInheritingFromFullyQualifiedStmtCase | NodeTypeInheritingFromFullyQualifiedStmtCatch | NodeTypeInheritingFromFullyQualifiedStmtClassConst | NodeTypeInheritingFromFullyQualifiedStmtClassLike | NodeTypeInheritingFromFullyQualifiedStmtClassMethod | NodeTypeInheritingFromFullyQualifiedStmtConst | NodeTypeInheritingFromFullyQualifiedStmtContinue | NodeTypeInheritingFromFullyQualifiedStmtDeclareDeclare | NodeTypeInheritingFromFullyQualifiedStmtDeclare | NodeTypeInheritingFromFullyQualifiedStmtDo | NodeTypeInheritingFromFullyQualifiedStmtEcho | NodeTypeInheritingFromFullyQualifiedStmtElseIf | NodeTypeInheritingFromFullyQualifiedStmtElse | NodeTypeInheritingFromFullyQualifiedStmtEnumCase | NodeTypeInheritingFromFullyQualifiedStmtExpression | NodeTypeInheritingFromFullyQualifiedStmtFinally | NodeTypeInheritingFromFullyQualifiedStmtFor | NodeTypeInheritingFromFullyQualifiedStmtForeach | NodeTypeInheritingFromFullyQualifiedStmtFunction | NodeTypeInheritingFromFullyQualifiedStmtGlobal | NodeTypeInheritingFromFullyQualifiedStmtGoto | NodeTypeInheritingFromFullyQualifiedStmtGroupUse | NodeTypeInheritingFromFullyQualifiedStmtHaltCompiler | NodeTypeInheritingFromFullyQualifiedStmtIf | NodeTypeInheritingFromFullyQualifiedStmtInlineHtml | NodeTypeInheritingFromFullyQualifiedStmtLabel | NodeTypeInheritingFromFullyQualifiedStmtNamespace | NodeTypeInheritingFromFullyQualifiedStmtNop | NodeTypeInheritingFromFullyQualifiedStmtProperty | NodeTypeInheritingFromFullyQualifiedStmtPropertyProperty | NodeTypeInheritingFromFullyQualifiedStmtReturn | NodeTypeInheritingFromFullyQualifiedStmtStaticVar | NodeTypeInheritingFromFullyQualifiedStmtStatic | NodeTypeInheritingFromFullyQualifiedStmtSwitch | NodeTypeInheritingFromFullyQualifiedStmtThrow | NodeTypeInheritingFromFullyQualifiedStmtTraitUse | NodeTypeInheritingFromFullyQualifiedStmtTraitUseAdaptation | NodeTypeInheritingFromFullyQualifiedStmtTryCatch | NodeTypeInheritingFromFullyQualifiedStmtUnset | NodeTypeInheritingFromFullyQualifiedStmtUseUse | NodeTypeInheritingFromFullyQualifiedStmtUse | NodeTypeInheritingFromFullyQualifiedStmtWhile;
 export type NodeTypeInheritingFromFullyQualifiedStmtCase = FullyQualifiedStmtCase;
 export type NodeTypeInheritingFromFullyQualifiedStmtCatch = FullyQualifiedStmtCatch;
 export type NodeTypeInheritingFromFullyQualifiedStmtClassConst = FullyQualifiedStmtClassConst;
@@ -313,7 +316,6 @@ export type NodeTypeInheritingFromFullyQualifiedStmtClassMethod = FullyQualified
 export type NodeTypeInheritingFromFullyQualifiedStmtClass = FullyQualifiedStmtClass;
 export type NodeTypeInheritingFromFullyQualifiedStmtConst = FullyQualifiedStmtConst;
 export type NodeTypeInheritingFromFullyQualifiedStmtContinue = FullyQualifiedStmtContinue;
-export type NodeTypeInheritingFromFullyQualifiedStmtDeclareDeclare = FullyQualifiedStmtDeclareDeclare;
 export type NodeTypeInheritingFromFullyQualifiedStmtDeclare = FullyQualifiedStmtDeclare;
 export type NodeTypeInheritingFromFullyQualifiedStmtDo = FullyQualifiedStmtDo;
 export type NodeTypeInheritingFromFullyQualifiedStmtEcho = FullyQualifiedStmtEcho;
@@ -337,9 +339,7 @@ export type NodeTypeInheritingFromFullyQualifiedStmtLabel = FullyQualifiedStmtLa
 export type NodeTypeInheritingFromFullyQualifiedStmtNamespace = FullyQualifiedStmtNamespace;
 export type NodeTypeInheritingFromFullyQualifiedStmtNop = FullyQualifiedStmtNop;
 export type NodeTypeInheritingFromFullyQualifiedStmtProperty = FullyQualifiedStmtProperty;
-export type NodeTypeInheritingFromFullyQualifiedStmtPropertyProperty = FullyQualifiedStmtPropertyProperty;
 export type NodeTypeInheritingFromFullyQualifiedStmtReturn = FullyQualifiedStmtReturn;
-export type NodeTypeInheritingFromFullyQualifiedStmtStaticVar = FullyQualifiedStmtStaticVar;
 export type NodeTypeInheritingFromFullyQualifiedStmtStatic = FullyQualifiedStmtStatic;
 export type NodeTypeInheritingFromFullyQualifiedStmtSwitch = FullyQualifiedStmtSwitch;
 export type NodeTypeInheritingFromFullyQualifiedStmtThrow = FullyQualifiedStmtThrow;
@@ -350,22 +350,24 @@ export type NodeTypeInheritingFromFullyQualifiedStmtTraitUseAdaptationPrecedence
 export type NodeTypeInheritingFromFullyQualifiedStmtTrait = FullyQualifiedStmtTrait;
 export type NodeTypeInheritingFromFullyQualifiedStmtTryCatch = FullyQualifiedStmtTryCatch;
 export type NodeTypeInheritingFromFullyQualifiedStmtUnset = FullyQualifiedStmtUnset;
-export type NodeTypeInheritingFromFullyQualifiedStmtUseUse = FullyQualifiedStmtUseUse;
 export type NodeTypeInheritingFromFullyQualifiedStmtUse = FullyQualifiedStmtUse;
 export type NodeTypeInheritingFromFullyQualifiedStmtWhile = FullyQualifiedStmtWhile;
 export type NodeTypeInheritingFromFullyQualifiedUnionType = FullyQualifiedUnionType;
+export type NodeTypeInheritingFromFullyQualifiedUseItem = FullyQualifiedUseItem;
 export type NodeTypeInheritingFromFullyQualifiedVarLikeIdentifier = FullyQualifiedVarLikeIdentifier;
 export type NodeTypeInheritingFromFullyQualifiedVariadicPlaceholder = FullyQualifiedVariadicPlaceholder;
 
 export { FullyQualifiedArg } from './node/arg';
 export { NodeAbstract } from './node';
+export { FullyQualifiedArrayItem } from './node/array-item';
 export { FullyQualifiedAttribute } from './node/attribute';
 export { FullyQualifiedAttributeGroup } from './node/attribute-group';
+export { FullyQualifiedClosureUse } from './node/closure-use';
 export { FullyQualifiedComplexType } from './node/complex-type';
 export { FullyQualifiedConst } from './node/const';
+export { FullyQualifiedDeclareItem } from './node/declare-item';
 export { FullyQualifiedExprArrayDimFetch } from './node/expr/array-dim-fetch';
 export { FullyQualifiedExpr } from './node/expr';
-export { FullyQualifiedExprArrayItem } from './node/expr/array-item';
 export { FullyQualifiedExprArray } from './node/expr/array';
 export { FullyQualifiedExprArrowFunction } from './node/expr/arrow-function';
 export { FullyQualifiedExprAssign } from './node/expr/assign';
@@ -426,7 +428,6 @@ export { FullyQualifiedExprCastUnset } from './node/expr/cast/unset';
 export { FullyQualifiedExprClassConstFetch } from './node/expr/class-const-fetch';
 export { FullyQualifiedExprClone } from './node/expr/clone';
 export { FullyQualifiedExprClosure } from './node/expr/closure';
-export { FullyQualifiedExprClosureUse } from './node/expr/closure-use';
 export { FullyQualifiedExprConstFetch } from './node/expr/const-fetch';
 export { FullyQualifiedExprEmpty } from './node/expr/empty';
 export { FullyQualifiedExprError } from './node/expr/error';
@@ -460,6 +461,7 @@ export { FullyQualifiedExprVariable } from './node/expr/variable';
 export { FullyQualifiedExprYieldFrom } from './node/expr/yield-from';
 export { FullyQualifiedExprYield } from './node/expr/yield';
 export { FullyQualifiedIdentifier } from './node/identifier';
+export { FullyQualifiedInterpolatedStringPart } from './node/interpolated-string-part';
 export { FullyQualifiedIntersectionType } from './node/intersection-type';
 export { FullyQualifiedMatchArm } from './node/match-arm';
 export { FullyQualifiedNameFullyQualified } from './node/name/fully-qualified';
@@ -467,11 +469,12 @@ export { FullyQualifiedName } from './node/name';
 export { FullyQualifiedNameRelative } from './node/name/relative';
 export { FullyQualifiedNullableType } from './node/nullable-type';
 export { FullyQualifiedParam } from './node/param';
-export { FullyQualifiedScalarDNumber } from './node/scalar/d-number';
+export { FullyQualifiedPropertyItem } from './node/property-item';
+export { FullyQualifiedStmt } from './node/stmt';
+export { FullyQualifiedScalarFloat } from './node/scalar/float';
 export { FullyQualifiedScalar } from './node/scalar';
-export { FullyQualifiedScalarEncapsed } from './node/scalar/encapsed';
-export { FullyQualifiedScalarEncapsedStringPart } from './node/scalar/encapsed-string-part';
-export { FullyQualifiedScalarLNumber } from './node/scalar/l-number';
+export { FullyQualifiedScalarInt } from './node/scalar/int';
+export { FullyQualifiedScalarInterpolatedString } from './node/scalar/interpolated-string';
 export { FullyQualifiedScalarMagicConstClass } from './node/scalar/magic-const/class';
 export { FullyQualifiedScalarMagicConst } from './node/scalar/magic-const';
 export { FullyQualifiedScalarMagicConstDir } from './node/scalar/magic-const/dir';
@@ -482,8 +485,8 @@ export { FullyQualifiedScalarMagicConstMethod } from './node/scalar/magic-const/
 export { FullyQualifiedScalarMagicConstNamespace } from './node/scalar/magic-const/namespace';
 export { FullyQualifiedScalarMagicConstTrait } from './node/scalar/magic-const/trait';
 export { FullyQualifiedScalarString } from './node/scalar/string';
+export { FullyQualifiedStaticVar } from './node/static-var';
 export { FullyQualifiedStmtBreak } from './node/stmt/break';
-export { FullyQualifiedStmt } from './node/stmt';
 export { FullyQualifiedStmtCase } from './node/stmt/case';
 export { FullyQualifiedStmtCatch } from './node/stmt/catch';
 export { FullyQualifiedStmtClassConst } from './node/stmt/class-const';
@@ -492,7 +495,6 @@ export { FullyQualifiedStmtClassMethod } from './node/stmt/class-method';
 export { FullyQualifiedStmtClass } from './node/stmt/class';
 export { FullyQualifiedStmtConst } from './node/stmt/const';
 export { FullyQualifiedStmtContinue } from './node/stmt/continue';
-export { FullyQualifiedStmtDeclareDeclare } from './node/stmt/declare-declare';
 export { FullyQualifiedStmtDeclare } from './node/stmt/declare';
 export { FullyQualifiedStmtDo } from './node/stmt/do';
 export { FullyQualifiedStmtEcho } from './node/stmt/echo';
@@ -516,9 +518,7 @@ export { FullyQualifiedStmtLabel } from './node/stmt/label';
 export { FullyQualifiedStmtNamespace } from './node/stmt/namespace';
 export { FullyQualifiedStmtNop } from './node/stmt/nop';
 export { FullyQualifiedStmtProperty } from './node/stmt/property';
-export { FullyQualifiedStmtPropertyProperty } from './node/stmt/property-property';
 export { FullyQualifiedStmtReturn } from './node/stmt/return';
-export { FullyQualifiedStmtStaticVar } from './node/stmt/static-var';
 export { FullyQualifiedStmtStatic } from './node/stmt/static';
 export { FullyQualifiedStmtSwitch } from './node/stmt/switch';
 export { FullyQualifiedStmtThrow } from './node/stmt/throw';
@@ -529,21 +529,23 @@ export { FullyQualifiedStmtTraitUseAdaptationPrecedence } from './node/stmt/trai
 export { FullyQualifiedStmtTrait } from './node/stmt/trait';
 export { FullyQualifiedStmtTryCatch } from './node/stmt/try-catch';
 export { FullyQualifiedStmtUnset } from './node/stmt/unset';
-export { FullyQualifiedStmtUseUse } from './node/stmt/use-use';
 export { FullyQualifiedStmtUse } from './node/stmt/use';
 export { FullyQualifiedStmtWhile } from './node/stmt/while';
 export { FullyQualifiedUnionType } from './node/union-type';
+export { FullyQualifiedUseItem } from './node/use-item';
 export { FullyQualifiedVarLikeIdentifier } from './node/var-like-identifier';
 export { FullyQualifiedVariadicPlaceholder } from './node/variadic-placeholder';
 
 
 export enum NodeType {
   Arg = 'Arg',
+  ArrayItem = 'ArrayItem',
   Attribute = 'Attribute',
   AttributeGroup = 'AttributeGroup',
+  ClosureUse = 'ClosureUse',
   Const = 'Const',
+  DeclareItem = 'DeclareItem',
   Expr_ArrayDimFetch = 'Expr_ArrayDimFetch',
-  Expr_ArrayItem = 'Expr_ArrayItem',
   Expr_Array = 'Expr_Array',
   Expr_ArrowFunction = 'Expr_ArrowFunction',
   Expr_Assign = 'Expr_Assign',
@@ -600,7 +602,6 @@ export enum NodeType {
   Expr_ClassConstFetch = 'Expr_ClassConstFetch',
   Expr_Clone = 'Expr_Clone',
   Expr_Closure = 'Expr_Closure',
-  Expr_ClosureUse = 'Expr_ClosureUse',
   Expr_ConstFetch = 'Expr_ConstFetch',
   Expr_Empty = 'Expr_Empty',
   Expr_Error = 'Expr_Error',
@@ -634,6 +635,7 @@ export enum NodeType {
   Expr_YieldFrom = 'Expr_YieldFrom',
   Expr_Yield = 'Expr_Yield',
   Identifier = 'Identifier',
+  InterpolatedStringPart = 'InterpolatedStringPart',
   IntersectionType = 'IntersectionType',
   MatchArm = 'MatchArm',
   Name_FullyQualified = 'Name_FullyQualified',
@@ -641,10 +643,10 @@ export enum NodeType {
   Name_Relative = 'Name_Relative',
   NullableType = 'NullableType',
   Param = 'Param',
-  Scalar_DNumber = 'Scalar_DNumber',
-  Scalar_Encapsed = 'Scalar_Encapsed',
-  Scalar_EncapsedStringPart = 'Scalar_EncapsedStringPart',
-  Scalar_LNumber = 'Scalar_LNumber',
+  PropertyItem = 'PropertyItem',
+  Scalar_Float = 'Scalar_Float',
+  Scalar_Int = 'Scalar_Int',
+  Scalar_InterpolatedString = 'Scalar_InterpolatedString',
   Scalar_MagicConst_Class = 'Scalar_MagicConst_Class',
   Scalar_MagicConst_Dir = 'Scalar_MagicConst_Dir',
   Scalar_MagicConst_File = 'Scalar_MagicConst_File',
@@ -654,6 +656,7 @@ export enum NodeType {
   Scalar_MagicConst_Namespace = 'Scalar_MagicConst_Namespace',
   Scalar_MagicConst_Trait = 'Scalar_MagicConst_Trait',
   Scalar_String = 'Scalar_String',
+  StaticVar = 'StaticVar',
   Stmt_Break = 'Stmt_Break',
   Stmt_Case = 'Stmt_Case',
   Stmt_Catch = 'Stmt_Catch',
@@ -662,7 +665,6 @@ export enum NodeType {
   Stmt_Class = 'Stmt_Class',
   Stmt_Const = 'Stmt_Const',
   Stmt_Continue = 'Stmt_Continue',
-  Stmt_DeclareDeclare = 'Stmt_DeclareDeclare',
   Stmt_Declare = 'Stmt_Declare',
   Stmt_Do = 'Stmt_Do',
   Stmt_Echo = 'Stmt_Echo',
@@ -686,9 +688,7 @@ export enum NodeType {
   Stmt_Namespace = 'Stmt_Namespace',
   Stmt_Nop = 'Stmt_Nop',
   Stmt_Property = 'Stmt_Property',
-  Stmt_PropertyProperty = 'Stmt_PropertyProperty',
   Stmt_Return = 'Stmt_Return',
-  Stmt_StaticVar = 'Stmt_StaticVar',
   Stmt_Static = 'Stmt_Static',
   Stmt_Switch = 'Stmt_Switch',
   Stmt_Throw = 'Stmt_Throw',
@@ -698,10 +698,10 @@ export enum NodeType {
   Stmt_Trait = 'Stmt_Trait',
   Stmt_TryCatch = 'Stmt_TryCatch',
   Stmt_Unset = 'Stmt_Unset',
-  Stmt_UseUse = 'Stmt_UseUse',
   Stmt_Use = 'Stmt_Use',
   Stmt_While = 'Stmt_While',
   UnionType = 'UnionType',
+  UseItem = 'UseItem',
   VarLikeIdentifier = 'VarLikeIdentifier',
   VariadicPlaceholder = 'VariadicPlaceholder',
 }
@@ -709,11 +709,13 @@ export enum NodeType {
 
 export interface NodeTypeToInterfaceMap {
   [NodeType.Arg]: FullyQualifiedArg;
+  [NodeType.ArrayItem]: FullyQualifiedArrayItem;
   [NodeType.Attribute]: FullyQualifiedAttribute;
   [NodeType.AttributeGroup]: FullyQualifiedAttributeGroup;
+  [NodeType.ClosureUse]: FullyQualifiedClosureUse;
   [NodeType.Const]: FullyQualifiedConst;
+  [NodeType.DeclareItem]: FullyQualifiedDeclareItem;
   [NodeType.Expr_ArrayDimFetch]: FullyQualifiedExprArrayDimFetch;
-  [NodeType.Expr_ArrayItem]: FullyQualifiedExprArrayItem;
   [NodeType.Expr_Array]: FullyQualifiedExprArray;
   [NodeType.Expr_ArrowFunction]: FullyQualifiedExprArrowFunction;
   [NodeType.Expr_Assign]: FullyQualifiedExprAssign;
@@ -770,7 +772,6 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Expr_ClassConstFetch]: FullyQualifiedExprClassConstFetch;
   [NodeType.Expr_Clone]: FullyQualifiedExprClone;
   [NodeType.Expr_Closure]: FullyQualifiedExprClosure;
-  [NodeType.Expr_ClosureUse]: FullyQualifiedExprClosureUse;
   [NodeType.Expr_ConstFetch]: FullyQualifiedExprConstFetch;
   [NodeType.Expr_Empty]: FullyQualifiedExprEmpty;
   [NodeType.Expr_Error]: FullyQualifiedExprError;
@@ -804,6 +805,7 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Expr_YieldFrom]: FullyQualifiedExprYieldFrom;
   [NodeType.Expr_Yield]: FullyQualifiedExprYield;
   [NodeType.Identifier]: FullyQualifiedIdentifier;
+  [NodeType.InterpolatedStringPart]: FullyQualifiedInterpolatedStringPart;
   [NodeType.IntersectionType]: FullyQualifiedIntersectionType;
   [NodeType.MatchArm]: FullyQualifiedMatchArm;
   [NodeType.Name_FullyQualified]: FullyQualifiedNameFullyQualified;
@@ -811,10 +813,10 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Name_Relative]: FullyQualifiedNameRelative;
   [NodeType.NullableType]: FullyQualifiedNullableType;
   [NodeType.Param]: FullyQualifiedParam;
-  [NodeType.Scalar_DNumber]: FullyQualifiedScalarDNumber;
-  [NodeType.Scalar_Encapsed]: FullyQualifiedScalarEncapsed;
-  [NodeType.Scalar_EncapsedStringPart]: FullyQualifiedScalarEncapsedStringPart;
-  [NodeType.Scalar_LNumber]: FullyQualifiedScalarLNumber;
+  [NodeType.PropertyItem]: FullyQualifiedPropertyItem;
+  [NodeType.Scalar_Float]: FullyQualifiedScalarFloat;
+  [NodeType.Scalar_Int]: FullyQualifiedScalarInt;
+  [NodeType.Scalar_InterpolatedString]: FullyQualifiedScalarInterpolatedString;
   [NodeType.Scalar_MagicConst_Class]: FullyQualifiedScalarMagicConstClass;
   [NodeType.Scalar_MagicConst_Dir]: FullyQualifiedScalarMagicConstDir;
   [NodeType.Scalar_MagicConst_File]: FullyQualifiedScalarMagicConstFile;
@@ -824,6 +826,7 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Scalar_MagicConst_Namespace]: FullyQualifiedScalarMagicConstNamespace;
   [NodeType.Scalar_MagicConst_Trait]: FullyQualifiedScalarMagicConstTrait;
   [NodeType.Scalar_String]: FullyQualifiedScalarString;
+  [NodeType.StaticVar]: FullyQualifiedStaticVar;
   [NodeType.Stmt_Break]: FullyQualifiedStmtBreak;
   [NodeType.Stmt_Case]: FullyQualifiedStmtCase;
   [NodeType.Stmt_Catch]: FullyQualifiedStmtCatch;
@@ -832,7 +835,6 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Stmt_Class]: FullyQualifiedStmtClass;
   [NodeType.Stmt_Const]: FullyQualifiedStmtConst;
   [NodeType.Stmt_Continue]: FullyQualifiedStmtContinue;
-  [NodeType.Stmt_DeclareDeclare]: FullyQualifiedStmtDeclareDeclare;
   [NodeType.Stmt_Declare]: FullyQualifiedStmtDeclare;
   [NodeType.Stmt_Do]: FullyQualifiedStmtDo;
   [NodeType.Stmt_Echo]: FullyQualifiedStmtEcho;
@@ -856,9 +858,7 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Stmt_Namespace]: FullyQualifiedStmtNamespace;
   [NodeType.Stmt_Nop]: FullyQualifiedStmtNop;
   [NodeType.Stmt_Property]: FullyQualifiedStmtProperty;
-  [NodeType.Stmt_PropertyProperty]: FullyQualifiedStmtPropertyProperty;
   [NodeType.Stmt_Return]: FullyQualifiedStmtReturn;
-  [NodeType.Stmt_StaticVar]: FullyQualifiedStmtStaticVar;
   [NodeType.Stmt_Static]: FullyQualifiedStmtStatic;
   [NodeType.Stmt_Switch]: FullyQualifiedStmtSwitch;
   [NodeType.Stmt_Throw]: FullyQualifiedStmtThrow;
@@ -868,10 +868,10 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Stmt_Trait]: FullyQualifiedStmtTrait;
   [NodeType.Stmt_TryCatch]: FullyQualifiedStmtTryCatch;
   [NodeType.Stmt_Unset]: FullyQualifiedStmtUnset;
-  [NodeType.Stmt_UseUse]: FullyQualifiedStmtUseUse;
   [NodeType.Stmt_Use]: FullyQualifiedStmtUse;
   [NodeType.Stmt_While]: FullyQualifiedStmtWhile;
   [NodeType.UnionType]: FullyQualifiedUnionType;
+  [NodeType.UseItem]: FullyQualifiedUseItem;
   [NodeType.VarLikeIdentifier]: FullyQualifiedVarLikeIdentifier;
   [NodeType.VariadicPlaceholder]: FullyQualifiedVariadicPlaceholder;
 }

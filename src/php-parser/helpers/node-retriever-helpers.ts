@@ -125,7 +125,10 @@ export class NodeRetrieverHelpers {
     if (namespaceNode?.stmts) {
       return Object.fromEntries(
         this.filterNodeByNodeType<Use_>(namespaceNode.stmts, NodeType.Stmt_Use)
-          .map((useNode) => useNode.uses[0].name.parts)
+          // https://github.com/nikic/PHP-Parser/blob/master/UPGRADE-5.0.md#changes-to-the-name-representation
+          .map((useNode) =>
+            NodeRetrieverHelpers.getPartsByName(useNode.uses[0].name.name),
+          )
           .map((parts) => [parts.slice(-1), parts]),
       ) as IUses;
     }
@@ -174,5 +177,15 @@ export class NodeRetrieverHelpers {
     nodeType: string,
   ): T[] {
     return nodes.filter((node) => node.nodeType === nodeType) as T[];
+  }
+
+  /**
+   * Get parts of name (split by the namespace separator).
+   *
+   * @param name the Full name with namespace separator
+   * @returns string[] Parts of name
+   */
+  public static getPartsByName(name: string): string[] {
+    return name.split('\\');
   }
 }

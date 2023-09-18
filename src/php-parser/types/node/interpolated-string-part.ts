@@ -2,13 +2,13 @@ import type { NodeAbstract } from '../node'; // fullyQualifiedNodeName NodeAbstr
 
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export interface Name extends Omit<NodeAbstract, 'nodeType'> {
-  nodeType: 'Name';
+export interface InterpolatedStringPart extends Omit<NodeAbstract, 'nodeType'> {
+  nodeType: 'InterpolatedStringPart';
 
-  ["name"] : string;
+  ["value"] : string;
 }
 
 // We also need to export a symbol by using node type
 // since the nodeName is possibly duplicated
 // for the files need to import all nodes, we needs to use nodeType insteads
-export type FullyQualifiedName = Name;
+export type FullyQualifiedInterpolatedStringPart = InterpolatedStringPart;
