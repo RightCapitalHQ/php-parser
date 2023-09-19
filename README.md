@@ -61,7 +61,7 @@ console.log(rootNodes);
 // [
 //   {
 //     nodeType: "Stmt_Echo",
-//     attributes: { startLine: 2, startFilePos: 6, endLine: 2, endFilePos: 18 },
+//     attributes: { startLine: 2, startFilePos: 6, endLine: 2, endTokenPos: 4, endFilePos: 18 },
 //     exprs: [[Object]],
 //   },
 // ];
@@ -76,7 +76,7 @@ const echoNode =
 console.log(echoNode);
 // {
 //   nodeType: 'Stmt_Echo',
-//   attributes: { startLine: 2, startFilePos: 6, endLine: 2, endFilePos: 18 },
+//   attributes: { startLine: 2, startFilePos: 6, endLine: 2, endTokenPos: 4, endFilePos: 18 },
 //   exprs: [
 //     { nodeType: 'Scalar_String', attributes: [Object], value: 'Hello' }
 //   ]
