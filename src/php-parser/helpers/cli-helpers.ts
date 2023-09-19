@@ -22,7 +22,11 @@ export class CliHelpers {
   ): NodeTypeInheritingFromNodeAbstract[] {
     const parserOutputString = execSync(
       `${PHP_PARSER_BINARY} ${phpFilePath} -j`,
-      { encoding: 'utf-8', maxBuffer: MAX_BUFFER_SIZE_FOR_PHP_BINARY_OUTPUT },
+      {
+        encoding: 'utf-8',
+        maxBuffer: MAX_BUFFER_SIZE_FOR_PHP_BINARY_OUTPUT,
+        stdio: ['pipe', 'pipe', 'ignore'],
+      },
     );
     return JSON.parse(
       parserOutputString,
