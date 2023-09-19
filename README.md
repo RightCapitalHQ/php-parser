@@ -1,4 +1,4 @@
-# PHP Parser TypeScript version
+# TypeScript types for PHP Parser JSON representation
 
 <!-- Badges area start -->
 
