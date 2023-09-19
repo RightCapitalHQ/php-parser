@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Tue, 19 Sep 2023 13:48:13 GMT",
+      "version": "0.3.2",
+      "tag": "@rightcapital/php-parser_v0.3.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "i@rainx.cc",
+            "package": "@rightcapital/php-parser",
+            "commit": "10bf7d08a16088eb414d1c14f357808a995b3bd6",
+            "comment": "docs: update library name and description"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Sep 2023 02:31:13 GMT",
       "version": "0.3.1",
       "tag": "@rightcapital/php-parser_v0.3.1",

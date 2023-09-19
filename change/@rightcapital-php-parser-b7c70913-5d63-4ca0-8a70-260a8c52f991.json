@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "docs: update library name and description",
-  "packageName": "@rightcapital/php-parser",
-  "email": "i@rainx.cc",
-  "dependentChangeType": "patch"
-}
