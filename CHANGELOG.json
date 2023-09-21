@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 21 Sep 2023 14:25:28 GMT",
+      "version": "0.3.2",
+      "tag": "@rightcapital/php-parser_v0.3.2",
+      "comments": {
+        "none": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "e009365837d9a9c560242abcc1fd2d62cce56394",
+            "comment": "chore(deps): update devdependency @types/node to v20.6.3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 19 Sep 2023 13:48:13 GMT",
       "version": "0.3.2",
       "tag": "@rightcapital/php-parser_v0.3.2",
