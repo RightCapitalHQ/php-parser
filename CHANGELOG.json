@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Sat, 23 Sep 2023 16:03:17 GMT",
+      "version": "0.3.2",
+      "tag": "@rightcapital/php-parser_v0.3.2",
+      "comments": {
+        "none": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "85b623ec41c8d65c0b40945c1a72d91c14356e3c",
+            "comment": "chore(deps): update devdependency @types/lodash to v4.14.199"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 21 Sep 2023 14:25:28 GMT",
       "version": "0.3.2",
       "tag": "@rightcapital/php-parser_v0.3.2",
