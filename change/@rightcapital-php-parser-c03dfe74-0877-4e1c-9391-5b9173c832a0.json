@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "chore(deps): update devdependency @types/node to v20.6.5",
-  "packageName": "@rightcapital/php-parser",
-  "email": "29139614+renovate[bot]@users.noreply.github.com",
-  "dependentChangeType": "none"
-}
