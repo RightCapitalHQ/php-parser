@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 25 Sep 2023 01:40:35 GMT",
+      "version": "0.3.2",
+      "tag": "@rightcapital/php-parser_v0.3.2",
+      "comments": {
+        "none": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "52cc78e2eb93160df7f9da99e129d56e02fb11a2",
+            "comment": "chore(deps): lock file maintenance non-major updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 25 Sep 2023 01:39:13 GMT",
       "version": "0.3.2",
       "tag": "@rightcapital/php-parser_v0.3.2",
