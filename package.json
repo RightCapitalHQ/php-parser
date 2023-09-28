@@ -42,9 +42,9 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.7.1",
+    "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
-    "@commitlint/cz-commitlint": "17.7.1",
+    "@commitlint/cz-commitlint": "17.7.2",
     "@rightcapital/eslint-config-javascript": "8.0.0",
     "@rightcapital/eslint-config-typescript": "8.0.0",
     "@rightcapital/prettier-config": "6.0.2",
