@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "chore(deps): update devdependency @types/node to v20.8.0",
+  "packageName": "@rightcapital/php-parser",
+  "email": "email not defined",
+  "dependentChangeType": "none"
+}
