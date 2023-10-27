@@ -35,8 +35,8 @@ npm install --save @rightcapital/php-parser
 Supposed you have a PHP file named `hello.php` with the following content
 
 ```php
- <?php
-echo "Hello";
+<?php
+    echo "Hello";
 ```
 
 Here is your TypeScript code for parsing and retrieving the AST nodes of the above PHP file.
