@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rightcapital/phpdoc-parser':
-    specifier: 0.3.10
-    version: 0.3.10
+    specifier: 0.3.14
+    version: 0.3.14
   lodash:
     specifier: 4.17.21
     version: 4.17.21
@@ -401,12 +401,12 @@ packages:
       - supports-color
     dev: true
 
-  /@rightcapital/phpdoc-parser@0.3.10:
-    resolution: {integrity: sha512-KefT0b0dU8aZmseB/qcRcwCHGaXf6Wd/w2TFA3jkunDmqdrzdvG0u2FR3XHOi7yPWjJBwf17C1bZH3RKSME5Kg==}
+  /@rightcapital/phpdoc-parser@0.3.14:
+    resolution: {integrity: sha512-14XZ+MbOsBza6jVQPDzoyajvS3RCdg5OqNh/doataGmr+M/svLoKrY2XqUSATZQsFTo3HRNR3qPEwpSDT5W9UQ==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.17.15
+      '@types/node': 20.8.10
       lodash: 4.17.21
     dev: false
 
@@ -439,15 +439,17 @@ packages:
     resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
     dev: true
 
-  /@types/node@18.17.15:
-    resolution: {integrity: sha512-2yrWpBk32tvV/JAd3HNHWuZn/VDN1P+72hWirHnvsvTGSqbANi+kSeuQR9yAHnbvaBvHDsoTdXV0Fe+iRtHLKA==}
-    dev: false
-
   /@types/node@18.18.8:
     resolution: {integrity: sha512-OLGBaaK5V3VRBS1bAkMVP2/W9B+H8meUfl866OrMNQqt7wDgdpWPp5o6gmIc9pB+lIQHSq4ZL8ypeH1vPxcPaQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
+
+  /@types/node@20.8.10:
+    resolution: {integrity: sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: false
 
   /@types/node@20.9.1:
     resolution: {integrity: sha512-HhmzZh5LSJNS5O8jQKpJ/3ZcrrlG6L70hpGqMIAoM9YVD0YBRNWYsfwcXq8VnSjlNpCpgLzMXdiPo+dxcvSmiA==}
@@ -3089,7 +3091,6 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-    dev: true
 
   /universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
