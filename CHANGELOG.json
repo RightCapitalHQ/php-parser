@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Sat, 16 Dec 2023 07:37:32 GMT",
+      "version": "0.3.5",
+      "tag": "@rightcapital/php-parser_v0.3.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "1d8abd1a023547a10d4445044193893bdd4302c6",
+            "comment": "fix(deps): update dependency @rightcapital/phpdoc-parser to v0.3.14"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 17 Nov 2023 03:18:46 GMT",
       "version": "0.3.4",
       "tag": "@rightcapital/php-parser_v0.3.4",
