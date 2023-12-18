@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 18 Dec 2023 13:13:23 GMT",
+      "version": "0.3.8",
+      "tag": "@rightcapital/php-parser_v0.3.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "2c03cf7bdde7106fe35b08f3821bea4dc340979a",
+            "comment": "chore(deps): update actions/setup-node action to v4.0.1"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Dec 2023 07:21:58 GMT",
       "version": "0.3.7",
       "tag": "@rightcapital/php-parser_v0.3.7",
