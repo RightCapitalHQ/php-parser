@@ -17,7 +17,7 @@
     "prepare": "husky install"
   },
   "repository": "https://github.com/RightCapitalHQ/php-parser",
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.12.1",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -38,8 +38,8 @@
     "@rightcapital/phpdoc-parser": "0.3.14",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
-    "prettier": "3.0.3",
-    "typescript": "5.2.2"
+    "prettier": "3.1.1",
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.2",
