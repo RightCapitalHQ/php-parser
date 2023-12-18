@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Sat, 16 Dec 2023 07:37:32 GMT and should not be manually modified.
+This log was last generated on Mon, 18 Dec 2023 07:08:12 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+### [0.3.6](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v0.3.6) (2023-12-18)
+
+- fix(deps): update non-major updates(auto merge) ([f552b50](https://github.com/RightCapitalHQ/phpdoc-parser/commit/f552b502c23e3ad96804f689f93844eb22ae3ac1))
 
 ### [0.3.5](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v0.3.5) (2023-12-16)
 
