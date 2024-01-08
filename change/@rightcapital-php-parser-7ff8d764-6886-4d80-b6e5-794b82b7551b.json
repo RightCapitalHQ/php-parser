@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "feat: support `nikic/PHP-Parser` v5.x",
-  "packageName": "@rightcapital/php-parser",
-  "email": "i@rainx.cc",
-  "dependentChangeType": "patch"
-}

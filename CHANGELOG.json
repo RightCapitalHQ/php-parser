@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 08 Jan 2024 05:36:08 GMT",
+      "version": "1.0.0",
+      "tag": "@rightcapital/php-parser_v1.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "i@rainx.cc",
+            "package": "@rightcapital/php-parser",
+            "commit": "7f91958a55a48607403ca1aa231fee0d9d6f6c70",
+            "comment": "feat: support `nikic/PHP-Parser` v5.x"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 03 Jan 2024 04:30:13 GMT",
       "version": "0.3.10",
       "tag": "@rightcapital/php-parser_v0.3.10",

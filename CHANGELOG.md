@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Wed, 03 Jan 2024 04:30:13 GMT and should not be manually modified.
+This log was last generated on Mon, 08 Jan 2024 05:36:08 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## [1.0.0](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.0) (2024-1-8)
+
+- feat: support `nikic/PHP-Parser` v5.x ([7f91958](https://github.com/RightCapitalHQ/phpdoc-parser/commit/7f91958a55a48607403ca1aa231fee0d9d6f6c70))
 
 ### [0.3.10](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v0.3.10) (2024-1-3)
 
