@@ -1,10 +1,10 @@
-import type { Stmt } from '../node/stmt'; // fullyQualifiedNodeName FullyQualifiedStmt
+import type { NodeAbstract } from '../node'; // fullyQualifiedNodeName NodeAbstract
 
 import type { NodeTypeInheritingFromFullyQualifiedName } from "../types";
 import type { NodeTypeInheritingFromFullyQualifiedIdentifier } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export interface UseItem extends Omit<Stmt, 'nodeType'> {
+export interface UseItem extends Omit<NodeAbstract, 'nodeType'> {
   nodeType: 'UseItem';
 
   ["type"] : any;

@@ -1,10 +1,10 @@
-import type { Stmt } from '../node/stmt'; // fullyQualifiedNodeName FullyQualifiedStmt
+import type { NodeAbstract } from '../node'; // fullyQualifiedNodeName NodeAbstract
 
 import type { NodeTypeInheritingFromFullyQualifiedVarLikeIdentifier } from "../types";
 import type { NodeTypeInheritingFromFullyQualifiedExpr } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export interface PropertyItem extends Omit<Stmt, 'nodeType'> {
+export interface PropertyItem extends Omit<NodeAbstract, 'nodeType'> {
   nodeType: 'PropertyItem';
 
   ["name"] : NodeTypeInheritingFromFullyQualifiedVarLikeIdentifier;
