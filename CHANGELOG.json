@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 08 Jan 2024 05:37:44 GMT",
+      "version": "1.0.0",
+      "tag": "@rightcapital/php-parser_v1.0.0",
+      "comments": {
+        "none": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "dcc7216c2e8fed07b7c7ee7ca2bc4d53f32b399b",
+            "comment": "chore(deps): update devdependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 08 Jan 2024 05:36:08 GMT",
       "version": "1.0.0",
       "tag": "@rightcapital/php-parser_v1.0.0",
