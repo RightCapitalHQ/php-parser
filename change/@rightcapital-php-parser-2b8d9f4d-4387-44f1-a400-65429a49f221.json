@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "chore(deps): pin devdependency tsx to 4.7.0",
-  "packageName": "@rightcapital/php-parser",
-  "email": "email not defined",
-  "dependentChangeType": "none"
-}

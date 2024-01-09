@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Tue, 09 Jan 2024 05:47:54 GMT",
+      "version": "1.0.0",
+      "tag": "@rightcapital/php-parser_v1.0.0",
+      "comments": {
+        "none": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "363a6c05aee24e5a01736f4f50221e525a1403b8",
+            "comment": "chore(deps): pin devdependency tsx to 4.7.0"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 08 Jan 2024 05:37:44 GMT",
       "version": "1.0.0",
       "tag": "@rightcapital/php-parser_v1.0.0",
