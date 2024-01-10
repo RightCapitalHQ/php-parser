@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Mon, 08 Jan 2024 05:36:08 GMT and should not be manually modified.
+This log was last generated on Wed, 10 Jan 2024 22:48:49 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+### [1.0.1](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.1) (2024-1-10)
+
+- chore(deps): update non-major updates(auto merge) ([1a59170](https://github.com/RightCapitalHQ/phpdoc-parser/commit/1a591707267c28d9610e15924ea757eb3ce36444))
 
 ## [1.0.0](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.0) (2024-1-8)
 
