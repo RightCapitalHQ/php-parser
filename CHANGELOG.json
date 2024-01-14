@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Sun, 14 Jan 2024 07:59:19 GMT",
+      "version": "1.0.3",
+      "tag": "@rightcapital/php-parser_v1.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "6cbe7ca4de4b2a229a60d09708ec23973875cda6",
+            "comment": "fix(deps): update dependency prettier to v3.2.2"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Jan 2024 22:59:44 GMT",
       "version": "1.0.2",
       "tag": "@rightcapital/php-parser_v1.0.2",

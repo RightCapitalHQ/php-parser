@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Fri, 12 Jan 2024 22:59:44 GMT and should not be manually modified.
+This log was last generated on Sun, 14 Jan 2024 07:59:19 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+### [1.0.3](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.3) (2024-1-14)
+
+- fix(deps): update dependency prettier to v3.2.2 ([6cbe7ca](https://github.com/RightCapitalHQ/phpdoc-parser/commit/6cbe7ca4de4b2a229a60d09708ec23973875cda6))
 
 ### [1.0.2](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.2) (2024-1-12)
 
