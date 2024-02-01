@@ -1,4 +1,4 @@
-import { IComment } from './comment';
+import type { IComment } from './comment';
 
 export interface IAttributes {
   startLine: number;

@@ -1,5 +1,5 @@
-import { TypeNode as PhpTypeNode } from '@rightcapital/phpdoc-parser';
-import { SyntaxKind, TypeNode, factory } from 'typescript';
+import type { TypeNode as PhpTypeNode } from '@rightcapital/phpdoc-parser';
+import { SyntaxKind, type TypeNode, factory } from 'typescript';
 import { BaseTypeTranspiler } from './base-type-transpiler';
 
 export type NameNodePathResolver = (nodeParts: string[]) => {

@@ -2,20 +2,20 @@ import { join } from 'path';
 import {
   ConstExprParser,
   Lexer,
-  PhpDocNode,
+  type PhpDocNode,
   PhpDocParser,
-  TypeNode as PhpDocTypeNode,
+  type TypeNode as PhpDocTypeNode,
   TokenIterator,
   TypeParser,
-  VarTagValueNode,
+  type VarTagValueNode,
 } from '@rightcapital/phpdoc-parser';
 import {
   EmitHint,
-  ImportDeclaration,
+  type ImportDeclaration,
   NewLineKind,
   ScriptKind,
   ScriptTarget,
-  TypeNode,
+  type TypeNode,
   createPrinter,
   createSourceFile,
 } from 'typescript';
