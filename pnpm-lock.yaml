@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rightcapital/phpdoc-parser':
-    specifier: 0.3.16
-    version: 0.3.16
+    specifier: 0.3.38
+    version: 0.3.38
   lodash:
     specifier: 4.17.21
     version: 4.17.21
@@ -612,12 +612,12 @@ packages:
       - supports-color
     dev: true
 
-  /@rightcapital/phpdoc-parser@0.3.16:
-    resolution: {integrity: sha512-1IE6fow7cuIU1oeAspPQ4rsCu1mcvELU+TZ8YibPuO7HZtEiJg+HF8h8/W6xwveqvja4RCfYNK+LUYFjK8zY6w==}
+  /@rightcapital/phpdoc-parser@0.3.38:
+    resolution: {integrity: sha512-+UyA2hZcPlFwMX8t4NIzTI5t+rerxHdrvYKC72jqEBRyK+GTSfnI9HNCNwJn0kh1Ggr7uv9L+5x8gqavsiOGnQ==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.10.5
+      '@types/node': 20.11.14
       lodash: 4.17.21
     dev: false
 
@@ -650,17 +650,10 @@ packages:
     resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
     dev: true
 
-  /@types/node@20.10.5:
-    resolution: {integrity: sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: false
-
   /@types/node@20.11.14:
     resolution: {integrity: sha512-w3yWCcwULefjP9DmDDsgUskrMoOy5Z8MiwKHr1FvqGPtx7CvJzQvxD7eKpxNtklQxLruxSXWddyeRtyud0RcXQ==}
     dependencies:
       undici-types: 5.26.5
-    dev: true
 
   /@types/normalize-package-data@2.4.4:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
