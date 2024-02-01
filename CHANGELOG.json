@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 01 Feb 2024 03:22:33 GMT",
+      "version": "1.0.4",
+      "tag": "@rightcapital/php-parser_v1.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "30a44c6ddf78fc43c7432e162c2c0ccb70610d9c",
+            "comment": "fix(deps): update dependency @rightcapital/phpdoc-parser to v0.3.38"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 01 Feb 2024 03:21:31 GMT",
       "version": "1.0.3",
       "tag": "@rightcapital/php-parser_v1.0.3",
