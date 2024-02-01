@@ -45,14 +45,14 @@
     "@commitlint/cli": "18.6.0",
     "@commitlint/config-conventional": "18.6.0",
     "@commitlint/cz-commitlint": "18.6.0",
-    "@rightcapital/eslint-config-javascript": "16.0.1",
-    "@rightcapital/eslint-config-typescript": "16.0.1",
+    "@rightcapital/eslint-config-javascript": "19.0.0",
+    "@rightcapital/eslint-config-typescript": "19.0.0",
     "@rightcapital/prettier-config": "6.0.12",
     "@types/lodash": "4.14.202",
     "@types/mustache": "4.2.5",
     "@types/node": "20.11.14",
     "beachball": "2.39.0",
-    "husky": "8.0.3",
+    "husky": "9.0.7",
     "tsx": "4.7.0"
   },
   "config": {
