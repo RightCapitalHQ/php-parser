@@ -15,8 +15,8 @@ dependencies:
     specifier: 4.2.0
     version: 4.2.0
   prettier:
-    specifier: 3.2.2
-    version: 3.2.2
+    specifier: 3.2.4
+    version: 3.2.4
   typescript:
     specifier: 5.3.3
     version: 5.3.3
@@ -39,7 +39,7 @@ devDependencies:
     version: 19.0.0(eslint@8.56.0)(typescript@5.3.3)
   '@rightcapital/prettier-config':
     specifier: 6.0.12
-    version: 6.0.12(prettier@3.2.2)
+    version: 6.0.12(prettier@3.2.4)
   '@types/lodash':
     specifier: 4.14.202
     version: 4.14.202
@@ -621,13 +621,13 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /@rightcapital/prettier-config@6.0.12(prettier@3.2.2):
+  /@rightcapital/prettier-config@6.0.12(prettier@3.2.4):
     resolution: {integrity: sha512-oNdf217obn/TlVSP+r/RMKW1dWMyA2iD/H9w33SMuxag3neZMRGs0OdwxeC7eJFpxm3vnz32W8Ej+iSjOBrpmQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       prettier: ^3.0.0
     dependencies:
-      prettier: 3.2.2
+      prettier: 3.2.4
     dev: true
 
   /@rushstack/eslint-patch@1.7.2:
@@ -2812,8 +2812,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@3.2.2:
-    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
+  /prettier@3.2.4:
+    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
     engines: {node: '>=14'}
     hasBin: true
 
