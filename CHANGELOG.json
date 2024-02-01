@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 01 Feb 2024 03:38:38 GMT",
+      "version": "1.0.5",
+      "tag": "@rightcapital/php-parser_v1.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "email not defined",
+            "package": "@rightcapital/php-parser",
+            "commit": "6598745a3a7cf94a7850d065c0593aed96673ff4",
+            "comment": "chore(deps): update non-major updates(auto merge)"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 01 Feb 2024 03:22:33 GMT",
       "version": "1.0.4",
       "tag": "@rightcapital/php-parser_v1.0.4",

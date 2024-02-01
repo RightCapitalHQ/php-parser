@@ -1,6 +1,6 @@
 {
   "name": "@rightcapital/php-parser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TypeScript types for PHP Parser JSON representation",
   "main": "dist/index.js",
   "scripts": {
