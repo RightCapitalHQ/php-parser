@@ -1,4 +1,4 @@
-import { IAttributes } from './attributes';
+import type { IAttributes } from './attributes';
 
 export interface INode {
   nodeType?: string;

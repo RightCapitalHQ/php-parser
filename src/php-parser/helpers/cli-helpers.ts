@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import { tmpdir } from 'os';
 import { resolve } from 'path';
 import { PROJECT_ROOT } from '../../constants';
-import { NodeTypeInheritingFromNodeAbstract } from '../types/types';
+import type { NodeTypeInheritingFromNodeAbstract } from '../types/types';
 
 const PHP_PARSER_BINARY = resolve(PROJECT_ROOT, 'vendor', 'bin', 'php-parse');
 // Avoid ENOBUFS for large output, increase buffer size to 50m

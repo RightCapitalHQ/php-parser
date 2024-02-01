@@ -17,8 +17,8 @@ import * as Mustache from 'mustache';
 import { CliHelpers } from './helpers/cli-helpers';
 import { FilePathHelpers } from './helpers/file-path-helpers';
 import {
-  IProperty,
-  IUses,
+  type IProperty,
+  type IUses,
   NodeRetrieverHelpers,
 } from './helpers/node-retriever-helpers';
 import { TypeGenerationHelpers } from './helpers/type-generation-helpers';

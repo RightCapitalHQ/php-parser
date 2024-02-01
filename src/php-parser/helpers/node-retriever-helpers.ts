@@ -1,5 +1,5 @@
-import { VarTagValueNode } from '@rightcapital/phpdoc-parser';
-import { ITypeGenerationPackage, PhpDocHelpers } from './php-doc-helpers';
+import type { VarTagValueNode } from '@rightcapital/phpdoc-parser';
+import { type ITypeGenerationPackage, PhpDocHelpers } from './php-doc-helpers';
 import { ClassModifier } from '../types/constants';
 import type { INode } from '../types/node';
 import type { String_ } from '../types/node/scalar/string';
