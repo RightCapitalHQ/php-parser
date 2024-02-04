@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Sun, 04 Feb 2024 06:58:45 GMT",
+      "version": "1.0.5",
+      "tag": "@rightcapital/php-parser_v1.0.5",
+      "comments": {
+        "none": [
+          {
+            "author": "i@rainx.cc",
+            "package": "@rightcapital/php-parser",
+            "commit": "6155cc32bd93ae4cd09e0f1f8138331e712d2a93",
+            "comment": "chore: follow the migration guide to upgrade husky scripts"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 02 Feb 2024 09:44:39 GMT",
       "version": "1.0.5",
       "tag": "@rightcapital/php-parser_v1.0.5",

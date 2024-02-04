@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "chore: follow the migration guide to upgrade husky scripts",
-  "packageName": "@rightcapital/php-parser",
-  "email": "i@rainx.cc",
-  "dependentChangeType": "none"
-}
