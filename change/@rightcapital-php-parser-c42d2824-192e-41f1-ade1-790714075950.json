@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "fix(deps): update dependency @rightcapital/phpdoc-parser to v0.3.40",
-  "packageName": "@rightcapital/php-parser",
-  "email": "29139614+renovate[bot]@users.noreply.github.com",
-  "dependentChangeType": "patch"
-}
