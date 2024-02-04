@@ -14,7 +14,7 @@
     "generate:types": "tsx src/php-parser/generate-types.ts",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "command -v composer >/dev/null 2>&1 && composer install || echo 'Composer not found, skipping.'",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": "https://github.com/RightCapitalHQ/php-parser",
   "packageManager": "pnpm@8.15.1",
