@@ -13,8 +13,8 @@
 
 This NPM package is focusing on providing to following abilities:
 
-- A TypeScript/JavaScript wrapper for calling nicki's PHP-Parser
-- Sort of auto generated type definitions to annotate the AST (represented as JSON) from nicki's PHP-Parser cli
+- A TypeScript/JavaScript wrapper for calling nikic's PHP-Parser
+- Sort of auto generated type definitions to annotate the AST (represented as JSON) from nikic's PHP-Parser cli
 - Some util/helper functions to easily retrieving proper PHP AST node with correct type annotation
 
 # Installation
