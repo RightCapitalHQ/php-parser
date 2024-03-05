@@ -9,6 +9,7 @@ import {
   TypeParser,
   type VarTagValueNode,
 } from '@rightcapital/phpdoc-parser';
+import type { NameNodePathResolver } from '@rightcapital/phpdoc-parser/dist/phpdoc-parser/transpiler/php-doc-to-typescript-type-transpiler';
 import {
   EmitHint,
   type ImportDeclaration,
@@ -19,13 +20,10 @@ import {
   createPrinter,
   createSourceFile,
 } from 'typescript';
+import { ExtendedTranspiler } from './extended-php-doc-transpiler';
 import { FilePathHelpers } from './file-path-helpers';
 import type { IUses } from './node-retriever-helpers';
 import { TypeGenerationHelpers } from './type-generation-helpers';
-import {
-  type NameNodePathResolver,
-  PhpDocToTypescriptTypeTranspiler,
-} from '../../transpiler/php-doc-to-typescript-type-transpiler';
 
 export interface ITypeGenerationPackage {
   tsTypeNode: TypeNode;
@@ -77,7 +75,7 @@ export class PhpDocHelpers {
     fileRelativePath: string,
     uses: IUses,
   ): ITypeGenerationPackage {
-    const nameNodePathResolver: NameNodePathResolver = (
+    const nameNodePathResolver: NameNodePathResolver<ExtendedTranspiler> = (
       nodeParts: string[],
     ) => {
       const targetTypeFilePath = FilePathHelpers.getFilePathFromNameNodeParts(
@@ -107,9 +105,7 @@ export class PhpDocHelpers {
         isTypeOnly: true,
       };
     };
-    const transpiler = new PhpDocToTypescriptTypeTranspiler(
-      nameNodePathResolver,
-    );
+    const transpiler = new ExtendedTranspiler(nameNodePathResolver);
 
     transpiler.beforeTranspile();
     const tsTypeNode = transpiler.transpile(typeNode);
