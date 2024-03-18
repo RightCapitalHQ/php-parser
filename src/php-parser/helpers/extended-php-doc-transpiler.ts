@@ -1,7 +1,7 @@
 import {
   type NameNodePathResolver,
   PhpDocTypeNodeToTypescriptTypeNodeTranspiler,
-} from '@rightcapital/phpdoc-parser/dist/phpdoc-parser/transpiler/php-doc-to-typescript-type-transpiler';
+} from '@rightcapital/phpdoc-parser';
 
 export class ExtendedTranspiler extends PhpDocTypeNodeToTypescriptTypeNodeTranspiler {
   constructor(public resolver: NameNodePathResolver<ExtendedTranspiler>) {
