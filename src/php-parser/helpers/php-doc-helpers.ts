@@ -18,7 +18,7 @@ import type { IUses } from './node-retriever-helpers';
 import { TypeGenerationHelpers } from './type-generation-helpers';
 
 export interface ITypeGenerationPackage {
-  tsTypeNode: TypeNode;
+  transpiledTypeNode: TypeNode;
   importDeclarations: ImportDeclaration[];
   outputTsTypeGeneratedString: string;
   importDeclarationGeneratedStrings: string[];
@@ -108,7 +108,7 @@ export class PhpDocHelpers {
       (importDeclaration) => renderTsNodeToString(importDeclaration),
     );
     return {
-      tsTypeNode: transpiledTypeNode,
+      transpiledTypeNode,
       importDeclarations,
       outputTsTypeGeneratedString,
       importDeclarationGeneratedStrings,
