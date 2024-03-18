@@ -11,16 +11,7 @@ import {
   type NameNodePathResolver,
   renderTsNodeToString,
 } from '@rightcapital/phpdoc-parser';
-import {
-  EmitHint,
-  type ImportDeclaration,
-  NewLineKind,
-  ScriptKind,
-  ScriptTarget,
-  type TypeNode,
-  createPrinter,
-  createSourceFile,
-} from 'typescript';
+import type { ImportDeclaration, TypeNode } from 'typescript';
 import { ExtendedTranspiler } from './extended-php-doc-transpiler';
 import { FilePathHelpers } from './file-path-helpers';
 import type { IUses } from './node-retriever-helpers';
@@ -133,20 +124,5 @@ export class PhpDocHelpers {
       throw Error('It should have at least one var tag in the comment section');
     }
     return varTagValueNode;
-  }
-
-  private static renderTsNodeToString(
-    tsNode: TypeNode | ImportDeclaration,
-  ): string {
-    const printer = createPrinter({ newLine: NewLineKind.LineFeed });
-
-    const resultFile = createSourceFile(
-      'virtual-file-for-generation.ts',
-      '',
-      ScriptTarget.Latest,
-      /* setParentNodes */ false,
-      ScriptKind.TS,
-    );
-    return printer.printNode(EmitHint.Unspecified, tsNode, resultFile);
   }
 }
