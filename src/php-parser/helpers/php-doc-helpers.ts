@@ -8,8 +8,9 @@ import {
   TokenIterator,
   TypeParser,
   type VarTagValueNode,
+  type NameNodePathResolver,
+  renderTsNodeToString,
 } from '@rightcapital/phpdoc-parser';
-import type { NameNodePathResolver } from '@rightcapital/phpdoc-parser/dist/phpdoc-parser/transpiler/php-doc-to-typescript-type-transpiler';
 import {
   EmitHint,
   type ImportDeclaration,
@@ -108,16 +109,15 @@ export class PhpDocHelpers {
     const transpiler = new ExtendedTranspiler(nameNodePathResolver);
 
     transpiler.beforeTranspile();
-    const tsTypeNode = transpiler.transpile(typeNode);
+    const transpiledTypeNode = transpiler.transpile(typeNode);
     const importDeclarations = transpiler.getImportDeclarations();
     const outputTsTypeGeneratedString =
-      PhpDocHelpers.renderTsNodeToString(tsTypeNode);
+      renderTsNodeToString(transpiledTypeNode);
     const importDeclarationGeneratedStrings = importDeclarations.map(
-      (importDeclaration) =>
-        PhpDocHelpers.renderTsNodeToString(importDeclaration),
+      (importDeclaration) => renderTsNodeToString(importDeclaration),
     );
     return {
-      tsTypeNode,
+      tsTypeNode: transpiledTypeNode,
       importDeclarations,
       outputTsTypeGeneratedString,
       importDeclarationGeneratedStrings,
