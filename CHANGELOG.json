@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Tue, 26 Mar 2024 05:30:39 GMT",
+      "version": "1.0.6",
+      "tag": "@rightcapital/php-parser_v1.0.6",
+      "comments": {
+        "none": [
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "866ec4ff9f906623e343b95f3f6318bdd2c15277",
+            "comment": "ci: add beachball changefile check"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 26 Mar 2024 03:45:35 GMT",
       "version": "1.0.6",
       "tag": "@rightcapital/php-parser_v1.0.6",
