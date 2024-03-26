@@ -1,0 +1,2 @@
+[default]
+extend-ignore-re = ["\\(\\[([A-Fa-f0-9]{7})\\]\\("]
