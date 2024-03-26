@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Tue, 26 Mar 2024 03:45:35 GMT",
+      "version": "1.0.6",
+      "tag": "@rightcapital/php-parser_v1.0.6",
+      "comments": {
+        "none": [
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "a82c8c230b28f0a9724017a199a02be0ff008415",
+            "comment": "ci: add typo check"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 27 Feb 2024 13:26:35 GMT",
       "version": "1.0.6",
       "tag": "@rightcapital/php-parser_v1.0.6",

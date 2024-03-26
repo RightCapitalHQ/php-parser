@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "ci: add typo check",
-  "packageName": "@rightcapital/php-parser",
-  "email": "yilunsun11@yeah.net",
-  "dependentChangeType": "none"
-}
