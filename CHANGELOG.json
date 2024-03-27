@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Wed, 27 Mar 2024 10:29:23 GMT",
+      "version": "1.1.0",
+      "tag": "@rightcapital/php-parser_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "536c392643010d94c7edda5e3237b8190c9c1ab9",
+            "comment": "feat: refactor `findNodeByNodeType` and `filterNodeByNodeType` for auto type inference"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 26 Mar 2024 05:30:39 GMT",
       "version": "1.0.6",
       "tag": "@rightcapital/php-parser_v1.0.6",

@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Sun, 04 Feb 2024 07:00:58 GMT and should not be manually modified.
+This log was last generated on Wed, 27 Mar 2024 10:29:23 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## [1.1.0](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.1.0) (2024-3-27)
+
+- feat: refactor `findNodeByNodeType` and `filterNodeByNodeType` for auto type inference ([536c392](https://github.com/RightCapitalHQ/phpdoc-parser/commit/536c392643010d94c7edda5e3237b8190c9c1ab9))
 
 ### [1.0.6](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.0.6) (2024-2-4)
 
