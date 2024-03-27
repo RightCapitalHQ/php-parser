@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "feat: refactor `findNodeByNodeType` and `filterNodeByNodeType` for auto type inference",
+  "packageName": "@rightcapital/php-parser",
+  "email": "yilunsun11@yeah.net",
+  "dependentChangeType": "patch"
+}
