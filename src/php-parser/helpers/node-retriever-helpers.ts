@@ -4,13 +4,10 @@ import { ClassModifier } from '../types/constants';
 import type { INode } from '../types/node';
 import type { String_ } from '../types/node/scalar/string';
 import type { Class_ } from '../types/node/stmt/class';
-import type { ClassMethod } from '../types/node/stmt/class-method';
-import type { Namespace_ } from '../types/node/stmt/namespace';
 import type { Property } from '../types/node/stmt/property';
-import type { Return_ } from '../types/node/stmt/return';
-import type { Use_ } from '../types/node/stmt/use';
 import {
   NodeType,
+  type NodeTypeToInterfaceMap,
   type NodeTypeInheritingFromNodeAbstract,
 } from '../types/types';
 
@@ -38,16 +35,13 @@ export class NodeRetrieverHelpers {
   public static getRootClassNode(
     rootNode: NodeTypeInheritingFromNodeAbstract[],
   ): Class_ {
-    const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType<Namespace_>(
+    const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType(
       rootNode as INode[],
       NodeType.Stmt_Namespace,
     );
 
     if (namespaceNode?.stmts) {
-      return this.findNodeByNodeType<Class_>(
-        namespaceNode.stmts,
-        NodeType.Stmt_Class,
-      );
+      return this.findNodeByNodeType(namespaceNode.stmts, NodeType.Stmt_Class);
     }
 
     return undefined;
@@ -60,10 +54,7 @@ export class NodeRetrieverHelpers {
     uses: IUses,
   ): IProperty[] {
     if (classNode.stmts) {
-      return this.filterNodeByNodeType<Property>(
-        classNode.stmts,
-        NodeType.Stmt_Property,
-      )
+      return this.filterNodeByNodeType(classNode.stmts, NodeType.Stmt_Property)
         .filter(
           /**
            * Filter out all static properties, all we need are object properties
@@ -117,14 +108,14 @@ export class NodeRetrieverHelpers {
   public static getUsesMap(
     rootNode: NodeTypeInheritingFromNodeAbstract[],
   ): IUses {
-    const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType<Namespace_>(
+    const namespaceNode = NodeRetrieverHelpers.findNodeByNodeType(
       rootNode,
       NodeType.Stmt_Namespace,
     );
 
     if (namespaceNode?.stmts) {
       return Object.fromEntries(
-        this.filterNodeByNodeType<Use_>(namespaceNode.stmts, NodeType.Stmt_Use)
+        this.filterNodeByNodeType(namespaceNode.stmts, NodeType.Stmt_Use)
           // https://github.com/nikic/PHP-Parser/blob/master/UPGRADE-5.0.md#changes-to-the-name-representation
           .map((useNode) =>
             NodeRetrieverHelpers.getPartsByName(useNode.uses[0].name.name),
@@ -140,7 +131,7 @@ export class NodeRetrieverHelpers {
     classNode: Class_,
   ): string | undefined {
     if (classNode.stmts) {
-      const classMethodNodes = this.filterNodeByNodeType<ClassMethod>(
+      const classMethodNodes = this.filterNodeByNodeType(
         classNode.stmts,
         NodeType.Stmt_ClassMethod,
       );
@@ -150,7 +141,7 @@ export class NodeRetrieverHelpers {
       );
 
       if (getTypeMethodNode) {
-        const returnNode = this.findNodeByNodeType<Return_>(
+        const returnNode = this.findNodeByNodeType(
           getTypeMethodNode.stmts,
           NodeType.Stmt_Return,
         );
@@ -165,18 +156,22 @@ export class NodeRetrieverHelpers {
     return undefined;
   }
 
-  public static findNodeByNodeType<T extends INode>(
+  public static findNodeByNodeType<T extends NodeType>(
     nodes: INode[],
-    nodeType: string,
-  ): T | undefined {
-    return nodes.find((node) => node.nodeType === nodeType) as T;
+    nodeType: T,
+  ): NodeTypeToInterfaceMap[T] | undefined {
+    return nodes.find((node) => node.nodeType === nodeType) as
+      | NodeTypeToInterfaceMap[T]
+      | undefined;
   }
 
-  public static filterNodeByNodeType<T extends INode>(
-    nodes: (T | INode)[],
-    nodeType: string,
-  ): T[] {
-    return nodes.filter((node) => node.nodeType === nodeType) as T[];
+  public static filterNodeByNodeType<T extends NodeType>(
+    nodes: INode[],
+    nodeType: T,
+  ): NodeTypeToInterfaceMap[T][] {
+    return nodes.filter(
+      (node) => node.nodeType === nodeType,
+    ) as NodeTypeToInterfaceMap[T][];
   }
 
   /**
