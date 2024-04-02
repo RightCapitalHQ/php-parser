@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "chore(deps): update `phpdoc-parser` to v0.4.12",
+  "packageName": "@rightcapital/php-parser",
+  "email": "yilunsun11@yeah.net",
+  "dependentChangeType": "none"
+}
