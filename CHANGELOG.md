@@ -1,8 +1,13 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Fri, 19 Apr 2024 05:40:17 GMT and should not be manually modified.
+This log was last generated on Fri, 19 Apr 2024 06:38:06 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+### [1.1.2](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.1.2) (2024-4-19)
+
+- chore(deps): update pnpm to v9 ([affc9ea](https://github.com/RightCapitalHQ/phpdoc-parser/commit/affc9ea7565e9e9d991edfc997bb05283b1aed65))
+- feat: add start and end token positions to node attributes ([affc9ea](https://github.com/RightCapitalHQ/phpdoc-parser/commit/affc9ea7565e9e9d991edfc997bb05283b1aed65))
 
 ### [1.1.1](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.1.1) (2024-4-19)
 

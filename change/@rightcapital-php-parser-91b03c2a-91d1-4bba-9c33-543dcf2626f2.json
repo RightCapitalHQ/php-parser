@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "feat: add start and end token positions to node attributes",
-  "packageName": "@rightcapital/php-parser",
-  "email": "yilunsun11@yeah.net",
-  "dependentChangeType": "patch"
-}

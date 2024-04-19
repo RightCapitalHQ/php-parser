@@ -2,6 +2,27 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Fri, 19 Apr 2024 06:38:06 GMT",
+      "version": "1.1.2",
+      "tag": "@rightcapital/php-parser_v1.1.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "affc9ea7565e9e9d991edfc997bb05283b1aed65",
+            "comment": "chore(deps): update pnpm to v9"
+          },
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "affc9ea7565e9e9d991edfc997bb05283b1aed65",
+            "comment": "feat: add start and end token positions to node attributes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 19 Apr 2024 05:40:17 GMT",
       "version": "1.1.1",
       "tag": "@rightcapital/php-parser_v1.1.1",
