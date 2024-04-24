@@ -5,7 +5,15 @@ import { resolve } from 'path';
 import { PROJECT_ROOT } from '../../constants';
 import type { NodeTypeInheritingFromNodeAbstract } from '../types/types';
 
-const PHP_PARSER_BINARY = resolve(PROJECT_ROOT, 'vendor', 'bin', 'php-parse');
+const defaultPhpParserBinaryPath = resolve(
+  PROJECT_ROOT,
+  'vendor',
+  'bin',
+  'php-parse',
+);
+const PHP_PARSER_BINARY =
+  process.env.PHP_PARSER_BINARY_PATH || defaultPhpParserBinaryPath;
+
 // Avoid ENOBUFS for large output, increase buffer size to 50m
 // https://stackoverflow.com/questions/46818563/buffer-returned-by-child-process-execsync-is-incomplete/51408070
 const MAX_BUFFER_SIZE_FOR_PHP_BINARY_OUTPUT = 10 * 1024 * 1024;
