@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 25 Apr 2024 01:08:01 GMT",
+      "version": "1.1.3",
+      "tag": "@rightcapital/php-parser_v1.1.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "74fdf3707e43921a36ade79eb757b8bcc6112afc",
+            "comment": "feat: support using environment variable to overwrite `PHP_PARSER_BINARY`"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 19 Apr 2024 06:38:06 GMT",
       "version": "1.1.2",
       "tag": "@rightcapital/php-parser_v1.1.2",

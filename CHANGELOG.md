@@ -1,8 +1,12 @@
 # Change Log - @rightcapital/php-parser
 
-This log was last generated on Fri, 19 Apr 2024 06:38:06 GMT and should not be manually modified.
+This log was last generated on Thu, 25 Apr 2024 01:08:01 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+### [1.1.3](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.1.3) (2024-4-25)
+
+- feat: support using environment variable to overwrite `PHP_PARSER_BINARY` ([74fdf37](https://github.com/RightCapitalHQ/phpdoc-parser/commit/74fdf3707e43921a36ade79eb757b8bcc6112afc))
 
 ### [1.1.2](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.1.2) (2024-4-19)
 

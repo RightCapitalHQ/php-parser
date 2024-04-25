@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "feat: support using environment variable to overwrite `PHP_PARSER_BINARY`",
-  "packageName": "@rightcapital/php-parser",
-  "email": "yilunsun11@yeah.net",
-  "dependentChangeType": "patch"
-}
