@@ -43,17 +43,17 @@
   },
   "devDependencies": {
     "@commitlint/cli": "18.6.1",
-    "@commitlint/config-conventional": "18.6.2",
+    "@commitlint/config-conventional": "18.6.3",
     "@commitlint/cz-commitlint": "18.6.1",
     "@rightcapital/eslint-config-javascript": "19.0.2",
     "@rightcapital/eslint-config-typescript": "19.0.2",
-    "@rightcapital/prettier-config": "6.0.14",
-    "@types/lodash": "4.14.202",
+    "@rightcapital/prettier-config": "6.0.16",
+    "@types/lodash": "4.17.4",
     "@types/mustache": "4.2.5",
-    "@types/node": "20.11.20",
-    "beachball": "2.40.0",
+    "@types/node": "20.14.2",
+    "beachball": "2.43.1",
     "husky": "9.0.11",
-    "tsx": "4.7.1"
+    "tsx": "4.13.0"
   },
   "config": {
     "commitizen": {
