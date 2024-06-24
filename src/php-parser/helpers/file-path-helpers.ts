@@ -1,5 +1,7 @@
-import { dirname, join, resolve } from 'path';
+import { dirname, join, resolve } from 'node:path';
+
 import * as _ from 'lodash';
+
 import type { IUses } from './node-retriever-helpers';
 
 export class FilePathHelpers {

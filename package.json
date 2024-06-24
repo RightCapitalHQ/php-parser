@@ -2,33 +2,6 @@
   "name": "@rightcapital/php-parser",
   "version": "1.1.3",
   "description": "TypeScript types for PHP Parser JSON representation",
-  "main": "dist/index.js",
-  "scripts": {
-    "commit": "cz",
-    "clean": "tsc --build --clean ./tsconfig.build.json",
-    "change": "beachball change --no-commit",
-    "check": "beachball check",
-    "build": "pnpm run clean && tsc --project ./tsconfig.build.json",
-    "lint": "concurrently 'pnpm:lint:*'",
-    "lint:prettier": "prettier --check .",
-    "lint:eslint": "eslint --report-unused-disable-directives 'src/**/*.ts*'",
-    "fix": "pnpm run fix:eslint && pnpm run fix:prettier",
-    "fix:prettier": "prettier --write .",
-    "fix:eslint": "eslint --report-unused-disable-directives --fix 'src/**/*.ts*'",
-    "generate:types": "tsx src/php-parser/generate-types.ts",
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "command -v composer >/dev/null 2>&1 && composer install || echo 'Composer not found, skipping.'",
-    "prepare": "husky"
-  },
-  "repository": "https://github.com/RightCapitalHQ/php-parser",
-  "packageManager": "pnpm@9.0.4",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "engines": {
-    "node": ">=16.x",
-    "pnpm": ">=8.x"
-  },
   "keywords": [
     "PHP",
     "PHP Parser",
@@ -36,8 +9,32 @@
     "TypeScript",
     "Lexer"
   ],
-  "author": "RightCapital Ecosystem team <npm-publisher@rightcapital.com>",
+  "repository": "https://github.com/RightCapitalHQ/php-parser",
   "license": "MIT",
+  "author": "RightCapital Ecosystem team <npm-publisher@rightcapital.com>",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "pnpm run clean && tsc --project ./tsconfig.build.json",
+    "change": "beachball change --no-commit",
+    "check": "beachball check",
+    "clean": "tsc --build --clean ./tsconfig.build.json",
+    "commit": "cz",
+    "fix": "pnpm run fix:eslint && pnpm run fix:prettier",
+    "fix:eslint": "eslint --report-unused-disable-directives --fix 'src/**/*.ts*'",
+    "fix:prettier": "prettier --write .",
+    "generate:types": "tsx src/php-parser/generate-types.ts",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "command -v composer >/dev/null 2>&1 && composer install || echo 'Composer not found, skipping.'",
+    "lint": "concurrently 'pnpm:lint:*'",
+    "lint:eslint": "eslint --report-unused-disable-directives 'src/**/*.ts*'",
+    "lint:prettier": "prettier --check .",
+    "prepare": "husky"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
   "dependencies": {
     "@rightcapital/phpdoc-parser": "0.4.21",
     "lodash": "4.17.21",
@@ -60,9 +57,12 @@
     "husky": "9.1.4",
     "tsx": "4.16.5"
   },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
+  "packageManager": "pnpm@9.0.4",
+  "engines": {
+    "node": ">=16.x",
+    "pnpm": ">=8.x"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
