@@ -1,17 +1,19 @@
-import { join } from 'path';
+import { join } from 'node:path';
+
 import {
   ConstExprParser,
   Lexer,
+  type NameNodePathResolver,
   type PhpDocNode,
   PhpDocParser,
-  type TypeNode as PhpDocTypeNode,
+  renderTsNodeToString,
   TokenIterator,
+  type TypeNode as PhpDocTypeNode,
   TypeParser,
   type VarTagValueNode,
-  type NameNodePathResolver,
-  renderTsNodeToString,
 } from '@rightcapital/phpdoc-parser';
 import type { ImportDeclaration, TypeNode } from 'typescript';
+
 import { ExtendedTranspiler } from './extended-php-doc-transpiler';
 import { FilePathHelpers } from './file-path-helpers';
 import type { IUses } from './node-retriever-helpers';

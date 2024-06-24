@@ -1,7 +1,8 @@
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import { tmpdir } from 'os';
-import { resolve } from 'path';
+import { execSync } from 'node:child_process';
+import * as fs from 'node:fs';
+import { tmpdir } from 'node:os';
+import { resolve } from 'node:path';
+
 import { PROJECT_ROOT } from '../../constants';
 import type { NodeTypeInheritingFromNodeAbstract } from '../types/types';
 
@@ -31,7 +32,7 @@ export class CliHelpers {
     const parserOutputString = execSync(
       `${PHP_PARSER_BINARY} ${phpFilePath} -j`,
       {
-        encoding: 'utf-8',
+        encoding: 'utf8',
         maxBuffer: MAX_BUFFER_SIZE_FOR_PHP_BINARY_OUTPUT,
         stdio: ['pipe', 'pipe', 'ignore'],
       },

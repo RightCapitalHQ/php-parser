@@ -2,18 +2,21 @@
 
 import {
   mkdirSync,
-  readFileSync,
   readdirSync,
+  readFileSync,
   renameSync,
   rmSync,
   statSync,
   writeFileSync,
-} from 'fs';
-import * as os from 'os';
-import { resolve } from 'path';
-import * as path from 'path';
+} from 'node:fs';
+import * as os from 'node:os';
+import { resolve } from 'node:path';
+import * as path from 'node:path';
+
 import * as _ from 'lodash';
 import * as Mustache from 'mustache';
+
+import { PROJECT_ROOT, SRC_ROOT } from '../constants';
 import { CliHelpers } from './helpers/cli-helpers';
 import { FilePathHelpers } from './helpers/file-path-helpers';
 import {
@@ -22,7 +25,6 @@ import {
   NodeRetrieverHelpers,
 } from './helpers/node-retriever-helpers';
 import { TypeGenerationHelpers } from './helpers/type-generation-helpers';
-import { PROJECT_ROOT, SRC_ROOT } from '../constants';
 
 const PHP_PARSER_ROOT_PATH = resolve(
   PROJECT_ROOT,
@@ -95,7 +97,7 @@ class GenerateType {
       TypeGenerationHelpers.generateCombinationTypesFromNodes(
         GenerateType.cliContext,
       ),
-      { encoding: 'utf-8' },
+      { encoding: 'utf8' },
     );
 
     // Move temporarily generated files to correct path
@@ -196,7 +198,7 @@ class GenerateType {
         SRC_ROOT,
         'templates/php-parser-node.mustache',
       );
-      const templateFileContent = readFileSync(templateFileName, 'utf-8');
+      const templateFileContent = readFileSync(templateFileName, 'utf8');
 
       try {
         if (directoryRelativePath) {

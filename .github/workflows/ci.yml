@@ -32,11 +32,8 @@ jobs:
       - name: Install deps
         run: pnpm install
 
-      - name: ESLint
-        run: pnpm run eslint
-
-      - name: Prettier code style check
-        run: pnpm prettier . --check
+      - name: Lint
+        run: pnpm run lint
 
   check-beachball-changefile:
     if: github.base_ref == github.event.repository.default_branch
