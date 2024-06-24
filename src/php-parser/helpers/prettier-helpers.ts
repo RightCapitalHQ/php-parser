@@ -1,5 +1,7 @@
-import { join } from 'path';
+import { join } from 'node:path';
+
 import * as prettier from 'prettier';
+
 import { PROJECT_ROOT } from '../../constants';
 
 export class PrettierHelpers {

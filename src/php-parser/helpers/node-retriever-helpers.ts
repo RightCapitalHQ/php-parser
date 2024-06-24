@@ -1,5 +1,5 @@
 import type { VarTagValueNode } from '@rightcapital/phpdoc-parser';
-import { type ITypeGenerationPackage, PhpDocHelpers } from './php-doc-helpers';
+
 import { ClassModifier } from '../types/constants';
 import type { INode } from '../types/node';
 import type { String_ } from '../types/node/scalar/string';
@@ -7,9 +7,10 @@ import type { Class_ } from '../types/node/stmt/class';
 import type { Property } from '../types/node/stmt/property';
 import {
   NodeType,
-  type NodeTypeToInterfaceMap,
   type NodeTypeInheritingFromNodeAbstract,
+  type NodeTypeToInterfaceMap,
 } from '../types/types';
+import { type ITypeGenerationPackage, PhpDocHelpers } from './php-doc-helpers';
 
 export type IUseFullQualifiedNameParts = string[];
 export type IUses = {
