@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rightcapital/phpdoc-parser':
-        specifier: 0.4.21
-        version: 0.4.21
+        specifier: 0.4.44
+        version: 0.4.44
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -371,8 +371,8 @@ packages:
       eslint: ^8.23.1
       typescript: ^5.0.0
 
-  '@rightcapital/phpdoc-parser@0.4.21':
-    resolution: {integrity: sha512-ifq//YZ1UqtSF+GDRddRDuhmBI5YFMpkzX+DtZj/m8Tr4RK9hYHqalhn7v/zzv/fVue0z61FpqVTjbGpIu5vow==}
+  '@rightcapital/phpdoc-parser@0.4.44':
+    resolution: {integrity: sha512-SIGKp0A9EbeM/pCF46G3vBuxbqEOm6iUucLwt6/p/fCmynpFUuJykdRIFMRpo+5NTt0SlPD1Nk6hvlLxJEb81Q==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
 
   '@rightcapital/prettier-config@6.0.16':
@@ -399,11 +399,11 @@ packages:
   '@types/mustache@4.2.5':
     resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
 
-  '@types/node@20.12.7':
-    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
-
   '@types/node@20.14.2':
     resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
+
+  '@types/node@20.14.9':
+    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1757,8 +1757,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2175,11 +2175,11 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  '@rightcapital/phpdoc-parser@0.4.21':
+  '@rightcapital/phpdoc-parser@0.4.44':
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.14.9
       lodash: 4.17.21
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   '@rightcapital/prettier-config@6.0.16(prettier@3.2.4)':
     dependencies:
@@ -2200,11 +2200,11 @@ snapshots:
 
   '@types/mustache@4.2.5': {}
 
-  '@types/node@20.12.7':
+  '@types/node@20.14.2':
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.14.2':
+  '@types/node@20.14.9':
     dependencies:
       undici-types: 5.26.5
 
@@ -3638,7 +3638,7 @@ snapshots:
 
   typescript@5.4.2: {}
 
-  typescript@5.4.5: {}
+  typescript@5.5.2: {}
 
   undici-types@5.26.5: {}
 
