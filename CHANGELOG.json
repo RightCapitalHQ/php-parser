@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 15 Jul 2024 09:39:45 GMT",
+      "version": "1.1.3",
+      "tag": "@rightcapital/php-parser_v1.1.3",
+      "comments": {
+        "none": [
+          {
+            "author": "im@pyonpyon.today",
+            "package": "@rightcapital/php-parser",
+            "commit": "93439ca9e3ec3c61c04c7ca7dc6b626f135a7c51",
+            "comment": "chore: upgrade pnpm/action-setup to v4"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 07 Jun 2024 08:39:43 GMT",
       "version": "1.1.3",
       "tag": "@rightcapital/php-parser_v1.1.3",
