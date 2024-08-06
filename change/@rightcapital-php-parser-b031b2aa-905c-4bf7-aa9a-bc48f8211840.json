@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "chore(deps): update devdependencies",
+  "packageName": "@rightcapital/php-parser",
+  "email": "i@rainx.cc",
+  "dependentChangeType": "patch"
+}
