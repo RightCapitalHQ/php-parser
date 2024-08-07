@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rightcapital/phpdoc-parser':
-        specifier: 0.4.21
-        version: 0.4.21
+        specifier: 0.4.57
+        version: 0.4.57
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -366,8 +366,8 @@ packages:
       eslint: ^8.23.1
       typescript: ^5.0.0
 
-  '@rightcapital/phpdoc-parser@0.4.21':
-    resolution: {integrity: sha512-ifq//YZ1UqtSF+GDRddRDuhmBI5YFMpkzX+DtZj/m8Tr4RK9hYHqalhn7v/zzv/fVue0z61FpqVTjbGpIu5vow==}
+  '@rightcapital/phpdoc-parser@0.4.57':
+    resolution: {integrity: sha512-tA6TIIhWOrTnogEnOWPDabkvC+6U1/Jg+vmX+150TdjR92yqswpKRkJvE3fov3IWscCVyUVmkNvt7Qta3OrUtA==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
 
   '@rightcapital/prettier-config@7.1.3':
@@ -387,9 +387,6 @@ packages:
 
   '@types/mustache@4.2.5':
     resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
-
-  '@types/node@20.12.7':
-    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
 
   '@types/node@20.14.14':
     resolution: {integrity: sha512-d64f00982fS9YoOgJkAMolK7MN8Iq3TDdVjchbYHdEmjth/DHowx82GnoA+tVUAN+7vxfYUgAzi+JXbKNd2SDQ==}
@@ -1674,11 +1671,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.6.3:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
@@ -1862,8 +1854,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2023,7 +2015,7 @@ snapshots:
   '@commitlint/is-ignored@19.2.2':
     dependencies:
       '@commitlint/types': 19.0.3
-      semver: 7.6.2
+      semver: 7.6.3
 
   '@commitlint/lint@19.2.2':
     dependencies:
@@ -2265,11 +2257,11 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  '@rightcapital/phpdoc-parser@0.4.21':
+  '@rightcapital/phpdoc-parser@0.4.57':
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.14.14
       lodash: 4.17.21
-      typescript: 5.4.5
+      typescript: 5.5.4
 
   '@rightcapital/prettier-config@7.1.3(prettier@3.2.4)':
     dependencies:
@@ -2285,10 +2277,6 @@ snapshots:
   '@types/lodash@4.17.7': {}
 
   '@types/mustache@4.2.5': {}
-
-  '@types/node@20.12.7':
-    dependencies:
-      undici-types: 5.26.5
 
   '@types/node@20.14.14':
     dependencies:
@@ -2850,7 +2838,7 @@ snapshots:
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
       regjsparser: 0.10.0
-      semver: 7.6.2
+      semver: 7.6.3
       strip-indent: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -3660,8 +3648,6 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.6.2: {}
-
   semver@7.6.3: {}
 
   set-function-length@1.2.2:
@@ -3701,7 +3687,7 @@ snapshots:
       git-hooks-list: 3.1.0
       globby: 13.2.2
       is-plain-obj: 4.1.0
-      semver: 7.6.2
+      semver: 7.6.3
       sort-object-keys: 1.1.3
 
   spawn-command@0.0.2: {}
@@ -3814,7 +3800,7 @@ snapshots:
 
   typescript@5.4.2: {}
 
-  typescript@5.4.5: {}
+  typescript@5.5.4: {}
 
   undici-types@5.26.5: {}
 
