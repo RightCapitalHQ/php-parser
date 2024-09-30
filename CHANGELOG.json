@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 30 Sep 2024 01:10:36 GMT",
+      "version": "1.2.0",
+      "tag": "@rightcapital/php-parser_v1.2.0",
+      "comments": {
+        "none": [
+          {
+            "author": "im@pyonpyon.today",
+            "package": "@rightcapital/php-parser",
+            "commit": "abbdb2e0533576cc7960b8f7f32e42316eb4a01e",
+            "comment": "ci: workaround Renvoate `postUpgradeTasks` restriction for generating changefiles"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 06 Aug 2024 16:41:29 GMT",
       "version": "1.2.0",
       "tag": "@rightcapital/php-parser_v1.2.0",
