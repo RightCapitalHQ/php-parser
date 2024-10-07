@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 07 Oct 2024 03:11:47 GMT",
+      "version": "1.2.0",
+      "tag": "@rightcapital/php-parser_v1.2.0",
+      "comments": {
+        "none": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "99feecd9b1d7b3107ce60cfd6f6a9947e8c047b5",
+            "comment": "chore(deps): lock file maintenance"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 30 Sep 2024 01:10:36 GMT",
       "version": "1.2.0",
       "tag": "@rightcapital/php-parser_v1.2.0",
