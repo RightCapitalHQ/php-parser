@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rightcapital/phpdoc-parser':
-        specifier: 0.4.72
-        version: 0.4.72
+        specifier: 0.4.73
+        version: 0.4.73
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -374,8 +374,8 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  '@rightcapital/phpdoc-parser@0.4.72':
-    resolution: {integrity: sha512-S509cjQ38m+CItL4V+Cn1kg4+RcccdQs5jmcMiEpwq0jVzPAG3WV9OV4tJwJ+/OL2IS0p/XMpfkXvnjSBLG8pw==}
+  '@rightcapital/phpdoc-parser@0.4.73':
+    resolution: {integrity: sha512-PnxfrIEyI7eO4ysC4kGM8vUFTxz1G+5EXV8xdcdfy64MHrY8Z7PxmRadwUAwRTpPo8WXfraJfrV89pm/30MK9A==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
 
   '@rightcapital/prettier-config@7.1.7':
@@ -2107,11 +2107,6 @@ packages:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.6.3:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
@@ -2531,7 +2526,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rightcapital/phpdoc-parser@0.4.72':
+  '@rightcapital/phpdoc-parser@0.4.73':
     dependencies:
       '@types/node': 20.16.11
       lodash: 4.17.21
@@ -4484,8 +4479,6 @@ snapshots:
       has-proto: 1.0.3
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
-
-  typescript@5.4.5: {}
 
   typescript@5.6.3: {}
 
