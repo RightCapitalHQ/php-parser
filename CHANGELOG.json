@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Fri, 01 Nov 2024 07:56:07 GMT",
+      "version": "1.4.3",
+      "tag": "@rightcapital/php-parser_v1.4.3",
+      "comments": {
+        "none": [
+          {
+            "author": "im@pyonpyon.today",
+            "package": "@rightcapital/php-parser",
+            "commit": "77e3b957614067e28fcadbcfe1898835da1f12d8",
+            "comment": "chore: bump ESLint to v9"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Oct 2024 08:10:27 GMT",
       "version": "1.4.3",
       "tag": "@rightcapital/php-parser_v1.4.3",
