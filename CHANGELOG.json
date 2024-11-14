@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Thu, 14 Nov 2024 20:03:38 GMT",
+      "version": "1.4.5",
+      "tag": "@rightcapital/php-parser_v1.4.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "884c930b76837c98018a119a9ee42f18b4fdf652",
+            "comment": "chore(deps): update pnpm to v9.13.1"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 13 Nov 2024 17:48:05 GMT",
       "version": "1.4.4",
       "tag": "@rightcapital/php-parser_v1.4.4",
