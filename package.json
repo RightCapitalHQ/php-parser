@@ -43,19 +43,19 @@
     "typescript": "5.6.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/cli": "19.6.0",
+    "@commitlint/config-conventional": "19.6.0",
     "@commitlint/cz-commitlint": "19.5.0",
-    "@rightcapital/eslint-config": "38.0.0",
-    "@rightcapital/prettier-config": "7.1.7",
-    "@types/lodash": "4.17.10",
+    "@rightcapital/eslint-config": "38.0.1",
+    "@rightcapital/prettier-config": "7.1.10",
+    "@types/lodash": "4.17.13",
     "@types/mustache": "4.2.5",
-    "@types/node": "20.16.11",
-    "beachball": "2.47.1",
-    "concurrently": "9.0.1",
+    "@types/node": "20.17.10",
+    "beachball": "2.51.0",
+    "concurrently": "9.1.0",
     "eslint": "9.13.0",
-    "husky": "9.1.6",
-    "tsx": "4.19.1"
+    "husky": "9.1.7",
+    "tsx": "4.19.2"
   },
   "packageManager": "pnpm@9.14.2",
   "engines": {
