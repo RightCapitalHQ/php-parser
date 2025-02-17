@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rightcapital/phpdoc-parser':
-        specifier: 0.4.72
-        version: 0.4.72
+        specifier: 0.4.102
+        version: 0.4.102
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -419,8 +419,8 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  '@rightcapital/phpdoc-parser@0.4.72':
-    resolution: {integrity: sha512-S509cjQ38m+CItL4V+Cn1kg4+RcccdQs5jmcMiEpwq0jVzPAG3WV9OV4tJwJ+/OL2IS0p/XMpfkXvnjSBLG8pw==}
+  '@rightcapital/phpdoc-parser@0.4.102':
+    resolution: {integrity: sha512-5u+zqpcFYa+TJVzIwfhVClKJ1hU6iRhX+U9w3ruQyMWg8X1WKDedP63IYW2B0WUpVGhoSCVvba1o/vvv8yjRAA==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
 
   '@rightcapital/prettier-config@7.1.7':
@@ -458,6 +458,9 @@ packages:
 
   '@types/node@20.16.11':
     resolution: {integrity: sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==}
+
+  '@types/node@22.13.4':
+    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2385,12 +2388,20 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.7.3:
+    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
@@ -2916,11 +2927,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rightcapital/phpdoc-parser@0.4.72':
+  '@rightcapital/phpdoc-parser@0.4.102':
     dependencies:
-      '@types/node': 20.16.11
+      '@types/node': 22.13.4
       lodash: 4.17.21
-      typescript: 5.6.3
+      typescript: 5.7.3
 
   '@rightcapital/prettier-config@7.1.7(prettier@3.3.3)':
     dependencies:
@@ -2958,6 +2969,10 @@ snapshots:
   '@types/node@20.16.11':
     dependencies:
       undici-types: 6.19.8
+
+  '@types/node@22.13.4':
+    dependencies:
+      undici-types: 6.20.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -5206,6 +5221,8 @@ snapshots:
 
   typescript@5.6.3: {}
 
+  typescript@5.7.3: {}
+
   unbox-primitive@1.1.0:
     dependencies:
       call-bound: 1.0.3
@@ -5214,6 +5231,8 @@ snapshots:
       which-boxed-primitive: 1.1.1
 
   undici-types@6.19.8: {}
+
+  undici-types@6.20.0: {}
 
   unicorn-magic@0.1.0: {}
 
