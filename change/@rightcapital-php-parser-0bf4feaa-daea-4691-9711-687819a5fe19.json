@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "chore(deps): update pnpm to v10",
+  "packageName": "@rightcapital/php-parser",
+  "email": "i@rainx.cc",
+  "dependentChangeType": "none"
+}
