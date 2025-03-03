@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 03 Mar 2025 02:45:47 GMT",
+      "version": "1.4.9",
+      "tag": "@rightcapital/php-parser_v1.4.9",
+      "comments": {
+        "none": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "f370a0a50b014ff339097bd99b09d4007fbce1f6",
+            "comment": "chore(deps): update devdependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 03 Mar 2025 02:36:11 GMT",
       "version": "1.4.9",
       "tag": "@rightcapital/php-parser_v1.4.9",
