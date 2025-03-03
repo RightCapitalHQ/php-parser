@@ -1,10 +1,14 @@
 # Change Log - @rightcapital/php-parser
 
-<!-- This log was last generated on Mon, 03 Mar 2025 05:11:43 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 03 Mar 2025 05:38:36 GMT and should not be manually modified. -->
 
 <!-- Start content -->
 
 
+
+### [1.4.11](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.4.11) (2025-3-3)
+
+- fix(deps): update automerge non-major updates ([afef4a8](https://github.com/RightCapitalHQ/phpdoc-parser/commit/afef4a8d75d1ef94746851063f9e1d10b42f641a))
 
 ### [1.4.10](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.4.10) (2025-3-3)
 
