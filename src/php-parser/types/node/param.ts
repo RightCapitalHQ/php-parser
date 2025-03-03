@@ -7,6 +7,7 @@ import type { NodeTypeInheritingFromFullyQualifiedExprVariable } from "../types"
 import type { NodeTypeInheritingFromFullyQualifiedExprError } from "../types";
 import type { NodeTypeInheritingFromFullyQualifiedExpr } from "../types";
 import type { NodeTypeInheritingFromFullyQualifiedAttributeGroup } from "../types";
+import type { NodeTypeInheritingFromFullyQualifiedPropertyHook } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface Param extends Omit<NodeAbstract, 'nodeType'> {
@@ -19,6 +20,7 @@ export interface Param extends Omit<NodeAbstract, 'nodeType'> {
   ["default"] : null | NodeTypeInheritingFromFullyQualifiedExpr;
   ["flags"] : number;
   ["attrGroups"] : NodeTypeInheritingFromFullyQualifiedAttributeGroup[];
+  ["hooks"] : NodeTypeInheritingFromFullyQualifiedPropertyHook[];
 }
 
 // We also need to export a symbol by using node type

@@ -111,6 +111,7 @@ import type { FullyQualifiedName } from './node/name';
 import type { FullyQualifiedNameRelative } from './node/name/relative';
 import type { FullyQualifiedNullableType } from './node/nullable-type';
 import type { FullyQualifiedParam } from './node/param';
+import type { FullyQualifiedPropertyHook } from './node/property-hook';
 import type { FullyQualifiedPropertyItem } from './node/property-item';
 import type { FullyQualifiedScalarFloat } from './node/scalar/float';
 import type { FullyQualifiedScalar } from './node/scalar';
@@ -124,6 +125,7 @@ import type { FullyQualifiedScalarMagicConstFunction } from './node/scalar/magic
 import type { FullyQualifiedScalarMagicConstLine } from './node/scalar/magic-const/line';
 import type { FullyQualifiedScalarMagicConstMethod } from './node/scalar/magic-const/method';
 import type { FullyQualifiedScalarMagicConstNamespace } from './node/scalar/magic-const/namespace';
+import type { FullyQualifiedScalarMagicConstProperty } from './node/scalar/magic-const/property';
 import type { FullyQualifiedScalarMagicConstTrait } from './node/scalar/magic-const/trait';
 import type { FullyQualifiedScalarString } from './node/scalar/string';
 import type { FullyQualifiedStaticVar } from './node/static-var';
@@ -179,7 +181,7 @@ import type { FullyQualifiedVarLikeIdentifier } from './node/var-like-identifier
 import type { FullyQualifiedVariadicPlaceholder } from './node/variadic-placeholder';      
 
 export type NodeTypeInheritingFromFullyQualifiedArg = FullyQualifiedArg;
-export type NodeTypeInheritingFromNodeAbstract = NodeAbstract | NodeTypeInheritingFromFullyQualifiedArg | NodeTypeInheritingFromFullyQualifiedArrayItem | NodeTypeInheritingFromFullyQualifiedAttribute | NodeTypeInheritingFromFullyQualifiedAttributeGroup | NodeTypeInheritingFromFullyQualifiedClosureUse | NodeTypeInheritingFromFullyQualifiedComplexType | NodeTypeInheritingFromFullyQualifiedConst | NodeTypeInheritingFromFullyQualifiedDeclareItem | NodeTypeInheritingFromFullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedInterpolatedStringPart | NodeTypeInheritingFromFullyQualifiedMatchArm | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedParam | NodeTypeInheritingFromFullyQualifiedPropertyItem | NodeTypeInheritingFromFullyQualifiedStaticVar | NodeTypeInheritingFromFullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedUseItem | NodeTypeInheritingFromFullyQualifiedVariadicPlaceholder;
+export type NodeTypeInheritingFromNodeAbstract = NodeAbstract | NodeTypeInheritingFromFullyQualifiedArg | NodeTypeInheritingFromFullyQualifiedArrayItem | NodeTypeInheritingFromFullyQualifiedAttribute | NodeTypeInheritingFromFullyQualifiedAttributeGroup | NodeTypeInheritingFromFullyQualifiedClosureUse | NodeTypeInheritingFromFullyQualifiedComplexType | NodeTypeInheritingFromFullyQualifiedConst | NodeTypeInheritingFromFullyQualifiedDeclareItem | NodeTypeInheritingFromFullyQualifiedExpr | NodeTypeInheritingFromFullyQualifiedIdentifier | NodeTypeInheritingFromFullyQualifiedInterpolatedStringPart | NodeTypeInheritingFromFullyQualifiedMatchArm | NodeTypeInheritingFromFullyQualifiedName | NodeTypeInheritingFromFullyQualifiedParam | NodeTypeInheritingFromFullyQualifiedPropertyHook | NodeTypeInheritingFromFullyQualifiedPropertyItem | NodeTypeInheritingFromFullyQualifiedStaticVar | NodeTypeInheritingFromFullyQualifiedStmt | NodeTypeInheritingFromFullyQualifiedUseItem | NodeTypeInheritingFromFullyQualifiedVariadicPlaceholder;
 export type NodeTypeInheritingFromFullyQualifiedArrayItem = FullyQualifiedArrayItem;
 export type NodeTypeInheritingFromFullyQualifiedAttribute = FullyQualifiedAttribute;
 export type NodeTypeInheritingFromFullyQualifiedAttributeGroup = FullyQualifiedAttributeGroup;
@@ -290,19 +292,21 @@ export type NodeTypeInheritingFromFullyQualifiedName = FullyQualifiedName | Node
 export type NodeTypeInheritingFromFullyQualifiedNameRelative = FullyQualifiedNameRelative;
 export type NodeTypeInheritingFromFullyQualifiedNullableType = FullyQualifiedNullableType;
 export type NodeTypeInheritingFromFullyQualifiedParam = FullyQualifiedParam;
+export type NodeTypeInheritingFromFullyQualifiedPropertyHook = FullyQualifiedPropertyHook;
 export type NodeTypeInheritingFromFullyQualifiedPropertyItem = FullyQualifiedPropertyItem;
 export type NodeTypeInheritingFromFullyQualifiedScalarFloat = FullyQualifiedScalarFloat;
 export type NodeTypeInheritingFromFullyQualifiedScalar = FullyQualifiedScalar | NodeTypeInheritingFromFullyQualifiedScalarFloat | NodeTypeInheritingFromFullyQualifiedScalarInt | NodeTypeInheritingFromFullyQualifiedScalarInterpolatedString | NodeTypeInheritingFromFullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarString;
 export type NodeTypeInheritingFromFullyQualifiedScalarInt = FullyQualifiedScalarInt;
 export type NodeTypeInheritingFromFullyQualifiedScalarInterpolatedString = FullyQualifiedScalarInterpolatedString;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstClass = FullyQualifiedScalarMagicConstClass;
-export type NodeTypeInheritingFromFullyQualifiedScalarMagicConst = FullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarMagicConstClass | NodeTypeInheritingFromFullyQualifiedScalarMagicConstDir | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFile | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFunction | NodeTypeInheritingFromFullyQualifiedScalarMagicConstLine | NodeTypeInheritingFromFullyQualifiedScalarMagicConstMethod | NodeTypeInheritingFromFullyQualifiedScalarMagicConstNamespace | NodeTypeInheritingFromFullyQualifiedScalarMagicConstTrait;
+export type NodeTypeInheritingFromFullyQualifiedScalarMagicConst = FullyQualifiedScalarMagicConst | NodeTypeInheritingFromFullyQualifiedScalarMagicConstClass | NodeTypeInheritingFromFullyQualifiedScalarMagicConstDir | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFile | NodeTypeInheritingFromFullyQualifiedScalarMagicConstFunction | NodeTypeInheritingFromFullyQualifiedScalarMagicConstLine | NodeTypeInheritingFromFullyQualifiedScalarMagicConstMethod | NodeTypeInheritingFromFullyQualifiedScalarMagicConstNamespace | NodeTypeInheritingFromFullyQualifiedScalarMagicConstProperty | NodeTypeInheritingFromFullyQualifiedScalarMagicConstTrait;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstDir = FullyQualifiedScalarMagicConstDir;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstFile = FullyQualifiedScalarMagicConstFile;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstFunction = FullyQualifiedScalarMagicConstFunction;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstLine = FullyQualifiedScalarMagicConstLine;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstMethod = FullyQualifiedScalarMagicConstMethod;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstNamespace = FullyQualifiedScalarMagicConstNamespace;
+export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstProperty = FullyQualifiedScalarMagicConstProperty;
 export type NodeTypeInheritingFromFullyQualifiedScalarMagicConstTrait = FullyQualifiedScalarMagicConstTrait;
 export type NodeTypeInheritingFromFullyQualifiedScalarString = FullyQualifiedScalarString;
 export type NodeTypeInheritingFromFullyQualifiedStaticVar = FullyQualifiedStaticVar;
@@ -469,6 +473,7 @@ export { FullyQualifiedName } from './node/name';
 export { FullyQualifiedNameRelative } from './node/name/relative';
 export { FullyQualifiedNullableType } from './node/nullable-type';
 export { FullyQualifiedParam } from './node/param';
+export { FullyQualifiedPropertyHook } from './node/property-hook';
 export { FullyQualifiedPropertyItem } from './node/property-item';
 export { FullyQualifiedScalarFloat } from './node/scalar/float';
 export { FullyQualifiedScalar } from './node/scalar';
@@ -482,6 +487,7 @@ export { FullyQualifiedScalarMagicConstFunction } from './node/scalar/magic-cons
 export { FullyQualifiedScalarMagicConstLine } from './node/scalar/magic-const/line';
 export { FullyQualifiedScalarMagicConstMethod } from './node/scalar/magic-const/method';
 export { FullyQualifiedScalarMagicConstNamespace } from './node/scalar/magic-const/namespace';
+export { FullyQualifiedScalarMagicConstProperty } from './node/scalar/magic-const/property';
 export { FullyQualifiedScalarMagicConstTrait } from './node/scalar/magic-const/trait';
 export { FullyQualifiedScalarString } from './node/scalar/string';
 export { FullyQualifiedStaticVar } from './node/static-var';
@@ -643,6 +649,7 @@ export enum NodeType {
   Name_Relative = 'Name_Relative',
   NullableType = 'NullableType',
   Param = 'Param',
+  PropertyHook = 'PropertyHook',
   PropertyItem = 'PropertyItem',
   Scalar_Float = 'Scalar_Float',
   Scalar_Int = 'Scalar_Int',
@@ -654,6 +661,7 @@ export enum NodeType {
   Scalar_MagicConst_Line = 'Scalar_MagicConst_Line',
   Scalar_MagicConst_Method = 'Scalar_MagicConst_Method',
   Scalar_MagicConst_Namespace = 'Scalar_MagicConst_Namespace',
+  Scalar_MagicConst_Property = 'Scalar_MagicConst_Property',
   Scalar_MagicConst_Trait = 'Scalar_MagicConst_Trait',
   Scalar_String = 'Scalar_String',
   StaticVar = 'StaticVar',
@@ -813,6 +821,7 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Name_Relative]: FullyQualifiedNameRelative;
   [NodeType.NullableType]: FullyQualifiedNullableType;
   [NodeType.Param]: FullyQualifiedParam;
+  [NodeType.PropertyHook]: FullyQualifiedPropertyHook;
   [NodeType.PropertyItem]: FullyQualifiedPropertyItem;
   [NodeType.Scalar_Float]: FullyQualifiedScalarFloat;
   [NodeType.Scalar_Int]: FullyQualifiedScalarInt;
@@ -824,6 +833,7 @@ export interface NodeTypeToInterfaceMap {
   [NodeType.Scalar_MagicConst_Line]: FullyQualifiedScalarMagicConstLine;
   [NodeType.Scalar_MagicConst_Method]: FullyQualifiedScalarMagicConstMethod;
   [NodeType.Scalar_MagicConst_Namespace]: FullyQualifiedScalarMagicConstNamespace;
+  [NodeType.Scalar_MagicConst_Property]: FullyQualifiedScalarMagicConstProperty;
   [NodeType.Scalar_MagicConst_Trait]: FullyQualifiedScalarMagicConstTrait;
   [NodeType.Scalar_String]: FullyQualifiedScalarString;
   [NodeType.StaticVar]: FullyQualifiedStaticVar;
