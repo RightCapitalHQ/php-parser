@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 03 Mar 2025 02:36:11 GMT",
+      "version": "1.4.9",
+      "tag": "@rightcapital/php-parser_v1.4.9",
+      "comments": {
+        "none": [
+          {
+            "author": "i@rainx.cc",
+            "package": "@rightcapital/php-parser",
+            "commit": "f9afeb04a554056e861570938854c131c14d5601",
+            "comment": "chore(deps): update pnpm to v10"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 18 Dec 2024 13:38:03 GMT",
       "version": "1.4.9",
       "tag": "@rightcapital/php-parser_v1.4.9",
