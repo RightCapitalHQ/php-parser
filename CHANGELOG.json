@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 17 Mar 2025 06:57:21 GMT",
+      "version": "1.4.16",
+      "tag": "@rightcapital/php-parser_v1.4.16",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "c0eb189bc5b09d488547db9c3f9dd73f077cdcbe",
+            "comment": "chore(deps): update actions/setup-node action to v4.3.0"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 13 Mar 2025 21:24:08 GMT",
       "version": "1.4.15",
       "tag": "@rightcapital/php-parser_v1.4.15",
