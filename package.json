@@ -58,7 +58,7 @@
     "prettier-plugin-packagejson": "2.5.10",
     "tsx": "4.19.3"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.11.1",
   "engines": {
     "node": ">=16.x",
     "pnpm": ">=8.x"
