@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Mon, 23 Jun 2025 11:12:05 GMT",
+      "version": "1.4.33",
+      "tag": "@rightcapital/php-parser_v1.4.33",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "4828776b9c36129b3089805ac5b7ddfa27b3013d",
+            "comment": "fix(deps): update automerge non-major updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 08 Jun 2025 22:29:47 GMT",
       "version": "1.4.32",
       "tag": "@rightcapital/php-parser_v1.4.32",
