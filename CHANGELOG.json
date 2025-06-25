@@ -2,6 +2,27 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Wed, 25 Jun 2025 14:31:29 GMT",
+      "version": "1.4.35",
+      "tag": "@rightcapital/php-parser_v1.4.35",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "4451e6ce1e62b416aaaba3acb3747835e661623a",
+            "comment": "fix(deps): update automerge non-major updates"
+          },
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "4451e6ce1e62b416aaaba3acb3747835e661623a",
+            "comment": "fix(deps): update dependency @rightcapital/phpdoc-parser to v0.4.133"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 24 Jun 2025 15:23:45 GMT",
       "version": "1.4.34",
       "tag": "@rightcapital/php-parser_v1.4.34",
