@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Wed, 16 Jul 2025 03:15:04 GMT",
+      "version": "1.4.38",
+      "tag": "@rightcapital/php-parser_v1.4.38",
+      "comments": {
+        "patch": [
+          {
+            "author": "29139614+renovate[bot]@users.noreply.github.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "e3111e7fce3622c9aaa82cf71e0d4094facc1a96",
+            "comment": "chore(deps): update node.js to v22.17.1"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Jul 2025 22:37:42 GMT",
       "version": "1.4.37",
       "tag": "@rightcapital/php-parser_v1.4.37",
