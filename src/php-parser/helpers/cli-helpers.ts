@@ -1,12 +1,12 @@
-import { execSync } from 'node:child_process';
+import { execFile, execSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import { tmpdir } from 'node:os';
-import { resolve } from 'node:path';
+import * as path from 'node:path';
 
 import { PROJECT_ROOT } from '../../constants';
 import type { NodeTypeInheritingFromNodeAbstract } from '../types/types';
 
-const defaultPhpParserBinaryPath = resolve(
+const defaultPhpParserBinaryPath = path.resolve(
   PROJECT_ROOT,
   'vendor',
   'bin',
@@ -43,6 +43,46 @@ export class CliHelpers {
   }
 
   /**
+   * Using PHP version php phaser to Parse PHP File to AST (Async version)
+   *
+   * @param phpFilePath The PHP file path to parse
+   * @returns Promise resolving to an AST in JSON format from php parser
+   */
+  public static async parsePhpFileToAstAsync(
+    phpFilePath: string,
+  ): Promise<NodeTypeInheritingFromNodeAbstract[]> {
+    return new Promise((resolve, reject) => {
+      execFile(
+        PHP_PARSER_BINARY,
+        [phpFilePath, '-j'],
+        {
+          encoding: 'utf8',
+          maxBuffer: MAX_BUFFER_SIZE_FOR_PHP_BINARY_OUTPUT,
+        },
+        (error, stdout) => {
+          if (error) {
+            reject(new Error(`Failed to parse PHP file: ${error.message}`));
+            return;
+          }
+
+          try {
+            const result = JSON.parse(
+              stdout,
+            ) as NodeTypeInheritingFromNodeAbstract[];
+            resolve(result);
+          } catch (parseError) {
+            reject(
+              new Error(
+                `Failed to parse JSON output: ${parseError instanceof Error ? parseError.message : String(parseError)}`,
+              ),
+            );
+          }
+        },
+      );
+    });
+  }
+
+  /**
    * Parse a PHP Code string to AST in JSON format
    * Because we are invoking PHP parser to parse the string
    * We have to write String to a temporary file and parse it.
@@ -56,7 +96,7 @@ export class CliHelpers {
     /**
      * Temp file like "php-parser-{current time}.tmp" +
      */
-    const temporaryFilename = resolve(
+    const temporaryFilename = path.resolve(
       tmpdir(),
       `${currentDate.getTime()}.${currentDate.getMilliseconds()}.tmp`,
     );
