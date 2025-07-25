@@ -32,14 +32,39 @@ export class TypeGenerationHelpers {
 
     const combinationTypesPart = Object.entries(allNodes)
       .map(([name, nodeItem]) => {
+        const validSubNodeTypes = nodeItem.subNodeNames
+          .filter((subNodeName) => {
+            const subNode = allNodes[subNodeName];
+            const hasNodeType =
+              subNode &&
+              subNode.nodeType !== undefined &&
+              subNode.nodeType !== '';
+            const isUnionType =
+              subNode &&
+              subNode.subNodeNames &&
+              subNode.subNodeNames.length > 0;
+
+            return hasNodeType || isUnionType;
+          })
+          .map((subNodeName) =>
+            TypeGenerationHelpers.getGroupedTypeNameForNode(subNodeName),
+          );
+
+        const shouldIncludeSelf =
+          nodeItem.nodeType !== undefined && nodeItem.nodeType !== '';
+
+        const typeComponents = [
+          ...(shouldIncludeSelf ? [name] : []),
+          ...validSubNodeTypes,
+        ];
+
+        if (typeComponents.length === 0) {
+          typeComponents.push(name);
+        }
+
         return `export type ${TypeGenerationHelpers.getGroupedTypeNameForNode(
           name,
-        )} = ${[
-          name,
-          ...nodeItem.subNodeNames.map((subNodeName) =>
-            TypeGenerationHelpers.getGroupedTypeNameForNode(subNodeName),
-          ),
-        ].join(' | ')};`;
+        )} = ${typeComponents.join(' | ')};`;
       })
       .join('\n');
 
