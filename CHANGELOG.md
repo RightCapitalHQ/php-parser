@@ -1,10 +1,14 @@
 # Change Log - @rightcapital/php-parser
 
-<!-- This log was last generated on Wed, 16 Jul 2025 03:15:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 25 Jul 2025 03:04:50 GMT and should not be manually modified. -->
 
 <!-- Start content -->
 
 
+
+## [1.5.0](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.5.0) (2025-7-25)
+
+- feat(cli-helpers): add async PHP file parsing method and refactor path resolution ([0c8c43f](https://github.com/RightCapitalHQ/phpdoc-parser/commit/0c8c43fd8640902239c1082c540e54ca428bf216))
 
 ### [1.4.38](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.4.38) (2025-7-16)
 

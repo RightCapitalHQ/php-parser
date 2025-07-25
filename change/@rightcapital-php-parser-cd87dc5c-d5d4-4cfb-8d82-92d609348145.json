@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "feat(cli-helpers): add async PHP file parsing method and refactor path resolution",
-  "packageName": "@rightcapital/php-parser",
-  "email": "yilunsun11@yeah.net",
-  "dependentChangeType": "patch"
-}

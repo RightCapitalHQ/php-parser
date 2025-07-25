@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Fri, 25 Jul 2025 03:04:50 GMT",
+      "version": "1.5.0",
+      "tag": "@rightcapital/php-parser_v1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "yilunsun11@yeah.net",
+            "package": "@rightcapital/php-parser",
+            "commit": "0c8c43fd8640902239c1082c540e54ca428bf216",
+            "comment": "feat(cli-helpers): add async PHP file parsing method and refactor path resolution"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Jul 2025 03:15:04 GMT",
       "version": "1.4.38",
       "tag": "@rightcapital/php-parser_v1.4.38",
