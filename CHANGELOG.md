@@ -1,10 +1,14 @@
 # Change Log - @rightcapital/php-parser
 
-<!-- This log was last generated on Fri, 25 Jul 2025 03:04:50 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 28 Jul 2025 00:45:23 GMT and should not be manually modified. -->
 
 <!-- Start content -->
 
 
+
+### [1.5.1](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.5.1) (2025-7-28)
+
+- fix(deps): update dependency nikic/php-parser to v5.6.0 ([f19e150](https://github.com/RightCapitalHQ/phpdoc-parser/commit/f19e150f0bdbfa3c0f1a20df176301a387dbb083))
 
 ## [1.5.0](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.5.0) (2025-7-25)
 
