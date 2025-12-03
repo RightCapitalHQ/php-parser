@@ -36,7 +36,7 @@
     }
   },
   "dependencies": {
-    "@rightcapital/phpdoc-parser": "0.4.133",
+    "@rightcapital/phpdoc-parser": "0.5.3",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
     "prettier": "3.6.2",
