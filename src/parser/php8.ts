@@ -328,7 +328,7 @@ export class Php8Parser implements Parser {
   // ─── Comment annotation ────────────────────────────────────────
 
   private annotateComments(stmts: Node[]): void {
-    // Collect all comments from the token stream and assign them to adjacent nodes
+    // Collect all comments from the token stream
     const comments: Comment[] = [];
     for (const token of this.tokens) {
       if (token.id === T.T_COMMENT) {
@@ -339,11 +339,73 @@ export class Php8Parser implements Parser {
           token.getEndLine(), token.getEndPos() - 1, 0));
       }
     }
-    // Simple approach: assign comments to the first statement
-    if (comments.length > 0 && stmts.length > 0) {
-      const firstNode = stmts[0];
-      if (firstNode && typeof firstNode.setAttribute === 'function') {
-        firstNode.setAttribute('comments', comments);
+
+    if (comments.length === 0) return;
+
+    // Collect all nodes in the AST with their file positions
+    const allNodes: Node[] = [];
+    this.collectAllNodes(stmts, allNodes);
+
+    // Sort nodes by startFilePos ascending
+    allNodes.sort((a, b) => a.getStartFilePos() - b.getStartFilePos());
+
+    // For each comment, find the node whose startFilePos comes after the comment ends
+    // and attach the comment to that node
+    const nodeComments = new Map<Node, Comment[]>();
+
+    for (const comment of comments) {
+      const commentEndPos = comment.getEndFilePos();
+      // Binary search for the first node with startFilePos > commentEndPos
+      let lo = 0;
+      let hi = allNodes.length;
+      while (lo < hi) {
+        const mid = (lo + hi) >>> 1;
+        if (allNodes[mid].getStartFilePos() <= commentEndPos) {
+          lo = mid + 1;
+        } else {
+          hi = mid;
+        }
+      }
+      if (lo < allNodes.length) {
+        const targetNode = allNodes[lo];
+        if (!nodeComments.has(targetNode)) {
+          nodeComments.set(targetNode, []);
+        }
+        nodeComments.get(targetNode)!.push(comment);
+      }
+    }
+
+    // Assign collected comments to their respective nodes
+    for (const [node, nodeCommentList] of nodeComments) {
+      node.setAttribute('comments', nodeCommentList);
+    }
+  }
+
+  private collectAllNodes(nodes: Node | Node[], result: Node[]): void {
+    if (Array.isArray(nodes)) {
+      for (const node of nodes) {
+        this.collectAllNodes(node, result);
+      }
+      return;
+    }
+
+    const node = nodes;
+    if (!node || typeof node.getType !== 'function') return;
+
+    result.push(node);
+
+    for (const rawName of node.getSubNodeNames()) {
+      const name = (node as any)[rawName] !== undefined ? rawName : rawName + '_';
+      const subNode = (node as any)[name];
+      if (subNode === null || subNode === undefined) continue;
+      if (Array.isArray(subNode)) {
+        for (const item of subNode) {
+          if (item && typeof item === 'object' && typeof item.getType === 'function') {
+            this.collectAllNodes(item, result);
+          }
+        }
+      } else if (typeof subNode === 'object' && typeof subNode.getType === 'function') {
+        this.collectAllNodes(subNode, result);
       }
     }
   }

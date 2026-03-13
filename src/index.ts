@@ -40,11 +40,48 @@ export { CloningVisitor } from './node-visitor/cloning-visitor';
 // Token constants
 export * from './php-token';
 
-// Node types
+// Node types - base classes
 export { Expr } from './node/expr';
 export { Stmt } from './node/stmt';
 export { Scalar } from './node/scalar';
 export { Name, FullyQualified, Relative } from './node/name';
+
+// Stmt node types
+export { Namespace_ } from './node/stmt/namespace';
+export { Class_ } from './node/stmt/class';
+export { ClassLike } from './node/stmt/class-like';
+export { Interface_ } from './node/stmt/interface';
+export { Trait_ } from './node/stmt/trait';
+export { Enum_ } from './node/stmt/enum';
+export { ClassMethod } from './node/stmt/class-method';
+export { Property } from './node/stmt/property';
+export { ClassConst } from './node/stmt/class-const';
+export { Use_ } from './node/stmt/use';
+export { EnumCase } from './node/stmt/enum-case';
+export { TraitUse } from './node/stmt/trait-use';
+export { Function_ } from './node/stmt/function';
+export { Return_ } from './node/stmt/return';
+export { Expression } from './node/stmt/expression';
+
+// Expr node types
+export { Variable } from './node/expr/variable';
+export { Assign } from './node/expr/assign';
+export { FuncCall } from './node/expr/func-call';
+export { MethodCall } from './node/expr/method-call';
+export { StaticCall } from './node/expr/static-call';
+export { ClassConstFetch } from './node/expr/class-const-fetch';
+export { Array_ } from './node/expr/array';
+export { ArrayDimFetch } from './node/expr/array-dim-fetch';
+export { BinaryOp } from './node/expr/binary-op';
+export { Concat as BinaryOpConcat } from './node/expr/binary-op/concat';
+export { New_ } from './node/expr/new';
+export { Closure } from './node/expr/closure';
+export { ArrowFunction } from './node/expr/arrow-function';
+
+// Scalar node types
+export { String_ } from './node/scalar/string';
+export { Int_ } from './node/scalar/int';
+export { Float_ } from './node/scalar/float';
 export { Identifier, VarLikeIdentifier } from './node/identifier';
 export { Param } from './node/param';
 export { Arg } from './node/arg';

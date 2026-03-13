@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/pure-typescript-port-of-php-parser]
   pull_request:
     branches: [main]
 
