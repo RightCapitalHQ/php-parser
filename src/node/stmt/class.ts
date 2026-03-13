@@ -1,5 +1,5 @@
 import { Modifiers } from '../../modifiers';
-import { ClassLike } from './classLike';
+import { ClassLike } from './class-like';
 
 export class Class_ extends ClassLike {
   public flags: number;

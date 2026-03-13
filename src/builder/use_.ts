@@ -1,5 +1,5 @@
 import { Use_ } from '../node/stmt/use';
-import { UseItem } from '../node/useItem';
+import { UseItem } from '../node/use-item';
 import { Name } from '../node/name';
 import { Identifier } from '../node/identifier';
 

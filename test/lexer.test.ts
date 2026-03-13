@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { Lexer } from '../src/lexer';
-import * as T from '../src/phpToken';
+import * as T from '../src/php-token';
 
 describe('Lexer', () => {
   const lexer = new Lexer();

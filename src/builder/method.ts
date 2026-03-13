@@ -1,4 +1,4 @@
-import { ClassMethod } from '../node/stmt/classMethod';
+import { ClassMethod } from '../node/stmt/class-method';
 import { Modifiers } from '../modifiers';
 import { Node } from '../node';
 import { normalizeType } from './param';

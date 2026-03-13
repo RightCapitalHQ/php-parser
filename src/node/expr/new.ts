@@ -1,5 +1,5 @@
 import { Node } from '../../node';
-import { CallLike } from './callLike';
+import { CallLike } from './call-like';
 
 export class New_ extends CallLike {
     /** Class name (Name|Expr|Class_) */

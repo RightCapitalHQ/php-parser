@@ -1,7 +1,7 @@
 import { Token } from './token';
 import { PhpParserError } from './error';
-import { ErrorHandler, ThrowingErrorHandler } from './errorHandler';
-import * as T from './phpToken';
+import { ErrorHandler, ThrowingErrorHandler } from './error-handler';
+import * as T from './php-token';
 
 export class Lexer {
   tokenize(code: string, errorHandler?: ErrorHandler): Token[] {

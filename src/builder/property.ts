@@ -1,5 +1,5 @@
 import { Property } from '../node/stmt/property';
-import { PropertyItem } from '../node/propertyItem';
+import { PropertyItem } from '../node/property-item';
 import { Modifiers } from '../modifiers';
 import { Node } from '../node';
 import { normalizeType } from './param';

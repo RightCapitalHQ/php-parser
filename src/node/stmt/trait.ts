@@ -1,4 +1,4 @@
-import { ClassLike } from './classLike';
+import { ClassLike } from './class-like';
 
 export class Trait_ extends ClassLike {
   constructor(

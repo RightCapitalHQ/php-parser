@@ -1,4 +1,4 @@
-import { ClassLike } from './classLike';
+import { ClassLike } from './class-like';
 
 export class Enum_ extends ClassLike {
   public scalarType: any | null;

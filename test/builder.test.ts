@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { BuilderFactory } from '../src/builderFactory';
+import { BuilderFactory } from '../src/builder-factory';
 import { ClassBuilder } from '../src/builder/class_';
 import { MethodBuilder } from '../src/builder/method';
 import { FunctionBuilder } from '../src/builder/function_';
@@ -10,8 +10,8 @@ import { NamespaceBuilder } from '../src/builder/namespace_';
 import { ParamBuilder } from '../src/builder/param';
 import { PropertyBuilder } from '../src/builder/property';
 import { UseBuilder } from '../src/builder/use_';
-import { EnumCaseBuilder } from '../src/builder/enumCase';
-import { ClassConstBuilder } from '../src/builder/classConst';
+import { EnumCaseBuilder } from '../src/builder/enum-case';
+import { ClassConstBuilder } from '../src/builder/class-const';
 import { Modifiers } from '../src/modifiers';
 import { Name } from '../src/node/name';
 import { Int_ } from '../src/node/scalar/int';

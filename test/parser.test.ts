@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { ParserFactory } from '../src/parserFactory';
-import { PhpVersion } from '../src/phpVersion';
-import { NodeDumper } from '../src/nodeDumper';
+import { ParserFactory } from '../src/parser-factory';
+import { PhpVersion } from '../src/php-version';
+import { NodeDumper } from '../src/node-dumper';
 
 describe('Parser', () => {
   const factory = new ParserFactory();

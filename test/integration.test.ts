@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { ParserFactory } from '../src/parserFactory';
-import { NodeDumper } from '../src/nodeDumper';
-import { NodeTraverser } from '../src/nodeTraverser';
-import { NodeVisitorAbstract } from '../src/nodeVisitor';
-import { NodeFinder } from '../src/nodeFinder';
-import { NameResolver } from '../src/nodeVisitor/nameResolver';
-import { PrettyPrinter } from '../src/prettyPrinter';
+import { ParserFactory } from '../src/parser-factory';
+import { NodeDumper } from '../src/node-dumper';
+import { NodeTraverser } from '../src/node-traverser';
+import { NodeVisitorAbstract } from '../src/node-visitor';
+import { NodeFinder } from '../src/node-finder';
+import { NameResolver } from '../src/node-visitor/name-resolver';
+import { PrettyPrinter } from '../src/pretty-printer';
 import { Node } from '../src/node';
-import { CollectingErrorHandler } from '../src/errorHandler';
+import { CollectingErrorHandler } from '../src/error-handler';
 
 describe('Integration Tests', () => {
   const factory = new ParserFactory();
