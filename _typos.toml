@@ -1,2 +1,30 @@
-[default]
-extend-ignore-re = ["\\(\\[([A-Fa-f0-9]{7})\\]\\("]
+[default.extend-words]
+# PHP-Parser specific terms that are not typos
+stmts = "stmts"
+nop = "nop"
+elseif = "elseif"
+elseifs = "elseifs"
+endif = "endif"
+endfor = "endfor"
+endforeach = "endforeach"
+endwhile = "endwhile"
+endswitch = "endswitch"
+enddeclare = "enddeclare"
+encapsed = "encapsed"
+nowdoc = "nowdoc"
+heredoc = "heredoc"
+inline = "inline"
+unset = "unset"
+isset = "isset"
+coalesce = "coalesce"
+ternary = "ternary"
+variadic = "variadic"
+callables = "callables"
+
+[files]
+extend-exclude = [
+  "node_modules/",
+  "dist/",
+  "*.lock",
+  "package-lock.json",
+]

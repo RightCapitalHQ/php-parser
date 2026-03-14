@@ -1,7 +1,4 @@
-# PHP Composer vendor file
-vendor
-
-# Node.JS node modules
+# Dependencies
 node_modules
 
 # TSC generated files
@@ -11,4 +8,20 @@ dist
 logs
 *.log
 npm-debug.log*
-lerna-debug.log*
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage
+
+# Claude Code
+.claude

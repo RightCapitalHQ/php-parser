@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "target": "es6",
-    "lib": ["ESNext"],
+    "target": "ES2022",
     "module": "commonjs",
-    "noResolve": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "preserveConstEnums": true,
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
 }
