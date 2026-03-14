@@ -1,5 +1,6 @@
 import { Parser } from '../parser';
 import { Node, NodeAbstract } from '../node';
+import { Expr } from '../node/expr';
 import { Token } from '../token';
 import { Lexer } from '../lexer';
 import { PhpParserError } from '../error';
@@ -1755,8 +1756,8 @@ export class Php8Parser implements Parser {
 
   // ─── Expression parsing (Pratt parser / precedence climbing) ──
 
-  private parseExpressionList(): Node[] {
-    const exprs: Node[] = [];
+  private parseExpressionList(): Expr[] {
+    const exprs: Expr[] = [];
     if (this.is(';'.charCodeAt(0)) || this.is(')'.charCodeAt(0))) return exprs;
     do {
       if (this.is(')'.charCodeAt(0))) break; // trailing comma
@@ -1770,7 +1771,7 @@ export class Php8Parser implements Parser {
   // 5: ternary (?:)    6: ?? (coalesce)    7: pipe    8: ||
   // 9: &&   10: |   11: ^   12: &   13: ==/===/!=/!==/<=>
   // 14: </<=/>/>= 15: <</>  16: +/-/.  17: */%  18: instanceof 19: **
-  private parseExpression(minPrec: number = 0): Node {
+  private parseExpression(minPrec: number = 0): Expr {
     let left = this.parseUnaryExpression();
 
     while (true) {
@@ -1778,14 +1779,14 @@ export class Php8Parser implements Parser {
       const op = this.getBinaryOp();
       if (op !== null && op.prec >= minPrec) {
         this.advance();
-        let right: Node;
+        let right: Expr | Node;
         if (op.type === 'Instanceof') {
           right = this.parseInstanceofRhs();
         } else {
           const nextMinPrec = op.rightAssoc ? op.prec : op.prec + 1;
           right = this.parseExpression(nextMinPrec);
         }
-        left = this.createBinaryOp(op.type, left, right, {
+        left = this.createBinaryOp(op.type, left, right as Expr, {
           ...left.getAttributes(),
           endLine: (right as any).getEndLine?.() ?? -1,
         });
@@ -1795,7 +1796,7 @@ export class Php8Parser implements Parser {
       // Check ternary (?:) at precedence 5 — left-associative
       if (this.is('?'.charCodeAt(0)) && minPrec <= 5) {
         this.advance();
-        let ifTrue: Node | null = null;
+        let ifTrue: Expr | null = null;
         if (!this.is(':'.charCodeAt(0))) {
           ifTrue = this.parseExpression();
         }
@@ -1889,7 +1890,7 @@ export class Php8Parser implements Parser {
     }
   }
 
-  private static readonly BINARY_OP_MAP: Record<string, new (left: Node, right: Node, attrs: Record<string, any>) => Node> = {
+  private static readonly BINARY_OP_MAP: Record<string, new (left: Expr, right: Expr, attrs: Record<string, any>) => Expr> = {
     'BitwiseAnd': BinBitwiseAnd,
     'BitwiseOr': BinBitwiseOr,
     'BitwiseXor': BinBitwiseXor,
@@ -1933,12 +1934,12 @@ export class Php8Parser implements Parser {
       this.advance();
       return new Name('static', this.endAttributes(attrs));
     }
-    if (this.is(T.T_SELF)) {
+    if (this.is(T.T_STRING) && this.current().text === 'self') {
       const attrs = this.startAttributes();
       this.advance();
       return new Name('self', this.endAttributes(attrs));
     }
-    if (this.is(T.T_PARENT)) {
+    if (this.is(T.T_STRING) && this.current().text === 'parent') {
       const attrs = this.startAttributes();
       this.advance();
       return new Name('parent', this.endAttributes(attrs));
@@ -1947,7 +1948,7 @@ export class Php8Parser implements Parser {
     return this.parseUnaryExpression();
   }
 
-  private createBinaryOp(type: string, left: Node, right: Node, attrs: Record<string, any>): Node {
+  private createBinaryOp(type: string, left: Expr, right: Expr, attrs: Record<string, any>): Expr {
     if (type === 'Instanceof') {
       return new Instanceof_(left, right, attrs);
     }
@@ -1958,7 +1959,7 @@ export class Php8Parser implements Parser {
     throw new Error('Unknown binary op: ' + type);
   }
 
-  private static readonly ASSIGN_OP_MAP: Record<string, new (var_: Node, expr: Node, attrs: Record<string, any>) => Node> = {
+  private static readonly ASSIGN_OP_MAP: Record<string, new (var_: Expr, expr: Expr, attrs: Record<string, any>) => Expr> = {
     'BitwiseAnd': AssignBitwiseAnd,
     'BitwiseOr': AssignBitwiseOr,
     'BitwiseXor': AssignBitwiseXor,
@@ -1974,7 +1975,7 @@ export class Php8Parser implements Parser {
     'ShiftRight': AssignShiftRight,
   };
 
-  private arrayToList(node: Node): Node {
+  private arrayToList(node: Expr): Expr {
     if (node instanceof ExprArray_) {
       // Recursively convert nested arrays to lists
       const items = node.items.map((item: any) => {
@@ -1989,7 +1990,7 @@ export class Php8Parser implements Parser {
     return node;
   }
 
-  private createAssignOp(type: string, left: Node, right: Node, attrs: Record<string, any>): Node {
+  private createAssignOp(type: string, left: Expr, right: Expr, attrs: Record<string, any>): Expr {
     if (type === 'Assign') {
       return new Assign(this.arrayToList(left), right, attrs);
     }
@@ -2001,7 +2002,7 @@ export class Php8Parser implements Parser {
     return new Assign(left, right, attrs);
   }
 
-  private parseUnaryExpression(): Node {
+  private parseUnaryExpression(): Expr {
     const attrs = this.startAttributes();
     const id = this.currentId();
 
@@ -2156,7 +2157,7 @@ export class Php8Parser implements Parser {
     return this.parsePostfixExpression();
   }
 
-  private parsePostfixExpression(): Node {
+  private parsePostfixExpression(): Expr {
     let expr = this.parsePrimaryExpression();
 
     while (true) {
@@ -2232,7 +2233,7 @@ export class Php8Parser implements Parser {
         }
       } else if (this.is('['.charCodeAt(0))) {
         this.advance();
-        let dim: Node | null = null;
+        let dim: Expr | null = null;
         if (!this.is(']'.charCodeAt(0))) {
           dim = this.parseExpression();
         }
@@ -2260,7 +2261,7 @@ export class Php8Parser implements Parser {
     return expr;
   }
 
-  private parsePrimaryExpression(): Node {
+  private parsePrimaryExpression(): Expr {
     const attrs = this.startAttributes();
 
     switch (this.currentId()) {
@@ -2494,7 +2495,7 @@ export class Php8Parser implements Parser {
 
   // ─── Helper expression parsers ─────────────────────────────────
 
-  private parseCallableVariable(): Node {
+  private parseCallableVariable(): Expr {
     const attrs = this.startAttributes();
     if (this.is('$'.charCodeAt(0))) {
       this.advance(); // consume $
@@ -2514,7 +2515,7 @@ export class Php8Parser implements Parser {
     return new Variable(token.text.substring(1), this.endAttributes(attrs));
   }
 
-  private parseSimpleVariable(): Node {
+  private parseSimpleVariable(): Expr {
     const attrs = this.startAttributes();
     const token = this.expect(T.T_VARIABLE);
     return new Variable(token.text.substring(1), this.endAttributes(attrs));
@@ -2553,7 +2554,7 @@ export class Php8Parser implements Parser {
       return new Name(token.text, this.endAttributes(attrs));
     }
     // PHP 8.0+: keywords can be used as namespace names (e.g., namespace fn; fn\use())
-    if (this.isSemiReservedKeyword() || token.id === T.T_SELF || token.id === T.T_PARENT || token.id === T.T_STATIC) {
+    if (this.isSemiReservedKeyword() || token.id === T.T_STATIC || (token.id === T.T_STRING && (token.text === 'self' || token.text === 'parent'))) {
       this.advance();
       return new Name(token.text, this.endAttributes(attrs));
     }
@@ -2697,7 +2698,7 @@ export class Php8Parser implements Parser {
     return args;
   }
 
-  private parseNew(): Node {
+  private parseNew(): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_NEW);
     if (this.is(T.T_CLASS)) {
@@ -2732,7 +2733,7 @@ export class Php8Parser implements Parser {
     }
     if (this.is(T.T_VARIABLE)) {
       // Dynamic class: new $a, new $a->b, new $a['b'], new $a::$b
-      let node: Node = this.parseCallableVariable();
+      let node: Expr = this.parseCallableVariable();
       // Handle property access, array access, static property chains
       while (true) {
         if (this.is(T.T_OBJECT_OPERATOR)) {
@@ -2768,7 +2769,7 @@ export class Php8Parser implements Parser {
     return name;
   }
 
-  private parseAnonymousClass(newAttrs: Record<string, any>, flags: number = 0): Node {
+  private parseAnonymousClass(newAttrs: Record<string, any>, flags: number = 0): Expr {
     if (flags & Modifiers.READONLY) {
       this.expect(T.T_READONLY);
     }
@@ -2798,7 +2799,7 @@ export class Php8Parser implements Parser {
     return new New_(classNode, args, this.endAttributes(newAttrs));
   }
 
-  private parseArrayLong(): Node {
+  private parseArrayLong(): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_ARRAY);
     this.expect('('.charCodeAt(0));
@@ -2807,7 +2808,7 @@ export class Php8Parser implements Parser {
     return new ExprArray_(items, this.endAttributes(attrs));
   }
 
-  private parseArrayShort(): Node {
+  private parseArrayShort(): Expr {
     const attrs = this.startAttributes();
     this.expect('['.charCodeAt(0));
     const items = this.parseArrayItemList(']'.charCodeAt(0));
@@ -2841,7 +2842,7 @@ export class Php8Parser implements Parser {
     return items;
   }
 
-  private parseList(): Node {
+  private parseList(): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_LIST);
     this.expect('('.charCodeAt(0));
@@ -2872,7 +2873,7 @@ export class Php8Parser implements Parser {
     return items;
   }
 
-  private parseClosure(attrGroups: Node[] = []): Node {
+  private parseClosure(attrGroups: Node[] = []): Expr {
     const attrs = this.startAttributes();
     const isStatic = false;
     this.expect(T.T_FUNCTION);
@@ -2888,7 +2889,7 @@ export class Php8Parser implements Parser {
     return new Closure({ static: isStatic, byRef, params, uses, returnType, stmts, attrGroups }, this.endAttributes(attrs));
   }
 
-  private parseStaticClosure(attrGroups: Node[] = []): Node {
+  private parseStaticClosure(attrGroups: Node[] = []): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_STATIC);
     if (this.is(T.T_FN)) {
@@ -2907,7 +2908,7 @@ export class Php8Parser implements Parser {
     return new Closure({ static: true, byRef, params, uses, returnType, stmts, attrGroups }, this.endAttributes(attrs));
   }
 
-  private parseStaticRef(): Node {
+  private parseStaticRef(): Expr {
     const attrs = this.startAttributes();
     this.advance();
     return new Name('static', this.endAttributes(attrs));
@@ -2928,12 +2929,12 @@ export class Php8Parser implements Parser {
     return uses;
   }
 
-  private parseArrowFunction(attrGroups: Node[] = []): Node {
+  private parseArrowFunction(attrGroups: Node[] = []): Expr {
     const attrs = this.startAttributes();
     return this.parseArrowFunctionInner(false, attrs, attrGroups);
   }
 
-  private parseArrowFunctionInner(isStatic: boolean, attrs: Record<string, any>, attrGroups: Node[] = []): Node {
+  private parseArrowFunctionInner(isStatic: boolean, attrs: Record<string, any>, attrGroups: Node[] = []): Expr {
     this.expect(T.T_FN);
     const byRef = !!this.eat('&'.charCodeAt(0)) || !!this.eat(T.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG) || !!this.eat(T.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG);
     this.expect('('.charCodeAt(0));
@@ -2945,11 +2946,11 @@ export class Php8Parser implements Parser {
     return new ArrowFunction({ static: isStatic, byRef, params, returnType, expr: body, attrGroups }, this.endAttributes(attrs));
   }
 
-  private parseYield(): Node {
+  private parseYield(): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_YIELD);
-    let key: Node | null = null;
-    let value: Node | null = null;
+    let key: Expr | null = null;
+    let value: Expr | null = null;
     if (this.canStartExpression()) {
       // yield binds at assignment level - doesn't consume and/or/xor
       value = this.parseExpression(4);
@@ -2961,7 +2962,7 @@ export class Php8Parser implements Parser {
     return new Yield_(value, key, this.endAttributes(attrs));
   }
 
-  private parseYieldFrom(): Node {
+  private parseYieldFrom(): Expr {
     const attrs = this.startAttributes();
     this.advance();
     // yield from binds at assignment level
@@ -2969,7 +2970,7 @@ export class Php8Parser implements Parser {
     return new YieldFrom(expr, this.endAttributes(attrs));
   }
 
-  private parseInclude(): Node {
+  private parseInclude(): Expr {
     const attrs = this.startAttributes();
     const token = this.advance();
     const expr = this.parseExpression();
@@ -2984,7 +2985,7 @@ export class Php8Parser implements Parser {
     return new Include_(expr, type, this.endAttributes(attrs));
   }
 
-  private parseMatch(): Node {
+  private parseMatch(): Expr {
     const attrs = this.startAttributes();
     this.expect(T.T_MATCH);
     this.expect('('.charCodeAt(0));
@@ -3013,7 +3014,7 @@ export class Php8Parser implements Parser {
     return new Match_(cond, arms, this.endAttributes(attrs));
   }
 
-  private parseShellExec(): Node {
+  private parseShellExec(): Expr {
     const attrs = this.startAttributes();
     this.expect('`'.charCodeAt(0));
     const savedQuote = this.encapsedQuoteChar;
@@ -3032,7 +3033,7 @@ export class Php8Parser implements Parser {
     return new ShellExec(parts, this.endAttributes(attrs));
   }
 
-  private parseDollarOpenCurlyBraces(): Node {
+  private parseDollarOpenCurlyBraces(): Expr {
     // Handle ${name} and ${expr} syntax
     this.advance(); // consume T_DOLLAR_OPEN_CURLY_BRACES
     if (this.is(T.T_STRING_VARNAME)) {
@@ -3108,12 +3109,12 @@ export class Php8Parser implements Parser {
     return result;
   }
 
-  private parseEncapsedPart(): Node | null {
+  private parseEncapsedPart(): Expr | null {
     if (this.is(T.T_ENCAPSED_AND_WHITESPACE)) {
       const token = this.advance();
       return new InterpolatedStringPart(this.processDoubleQuotedEscapes(token.text, this.encapsedQuoteChar));
     } else if (this.is(T.T_VARIABLE)) {
-      let node: Node = this.parseSimpleVariable();
+      let node: Expr = this.parseSimpleVariable();
       // Handle $var->prop and $var?->prop in encapsed strings
       if (this.is(T.T_OBJECT_OPERATOR)) {
         this.advance();
@@ -3127,7 +3128,7 @@ export class Php8Parser implements Parser {
       // Handle $var[expr] array access in encapsed strings
       if (this.is('['.charCodeAt(0))) {
         this.advance();
-        let dim: Node | null = null;
+        let dim: Expr | null = null;
         if (this.is(T.T_STRING)) {
           // String key (bareword)
           dim = new ScalarString(this.advance().text, {});
@@ -3170,7 +3171,7 @@ export class Php8Parser implements Parser {
     return null;
   }
 
-  private parseInterpolatedString(): Node {
+  private parseInterpolatedString(): Expr {
     const attrs = this.startAttributes();
     this.expect('"'.charCodeAt(0));
     const parts: Node[] = [];
@@ -3186,7 +3187,7 @@ export class Php8Parser implements Parser {
     return new InterpolatedString(parts, this.endAttributes(attrs));
   }
 
-  private parseHeredoc(): Node {
+  private parseHeredoc(): Expr {
     const attrs = this.startAttributes();
     const startToken = this.advance(); // T_START_HEREDOC
     const isNowdoc = startToken.text.includes("'");

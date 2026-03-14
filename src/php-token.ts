@@ -162,6 +162,10 @@ export const T_PRIVATE_SET = 406;
 export const T_PIPE = 407;
 export const T_VOID_CAST = 408;
 
+// Keywords that PHP tokenizes separately
+export const T_SELF = 411;
+export const T_PARENT = 412;
+
 // Increment/Decrement
 export const T_INC = 409;
 export const T_DEC = 410;
@@ -320,6 +324,8 @@ const tokenNames: Record<number, string> = {
   [T_VOID_CAST]: 'T_VOID_CAST',
   [T_INC]: 'T_INC',
   [T_DEC]: 'T_DEC',
+  [T_SELF]: 'T_SELF',
+  [T_PARENT]: 'T_PARENT',
 };
 
 export function tokenName(id: number): string {
