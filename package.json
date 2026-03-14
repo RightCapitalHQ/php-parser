@@ -1,0 +1,66 @@
+{
+  "name": "@rightcapital/php-parser",
+  "version": "2.0.0",
+  "description": "A pure TypeScript port of nikic/PHP-Parser — PHP 8.x parser producing a fully compatible AST",
+  "keywords": [
+    "PHP",
+    "PHP Parser",
+    "AST",
+    "TypeScript",
+    "Lexer"
+  ],
+  "repository": "https://github.com/RightCapitalHQ/php-parser",
+  "license": "MIT",
+  "author": "RightCapital Ecosystem team <npm-publisher@rightcapital.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsc --project ./tsconfig.build.json || true",
+    "change": "beachball change --no-commit",
+    "check": "beachball check",
+    "clean": "tsc --build --clean ./tsconfig.build.json",
+    "commit": "cz",
+    "fix": "pnpm run fix:eslint && pnpm run fix:prettier",
+    "fix:eslint": "eslint --report-unused-disable-directives --fix .",
+    "fix:prettier": "prettier --write .",
+    "lint": "concurrently 'pnpm:lint:*'",
+    "lint:eslint": "eslint --report-unused-disable-directives .",
+    "lint:prettier": "prettier --check .",
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
+    "@commitlint/cz-commitlint": "19.6.1",
+    "@rightcapital/eslint-config": "38.0.1",
+    "@rightcapital/prettier-config": "7.2.1",
+    "@types/node": "20.17.22",
+    "beachball": "2.51.0",
+    "concurrently": "9.1.2",
+    "eslint": "9.13.0",
+    "husky": "9.1.7",
+    "prettier": "3.6.2",
+    "prettier-plugin-packagejson": "2.5.10",
+    "typescript": "5.8.3",
+    "vitest": "^1.6.0"
+  },
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=18.x",
+    "pnpm": ">=8.x"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
