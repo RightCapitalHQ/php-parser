@@ -1,4 +1,4 @@
-# php-parser-ts
+# @rightcapital/php-parser — A Pure TypeScript Port of nikic/PHP-Parser
 
 <!-- Badges area start -->
 
@@ -67,7 +67,7 @@ This project is a faithful port of nikic/PHP-Parser v5 from PHP to TypeScript. I
 ## Installation
 
 ```bash
-npm install php-parser-ts
+npm install @rightcapital/php-parser
 ```
 
 ## Usage
@@ -75,7 +75,7 @@ npm install php-parser-ts
 ### Parsing PHP Code
 
 ```typescript
-import { ParserFactory } from 'php-parser-ts';
+import { ParserFactory } from '@rightcapital/php-parser';
 
 const factory = new ParserFactory();
 const parser = factory.createForNewestSupportedVersion();
@@ -85,7 +85,7 @@ const ast = parser.parse('<?php echo "Hello, World!";');
 ### Dumping the AST
 
 ```typescript
-import { NodeDumper } from 'php-parser-ts';
+import { NodeDumper } from '@rightcapital/php-parser';
 
 const dumper = new NodeDumper();
 console.log(dumper.dump(ast));
@@ -94,7 +94,7 @@ console.log(dumper.dump(ast));
 ### Pretty Printing
 
 ```typescript
-import { StandardPrettyPrinter } from 'php-parser-ts';
+import { StandardPrettyPrinter } from '@rightcapital/php-parser';
 
 const printer = new StandardPrettyPrinter();
 console.log(printer.prettyPrintFile(ast));
@@ -103,7 +103,7 @@ console.log(printer.prettyPrintFile(ast));
 ### Traversing and Transforming
 
 ```typescript
-import { NodeTraverser, NodeVisitor } from 'php-parser-ts';
+import { NodeTraverser, NodeVisitor } from '@rightcapital/php-parser';
 
 class MyVisitor extends NodeVisitor {
   enterNode(node) {
@@ -119,7 +119,7 @@ const modified = traverser.traverse(ast);
 ### Building AST Nodes
 
 ```typescript
-import { BuilderFactory } from 'php-parser-ts';
+import { BuilderFactory } from '@rightcapital/php-parser';
 
 const factory = new BuilderFactory();
 const classNode = factory.class_('MyClass')
@@ -206,4 +206,4 @@ npm run build
 
 ## License
 
-BSD-3-Clause (same as nikic/PHP-Parser)
+MIT
