@@ -2,6 +2,21 @@
   "name": "@rightcapital/php-parser",
   "entries": [
     {
+      "date": "Fri, 20 Mar 2026 09:30:52 GMT",
+      "version": "1.5.3",
+      "tag": "@rightcapital/php-parser_v1.5.3",
+      "comments": {
+        "none": [
+          {
+            "author": "noreply@anthropic.com",
+            "package": "@rightcapital/php-parser",
+            "commit": "4eedf650cb7a06434102c2bf2366ab5038053ba2",
+            "comment": "fix(ci): pin renovate-auto-beachball-changefile action to last available commit"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Jul 2025 00:45:23 GMT",
       "version": "1.5.1",
       "tag": "@rightcapital/php-parser_v1.5.1",
