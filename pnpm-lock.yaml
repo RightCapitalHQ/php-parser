@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rightcapital/phpdoc-parser':
-        specifier: 0.4.133
-        version: 0.4.133
+        specifier: 0.6.1
+        version: 0.6.1(typescript@5.8.3)
       lodash:
         specifier: 4.17.23
         version: 4.17.23
@@ -448,9 +448,11 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  '@rightcapital/phpdoc-parser@0.4.133':
-    resolution: {integrity: sha512-WgwxUPfATGlEYBdXQ71oMYJRlzL6ezte8g4ZZCBeOeJybRDGvSgmcTeF6lcmAIFKVjjfuD+coO2OcLaCLVKlCg==}
+  '@rightcapital/phpdoc-parser@0.6.1':
+    resolution: {integrity: sha512-8pJrFpMPyVA/9HEs7ei9ZqTZoZtvKj5Ui0FbyMdXSwR53LChddpOBDZbapI9X4hnqHwzqvCJ6Vby23sB5SSyWA==}
     engines: {node: '>=16.x', pnpm: '>=8.x'}
+    peerDependencies:
+      typescript: '>=5.8.0'
 
   '@rightcapital/prettier-config@7.2.1':
     resolution: {integrity: sha512-APVnUkYDQ5UcTcidGu36j+exYL/jvdyVAGRKVu6O4n1hIEg/KLrwrm91J0xA4OiC8NDcJvWvacH5Af8nwrpZxA==}
@@ -487,9 +489,6 @@ packages:
 
   '@types/node@20.17.22':
     resolution: {integrity: sha512-9RV2zST+0s3EhfrMZIhrz2bhuhBwxgkbHEwP2gtGWPjBzVQjifMzJ9exw7aDZhR1wbpj8zBrfp3bo8oJcGiUUw==}
-
-  '@types/node@22.15.12':
-    resolution: {integrity: sha512-K0fpC/ZVeb8G9rm7bH7vI0KAec4XHEhBam616nVJCV51bKzJ6oA3luG4WdKoaztxe70QaNjS/xBmcDLmr4PiGw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1384,6 +1383,7 @@ packages:
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
     engines: {node: '>=16'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-up@8.1.1:
@@ -1402,7 +1402,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -2480,9 +2480,6 @@ packages:
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -3016,10 +3013,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rightcapital/phpdoc-parser@0.4.133':
+  '@rightcapital/phpdoc-parser@0.6.1(typescript@5.8.3)':
     dependencies:
-      '@types/node': 22.15.12
-      lodash: 4.17.21
+      lodash: 4.17.23
       typescript: 5.8.3
 
   '@rightcapital/prettier-config@7.2.1(prettier@3.6.2)':
@@ -3058,10 +3054,6 @@ snapshots:
   '@types/node@20.17.22':
     dependencies:
       undici-types: 6.19.8
-
-  '@types/node@22.15.12':
-    dependencies:
-      undici-types: 6.21.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -5383,8 +5375,6 @@ snapshots:
       which-boxed-primitive: 1.1.1
 
   undici-types@6.19.8: {}
-
-  undici-types@6.21.0: {}
 
   unicorn-magic@0.1.0: {}
 
