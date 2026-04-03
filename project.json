@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "name": "@rightcapital/php-parser",
+  "projectType": "library",
+  "sourceRoot": "src",
+  "targets": {}
+}

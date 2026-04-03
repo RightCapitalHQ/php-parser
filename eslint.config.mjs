@@ -8,6 +8,7 @@ export default config(
       'src/php-parser/types/node',
       'src/php-parser/types/types.ts',
       'dist',
+      'scripts',
     ],
   },
   ...rcPreset.configs.recommended,
