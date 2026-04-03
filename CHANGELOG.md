@@ -1,3 +1,14 @@
+## 1.5.4 (2026-04-03)
+
+### 🩹 Fixes
+
+- Migrate from beachball to Nx Release workflow. ([77ed28d](https://github.com/RightCapitalHQ/php-parser/commit/77ed28d))
+
+### ❤️ Thank You
+
+- Claude Opus 4.6 (1M context)
+- Jiahao Guo @frantic1048
+
 ### [1.5.1](https://github.com/RightCapitalHQ/phpdoc-parser/tree/@rightcapital/php-parser_v1.5.1) (2025-7-28)
 
 - fix(deps): update dependency nikic/php-parser to v5.6.0 ([f19e150](https://github.com/RightCapitalHQ/phpdoc-parser/commit/f19e150f0bdbfa3c0f1a20df176301a387dbb083))
