@@ -12,3 +12,8 @@ logs
 *.log
 npm-debug.log*
 lerna-debug.log*
+
+# nx
+/.nx/cache
+/.nx/workspace-data
+!/.nx/version-plans/
