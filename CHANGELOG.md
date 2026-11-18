@@ -1,3 +1,14 @@
+## 1.5.5 (2026-11-18)
+
+### 🩹 Fixes
+
+- Fix the release pipeline so `dist/` is built before publishing; 1.5.4 was published without compiled output. ([7040777](https://github.com/RightCapitalHQ/php-parser/commit/7040777))
+- fix(deps): update automerge non-major updates ([#209](https://github.com/RightCapitalHQ/php-parser/pull/209))
+
+### ❤️ Thank You
+
+- Jiahao Guo @frantic1048
+
 ## 1.5.4 (2026-04-03)
 
 ### 🩹 Fixes
