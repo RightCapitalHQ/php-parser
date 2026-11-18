@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@rightcapital/phpdoc-parser>typescript': 5.9.3
+
 importers:
 
   .:
@@ -3392,11 +3395,6 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.8.3:
-    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
@@ -4855,7 +4853,7 @@ snapshots:
     dependencies:
       '@types/node': 22.15.12
       lodash: 4.17.21
-      typescript: 5.8.3
+      typescript: 5.9.3
 
   '@rightcapital/prettier-config@7.2.1(prettier@3.8.1)':
     dependencies:
@@ -7493,8 +7491,6 @@ snapshots:
     transitivePeerDependencies:
       - eslint
       - supports-color
-
-  typescript@5.8.3: {}
 
   typescript@5.9.3: {}
 
